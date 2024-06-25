@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';  // Importing the search icon from react-icons
-import './Navbar.css';
+import '../Navbar/navbar.css';
 import logo from '../../assets/LOGO.svg';
 import US from '../../assets/US.svg';
 import RU from '../../assets/RU.svg';
