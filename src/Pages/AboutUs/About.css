@@ -10,6 +10,8 @@ ol li{
 ol li h3{
     padding: 20px 0px;
     font-weight: bold;
+    width: 100%;
+    font-size: 30px;
 }
 .AboutUs{
     background-image: url(../../assets/abaut.png);
@@ -17,8 +19,9 @@ background-repeat: no-repeat;
 background-size: cover;
 background-position: center;
 color: white;
-padding: 40px 0px;
+padding: 60px 0px;
 }
 .AboutUs .container h1{
     padding:20px 0px;
+    font-size: 40px;
 }
