@@ -149,7 +149,7 @@ const CarsFilter = () => {
       </aside>
       <div className="cars__right">
         <h1 className="cars__right-title">
-          Luxury Cars for Rent in Dubai / Hire the latest supercar
+          Luxury Cars for Rent in Dubai / Hire the latest super car
         </h1>
         <div className="cars__cards">
           {cars?.length > 0 ? cars?.map((item, index) => {
