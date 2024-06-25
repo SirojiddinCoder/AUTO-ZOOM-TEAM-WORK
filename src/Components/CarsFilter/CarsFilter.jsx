@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { base_url, getBrands, getCars, getModels } from "../../getData/getData";
+import { base_url, getBrands, getCars, getCategories, getModels } from "../../getData/getData";
 import "./CarsFilter.css";
 import CarsCard from "./CarsCard";
 import { GiSettingsKnobs } from "react-icons/gi";
@@ -10,6 +10,7 @@ const CarsFilter = () => {
   const [cars, setCars] = useState([]);
   const [carsFilter, setCarsFilter] = useState([]);
   const [models, setModels] = useState([]);
+  const [categories, setCategories] = useState([]);
   useEffect(() => {
     getData();
   }, []);
@@ -21,7 +22,9 @@ const CarsFilter = () => {
     setCarsFilter(cars?.data);
     const models = await getModels();
     setModels(models?.data);
-    console.log(cars?.data);
+    const categories = await getCategories();
+    setCategories(categories?.data);
+    console.log(categories?.data);
   };
   const [offers, setOffers] = useState([
     { id: 1, text: "3 DAYS RENT = 5000 AED🔥 ALL INCLUSIVE", checked: false },
@@ -103,11 +106,11 @@ const CarsFilter = () => {
           </div>
           <div className="cars__sidebar-filter">
             <h2>Car type</h2>
-            {carType?.map((item, index) => {
+            {categories?.map((item, index) => {
               return (
                 <div key={index}>
                   <input type="checkbox" id={item?.id} />
-                  <label htmlFor={item?.id}>{item?.text}</label>
+                  <label htmlFor={item?.id}>{item?.name_en}</label>
                 </div>
               );
             })}
