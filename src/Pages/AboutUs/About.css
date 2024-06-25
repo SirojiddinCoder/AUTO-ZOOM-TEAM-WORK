@@ -1,0 +1,24 @@
+.container{
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1400px;
+}
+ol li{
+    padding: 30px 0px;
+    list-style: none;
+}
+ol li h3{
+    padding: 20px 0px;
+    font-weight: bold;
+}
+.AboutUs{
+    background-image: url(../../assets/abaut.png);
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+color: white;
+padding: 40px 0px;
+}
+.AboutUs .container h1{
+    padding:20px 0px;
+}
