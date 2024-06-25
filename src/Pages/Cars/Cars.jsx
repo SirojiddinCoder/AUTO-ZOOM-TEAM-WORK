@@ -5,7 +5,6 @@ import Navbar from '../../Components/Navbar/Navbar'
 const Cars = () => {
   return (
     <div>
-      <Navbar/>
       <CarsFilter/>
     </div>
   )

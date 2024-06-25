@@ -7,7 +7,7 @@ import US from '../../assets/US.svg';
 import RU from '../../assets/RU.svg';
 import Main from '../../Components/Main/Main';
 
-function Navbar() {
+function Navbar({setLoader}) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -32,7 +32,7 @@ function Navbar() {
         <button className="menu-toggle" onClick={toggleMenu}>
           &#9776;
         </button>
-        <nav className={menuOpen ? 'open' : ''}>
+        <nav className={menuOpen ? 'open' : ''} onClick={()=>setLoader(false)}>
           <ul className='nav-items'>
             <li className='nav-item'>
               <Link to="/">Home</Link>

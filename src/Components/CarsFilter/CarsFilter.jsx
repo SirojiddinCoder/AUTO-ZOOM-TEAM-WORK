@@ -69,11 +69,12 @@ const CarsFilter = () => {
   const handleModels = (e) => {
     console.log(e.target.value);
     setActiveModel(e.target.value);
+    console.log(activeModel);
   };
   const applyFilter = () => {
     let filterCars = carsFilter.filter(
       (item) =>
-        activeBrands.includes(item?.brand?.title) || activeModel?.includes(item?.models?.name) || activeTypes?.includes(item?.category?.name_en)
+        activeBrands.includes(item?.brand?.title) || activeModel === item?.model?.name || activeTypes?.includes(item?.category?.name_en)
     );
     setCars(filterCars)
   };
