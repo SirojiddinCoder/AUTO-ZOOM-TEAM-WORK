@@ -6,11 +6,18 @@ import logo from '../../assets/LOGO.svg';
 import US from '../../assets/US.svg';
 import RU from '../../assets/RU.svg';
 
+import Main from '../../Components/Main/Main';
+import i18n from '../../i18n';
+
+
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+  const handleChange = (selectedLanguage) => {
+    i18n.changeLanguage(selectedLanguage);
   };
 
   return (
@@ -18,8 +25,8 @@ function Navbar() {
     <div className="nav-container">
       <div className="container">
         <div className="flags">
-          <img className="flag" src={US} alt="US Flag" />
-          <img className="flag" src={RU} alt="RU Flag" />
+          <img className="flag" src={US} alt="US Flag" onClick={() => handleChange('en')}/>
+          <img className="flag" src={RU} alt="RU Flag" onClick={() => handleChange('ru')}/>
         </div>
         <div className="search">
           <FaSearch className="search-icon" />
