@@ -8,6 +8,7 @@ import AboutUs from './Pages/AboutUs/AboutUs';
 import Contact from './Pages/Contact/Contact';
 import Blog from './Pages/Blog/Blog';
 import './App.css'
+import { CarsInfo } from './Pages/CarsInfo/CarsInfo';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="*" element={<Home />} />
+        <Route path="/carsinfo" element={<CarsInfo />} />
       </Routes>
     </div>
   );
