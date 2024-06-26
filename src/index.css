@@ -3,3 +3,9 @@
     box-sizing: border-box;
 }
 
+:root {
+    --mainColor: #0e0f13;
+    --mainColorLight: #5767aa;
+    --secondaryColor: #db2b39;
+    --textColor: #eee;
+  }

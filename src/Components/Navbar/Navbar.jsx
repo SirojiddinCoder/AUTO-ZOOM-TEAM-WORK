@@ -8,7 +8,6 @@ import './navbar.css'
 
 function Navbar({setLoader}) {
 	const navRef = useRef();
-
 	const showNavbar = () => {
 		navRef.current.classList.toggle("responsive_nav");
 	};
@@ -29,13 +28,14 @@ function Navbar({setLoader}) {
 				<img src={logo} alt="Logo" />
 			</div>
 			<nav ref={navRef}>
-				<Link className="nav-item" to="/">Home</Link>
-				<Link className="nav-item" to="/cars">Cars</Link>
-				<Link className="nav-item" to="/brand">Brand</Link>
-				<Link className="nav-item" to="/services">Services</Link>
-				<Link className="nav-item" to="/about">About</Link>
-				<Link className="nav-item" to="/contact">Contact</Link>
-				<Link className="nav-item" to="/blog">Blog</Link>
+				<Link className="nav-item" to="/" onClick={()=>setLoader(false)}>Home</Link>
+				<Link className="nav-item" to="/cars" onClick={()=>setLoader(false)}>Cars</Link>
+				<Link className="nav-item" to="/brand" onClick={()=>setLoader(false)}>Brand</Link>
+				<Link className="nav-item" to="/services" onClick={()=>setLoader(false)}>Services</Link>
+				<Link className="nav-item" to="/about" onClick={()=>setLoader(false)}>About</Link>
+				<Link className="nav-item" to="/contact" onClick={()=>setLoader(false)}>Contact</Link>
+				<Link className="nav-item" to="/blog" onClick={()=>setLoader(false)}>Blog</Link>
+        <a className="nav-tel" href="tel: +971 (55) 846 21 24">+971 (55) 846 21 24</a>
 				<button
 					className="nav-btn nav-close-btn"
 					onClick={showNavbar}>

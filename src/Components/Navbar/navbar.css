@@ -84,12 +84,19 @@ nav {
   align-items: center;
 }
 
+.nav-tel {
+  display: none;
+}
+
 @media only screen and (max-width: 1024px) {
   header .nav-btn {
     visibility: visible;
     opacity: 1;
   }
 
+.nav-tel {
+  display: block;
+}
   header nav {
     position: fixed;
     top: -100vh;
@@ -105,7 +112,9 @@ nav {
     z-index: 99;
     transition: 1s;
   }
-  
+  .container {
+    padding: 30px 10px;
+  }
   .search {
     overflow: hidden;
   }
@@ -179,4 +188,10 @@ nav {
   text-transform: uppercase;
   margin: 0 10px;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 769px) {
+  header {
+    padding: 0;
+  }
 }
