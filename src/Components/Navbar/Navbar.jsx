@@ -6,6 +6,9 @@ import lang from '../../assets/RU1.jpg'
 import logo from '../../assets/LOGO.svg'
 import './navbar.css'
 
+
+function Navbar({setLoader}) {
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';  // Importing the search icon from react-icons
@@ -24,13 +27,14 @@ import i18n from '../../i18n';
 
 
 function Navbar() {
-	const navRef = useRef();
 
+	const navRef = useRef();
 	const showNavbar = () => {
 		navRef.current.classList.toggle("responsive_nav");
 	};
 
-	return (
+  return (
+   <>
 		<header>
 			<div className="container">
       <div className="flags">
@@ -45,14 +49,14 @@ function Navbar() {
 				<img src={logo} alt="Logo" />
 			</div>
 			<nav ref={navRef}>
-				<Link className="nav-item" to="/">Home</Link>
-				<Link className="nav-item" to="/cars">Cars</Link>
-				<Link className="nav-item" to="/brand">Brand</Link>
-				<Link className="nav-item" to="/services">Services</Link>
-				<Link className="nav-item" to="/about">About</Link>
-				<Link className="nav-item" to="/contact">Contact</Link>
-				<Link className="nav-item" to="/blog">Blog</Link>
-     
+				<Link className="nav-item" to="/" onClick={()=>setLoader(false)}>Home</Link>
+				<Link className="nav-item" to="/cars" onClick={()=>setLoader(false)}>Cars</Link>
+				<Link className="nav-item" to="/brand" onClick={()=>setLoader(false)}>Brand</Link>
+				<Link className="nav-item" to="/services" onClick={()=>setLoader(false)}>Services</Link>
+				<Link className="nav-item" to="/about" onClick={()=>setLoader(false)}>About</Link>
+				<Link className="nav-item" to="/contact" onClick={()=>setLoader(false)}>Contact</Link>
+				<Link className="nav-item" to="/blog" onClick={()=>setLoader(false)}>Blog</Link>
+        <a className="nav-tel" href="tel: +971 (55) 846 21 24">+971 (55) 846 21 24</a>
 				<button
 					className="nav-btn nav-close-btn"
 					onClick={showNavbar}>
@@ -70,9 +74,8 @@ function Navbar() {
           Lorem ipsum dolor sit amet.
         </div>
       </div>
-      
 		</header>
-	);
-}
+    </>
+	)}
 
 export default Navbar;
