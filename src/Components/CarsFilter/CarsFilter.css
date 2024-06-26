@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none !important;
+}
+
 .cars__filter {
   display: flex;
   background: #1e1f27;
@@ -130,6 +134,7 @@
     rgba(41, 41, 41, 0.266) 31%,
     hsla(200, 1%, 59%, 0.152)
   );
+  cursor: pointer;
 }
 
 .cars__card img {

@@ -25,3 +25,11 @@ export const getModels = async() => {
         console.log(error);
     }
 }
+export const getCategories = async() => {
+    try {
+        const res = await axios.get(`${base_url}/categories`)
+        return res?.data
+    } catch (error) {
+        console.log(error);
+    }
+}
