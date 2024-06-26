@@ -6,7 +6,28 @@ import lang from '../../assets/RU1.jpg'
 import logo from '../../assets/LOGO.svg'
 import './navbar.css'
 
+
 function Navbar({setLoader}) {
+
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { FaSearch } from 'react-icons/fa';  // Importing the search icon from react-icons
+
+import '../Navbar/navbar.css';
+
+import './navbar.css';
+
+import logo from '../../assets/LOGO.svg';
+import US from '../../assets/US.svg';
+import RU from '../../assets/RU.svg';
+
+import Main from '../../Components/Main/Main';
+import i18n from '../../i18n';
+
+
+
+function Navbar() {
+
 	const navRef = useRef();
 	const showNavbar = () => {
 		navRef.current.classList.toggle("responsive_nav");
