@@ -37,7 +37,7 @@ width: 100%;
  .container{
   display: flex;
   justify-content: space-between;
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 30px 60px;
   color: #FFF;
