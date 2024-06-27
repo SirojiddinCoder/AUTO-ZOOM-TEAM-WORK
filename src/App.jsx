@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes, useParams } from 'react-router-dom';
 import Home from './Pages/Home/Home';
 import Cars from './Pages/Cars/Cars';
 import Brand from './Pages/Brand/Brand';
@@ -21,7 +21,7 @@ function App() {
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/carsdetails:id" element={<SinglePage />} />
+        <Route path="/carsdetails/:id" element={<SinglePage />} />
         <Route path="*" element={<Home />} />
       </Routes>
     </div>
