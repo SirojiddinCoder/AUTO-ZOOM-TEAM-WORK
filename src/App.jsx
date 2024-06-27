@@ -12,7 +12,11 @@ import Loader from './Components/Loader/Loader';
 import './App.css';
 // import CarsInfo from './Pages/CarsInfo/CarsInfo';
 import Navbar from './Components/Navbar/Navbar';
+
+import Footer from './Components/Footer/Footer';
+
 // import Navbar from './Components/Navbar/navbar';
+
 
 function App() {
   const [loader, setLoader] = useState(false);
@@ -39,6 +43,7 @@ function App() {
         <Route path="/carsdetails/:id" element={<SinglePage />} />
         <Route path="*" element={<Home />} />
       </Routes>
+      <Footer/>
     </div>
   );
 }
