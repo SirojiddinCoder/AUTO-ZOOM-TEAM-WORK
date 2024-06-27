@@ -34,7 +34,7 @@ function SwiperC() {
           slidePrevClass="auto"
           slideNextClass="auto"
           speed={1100}
-          lazy={true}
+          lazy={String(true)}
           coverflowEffect={{
             scale: 0.9,
             rotate: 0,
