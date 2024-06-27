@@ -1,60 +1,60 @@
-
 import { useRef } from "react";
 import { FaBars, FaSearch, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import lang from '../../assets/RU1.jpg'
+import RU from '../../assets/RU1.jpg'
+import EN from '../../assets/eng.svg'
 import logo from '../../assets/LOGO.svg'
 import './navbar.css'
 function Navbar() {
-
-	const navRef = useRef();
-	const showNavbar = () => {
-		navRef.current.classList.toggle("responsive_nav");
-	};
+  const navRef = useRef();
+  const showNavbar = () => {
+    navRef.current.classList.toggle("responsive_nav");
+  };
 
   return (
-   <>
-		<header>
-			<div className="container">
-      <div className="flags">
-				<img className="flag" src={lang} alt="US Flag" />
-				<img className="flag" src={lang} alt="RU Flag" />
-			</div>
-			<div className="search">
-				<FaSearch className="search-icon" />
-				<input type="text" placeholder="Search..." />
-			</div>
-			<div className="logo">
-				<img src={logo} alt="Logo" />
-			</div>
-			<nav ref={navRef}>
-				<Link className="nav-item" to="/" onClick={()=>setLoader(false)}>Home</Link>
-				<Link className="nav-item" to="/cars" onClick={()=>setLoader(false)}>Cars</Link>
-				<Link className="nav-item" to="/brand" onClick={()=>setLoader(false)}>Brand</Link>
-				<Link className="nav-item" to="/services" onClick={()=>setLoader(false)}>Services</Link>
-				<Link className="nav-item" to="/about" onClick={()=>setLoader(false)}>About</Link>
-				<Link className="nav-item" to="/contact" onClick={()=>setLoader(false)}>Contact</Link>
-				<Link className="nav-item" to="/blog" onClick={()=>setLoader(false)}>Blog</Link>
-        <a className="nav-tel" href="tel: +971 (55) 846 21 24">+971 (55) 846 21 24</a>
-				<button
-					className="nav-btn nav-close-btn"
-					onClick={showNavbar}>
-					<FaTimes />
-				</button>
-			</nav>
-			<button
-				className="nav-btn"
-				onClick={showNavbar}>
-				<FaBars />
-			</button>
-      </div>
-      <div className="home">
+    <>
+      <header>
         <div className="container">
-          Lorem ipsum dolor sit amet.
+          <div className="flags">
+            <img className="flag1" src={RU} alt="US Flag" />
+            <img className="flag1" src={EN} alt="RU Flag" />
+          </div>
+          <div className="search">
+            <FaSearch className="search-icon" />
+            <input type="text" placeholder="Search..." />
+          </div>
+          <div className="logo">
+            <img src={logo} alt="Logo" />
+          </div>
+          <nav ref={navRef}>
+            <div className="nav-container">
+              <div className="nav-items">
+                <Link className="nav-item" to="/" onClick={() => setLoader(false)}>Home</Link>
+                <Link className="nav-item" to="/cars" onClick={() => setLoader(false)}>Cars</Link>
+                <Link className="nav-item" to="/brand" onClick={() => setLoader(false)}>Brand</Link>
+                <Link className="nav-item" to="/services" onClick={() => setLoader(false)}>Services</Link>
+                <Link className="nav-item" to="/about" onClick={() => setLoader(false)}>About</Link>
+                <Link className="nav-item" to="/contact" onClick={() => setLoader(false)}>Contact</Link>
+                <Link className="nav-item" to="/blog" onClick={() => setLoader(false)}>Blog</Link>
+              </div>
+              <a className="nav-tel" href="tel: +971 (55) 846 21 24">+971 (55) 846 21 24</a>
+            </div>
+            <button
+              className="nav-btn nav-close-btn"
+              onClick={showNavbar}>
+              <FaTimes />
+            </button>
+          </nav>
+          <button
+            className="nav-btn"
+            onClick={showNavbar}>
+            <FaBars />
+          </button>
         </div>
-      </div>
-		</header>
+        {/* <HomeNav /> */}
+      </header>
     </>
-	)}
+  )
+}
 
 export default Navbar;

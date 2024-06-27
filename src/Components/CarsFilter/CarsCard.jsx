@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { base_url } from '../../getData/getData'
 import { FaWhatsapp } from "react-icons/fa";
 import { FaTelegram } from "react-icons/fa";
