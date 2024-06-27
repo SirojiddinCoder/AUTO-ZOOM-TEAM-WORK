@@ -8,8 +8,7 @@ import AboutUs from './Pages/AboutUs/AboutUs';
 import Contact from './Pages/Contact/Contact';
 import Blog from './Pages/Blog/Blog';
 import './App.css'
-import Loader from './Components/Loader/Loader';
-import Navbar from './Components/Navbar/Navbar';
+import { CarsInfo } from './Pages/CarsInfo/CarsInfo';
 
 function App() {
   const [loader, setLoader] = useState(false)
@@ -31,6 +30,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="*" element={<Home />} />
+        <Route path="/carsinfo" element={<CarsInfo />} />
       </Routes>
     </div>
   );
