@@ -9,8 +9,9 @@ import Contact from './Pages/Contact/Contact';
 import Blog from './Pages/Blog/Blog';
 import './App.css'
 import Loader from './Components/Loader/Loader';
-import Footer from './Components/Footer/Footer';    
-import Navbar from './Components/Navbar/navbar';
+import Navbar from './Components/Navbar/Navbar';
+
+import Footer from './Components/Footer/Footer';
 
 function App() {
   const [loader, setLoader] = useState(false)

@@ -24,7 +24,7 @@ const CarsFilter = () => {
     setModels(models?.data);
     const categories = await getCategories();
     setCategories(categories?.data);
-    console.log(categories?.data);
+    console.log(cars?.data);
   };
   const [offers, setOffers] = useState([
     { id: 1, text: "3 DAYS RENT = 5000 AED🔥 ALL INCLUSIVE", checked: false },
@@ -36,36 +36,46 @@ const CarsFilter = () => {
     { id: 7, text: "Rent Ferrari Dubai", checked: false },
     { id: 8, text: "4 DAYS RENT = 5000 AED🔥 ALL INCLUSIVE", checked: false },
   ]);
-  const [carType, setCarType] = useState([
-    { id: 9, text: "SUV", checked: false },
-    { id: 10, text: "Sports Cars", checked: false },
-    { id: 11, text: "Luxury Cars", checked: false },
-    { id: 12, text: "Convertible Cars", checked: false },
-    { id: 13, text: "Budget Cars", checked: false },
-    { id: 14, text: "American Brands", checked: false },
-  ]);
+  // const [carType, setCarType] = useState([
+  //   { id: 9, text: "SUV", checked: false },
+  //   { id: 10, text: "Sports Cars", checked: false },
+  //   { id: 11, text: "Luxury Cars", checked: false },
+  //   { id: 12, text: "Convertible Cars", checked: false },
+  //   { id: 13, text: "Budget Cars", checked: false },
+  //   { id: 14, text: "American Brands", checked: false },
+  // ]);
   const [activeModel, setActiveModel] = useState("");
   let activeBrands = []
   let value = JSON.parse(localStorage.getItem("brands"))
   if (value) {
     activeBrands = value
   }
+  let activeTypes = []
+  let carType = JSON.parse(localStorage.getItem("types"))
+  if (carType) {
+    activeBrands = carType
+  }
   const handleBrands = (item) => {
     console.log(item);
     activeBrands.push(item?.title)
     localStorage.setItem("brands", JSON.stringify(activeBrands))
-    console.log(activeBrands);
+  };
+  const handleTypes = (item) => {
+    console.log(item);
+    activeTypes.push(item?.name_en)
+    localStorage.setItem("types", JSON.stringify(activeTypes))
+    console.log(activeTypes);
   };
   const handleModels = (e) => {
     console.log(e.target.value);
     setActiveModel(e.target.value);
+    console.log(activeModel);
   };
   const applyFilter = () => {
     let filterCars = carsFilter.filter(
       (item) =>
-        activeBrands.includes(item?.brand?.title) || item?.models?.name === activeModel
+        activeBrands.includes(item?.brand?.title) || activeModel === item?.model?.name || activeTypes?.includes(item?.category?.name_en)
     );
-    console.log(filterCars);
     setCars(filterCars)
   };
   const PreventDefault = (e) => {
@@ -109,7 +119,7 @@ const CarsFilter = () => {
             {categories?.map((item, index) => {
               return (
                 <div key={index}>
-                  <input type="checkbox" id={item?.id} />
+                  <input type="checkbox" id={item?.id} onChange={() => handleTypes(item)}/>
                   <label htmlFor={item?.id}>{item?.name_en}</label>
                 </div>
               );

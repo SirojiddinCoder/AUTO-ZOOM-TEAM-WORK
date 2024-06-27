@@ -1,12 +1,15 @@
 import React from 'react'
-import Navbar from '../../Components/Navbar/Navbar';
 import {CarsComponent } from '../../Components/Cars/CarsComponent';
+import HomeNav from '../../Components/Navbar/HomeNav';
+import Brands from '../../Components/Brands/Brands';
+
 
 export const Home = () => {
   return (
     <div>
-        <Navbar />
-        {/* <CarsComponent/> */}
+      <HomeNav />
+      {/* <Brands /> */}
+        <CarsComponent/>
     </div>
   )
 }
