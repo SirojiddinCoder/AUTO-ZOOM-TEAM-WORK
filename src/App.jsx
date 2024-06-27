@@ -10,7 +10,11 @@ import Blog from './Pages/Blog/Blog';
 import './App.css'
 import Loader from './Components/Loader/Loader';
 import Navbar from './Components/Navbar/Navbar';
+
 import Footer from './Components/Footer/Footer';
+
+// import Navbar from './Components/Navbar/navbar';
+
 
 function App() {
   const [loader, setLoader] = useState(false)
