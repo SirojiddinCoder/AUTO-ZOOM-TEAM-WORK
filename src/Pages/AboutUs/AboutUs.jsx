@@ -22,7 +22,7 @@ const AboutUs = () => {
 
   return (
     <>
-      <Navbar />
+    
       <div className="AboutUs">
         <div className="container">
           <small>

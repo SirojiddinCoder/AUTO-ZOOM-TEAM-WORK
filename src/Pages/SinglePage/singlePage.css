@@ -1,0 +1,90 @@
+*{
+    color: #fff;
+}
+.wrapper{
+    background-color: #1E1F27;
+}
+.details-container{
+    max-width: 1360px;
+    margin: 0 auto;
+  
+}
+.details-title{
+    text-transform: uppercase;
+    font-size: 3rem;
+    padding: 3rem 0;
+}
+.car-imageSlider{
+    display: flex;
+    border: 1px solid red;
+    width: 50%;
+}
+.car-slider{
+    object-fit: contain;
+}
+.image-withDeteils{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.carsModel{
+    width: 48%;
+}
+.carsSocial{
+    margin: 2.5rem auto;
+    text-align: center;
+}
+.socialBtn{
+    padding: 0.8rem 1.5rem;
+    border: none;
+    outline: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+.socialBtn:hover{
+    opacity: 0.8;
+}
+.socialIcon{
+    font-size: 2rem;
+    
+}
+
+.carsInfo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.info{
+    font-size: 1.2rem;
+}
+.toHire{
+    width: 60%;
+    margin: 0 auto;
+    border: 2px solid #69696B;
+}
+.inputs{
+    padding: 2rem;
+
+}
+.inputName{
+    background-color: #69696B;
+    padding: 1.2rem 1rem;
+    width: 95%;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+.inputName::placeholder{
+ color: #fff;
+ opacity: 0.7;
+ letter-spacing: 1px;
+}
+.sendBtn{
+    background-color: red;
+    padding: 1rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 0.7rem;
+    margin-top: 0.5rem;
+}
