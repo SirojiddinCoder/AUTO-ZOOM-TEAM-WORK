@@ -51,7 +51,6 @@ function Navbar() {
             <FaBars />
           </button>
         </div>
-        {/* <HomeNav /> */}
       </header>
     </>
   )
