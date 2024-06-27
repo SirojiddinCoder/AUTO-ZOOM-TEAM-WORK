@@ -5,7 +5,6 @@ import RU from '../../assets/RU1.jpg'
 import EN from '../../assets/EN.png'
 import logo from '../../assets/LOGO.svg'
 import './navbar.css'
-import HomeNav from "./HomeNav";
 function Navbar() {
 
   const navRef = useRef();
