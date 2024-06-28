@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home/Home';
 import Cars from './Pages/Cars/Cars';
 import Brand from './Pages/Brand/Brand';
-import Services from './Pages/Services/Services';
-import AboutUs from './Pages/AboutUs/AboutUs';
 import Contact from './Pages/Contact/Contact';
 import Blog from './Pages/Blog/Blog';
 import SinglePage from './Pages/SinglePage/SinglePage';
@@ -12,6 +10,11 @@ import Loader from './Components/Loader/Loader';
 import './App.css';
 // import CarsInfo from './Pages/CarsInfo/CarsInfo';
 import Navbar from './Components/Navbar/Navbar';
+import { Services } from './Pages/Services/Services';
+import { SportCarRent } from './Pages/Services/sport_car_rent/SportCarRent';
+import { Photoshoot } from './Pages/Services/photoshoot/Photoshoot';
+import { AboutUs } from './Pages/AboutUs/AboutUs';
+
 // import Navbar from './Components/Navbar/navbar';
 
 function App() {
@@ -40,6 +43,8 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/carsdetails/:id" element={<SinglePage />} />
             <Route path="*" element={<Home />} />
+            <Route path="/sport_car_rent" element={<SportCarRent />} />
+            <Route path="/photoshoot" element={<Photoshoot />} />
             {/* <Route path="/carsinfo" element={<CarsInfo />} /> */}
           </Routes>
         </>
