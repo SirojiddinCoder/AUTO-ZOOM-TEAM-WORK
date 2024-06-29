@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { base_url, getBrands, getCars, getCategories, getModels } from "../../getData/getData";
+import { useEffect, useState } from "react";
+import { getBrands, getCars, getCategories, getModels } from "../../getData/getData";
 import "./CarsFilter.css";
 import CarsCard from "./CarsCard";
 import { GiSettingsKnobs } from "react-icons/gi";

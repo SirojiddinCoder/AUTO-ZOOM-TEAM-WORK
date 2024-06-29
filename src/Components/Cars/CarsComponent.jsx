@@ -81,26 +81,27 @@ export const CarsComponent = () => {
                         }}
                     >
                         {groupedCars[categoryId]?.cars.map((car, index) => (
-                            <SwiperSlide className={styles.swiperSlide} key={index}>
-                                <div className={styles.box}>
-                                    <Link to={`/carsinfo/${car?.id}`} href="#">
-                                        <div className={styles.swiperSlideChild}>
-                                            <img
-                                                className={styles.img}
-                                                src={`${urlimg}${car.car_images[0]?.image?.src}`}
-                                                alt={car.category.name_en}
-                                            />
-                                        </div>
-                                    </Link>
-                                    <h3 className={styles.slide_car_title}>{car.brand.title} {car.model.name}</h3>
-                                    <div className={styles.line}></div>
-                                    <h4 className={styles.slide_car_price}>
-                                        <span className={styles.slide_car_price_aed}>AED {car.price_in_aed}</span>
-                                        <span className={styles.slide_car_price_usd}> / $ {car.price_in_usd}</span>
-                                    </h4>
-                                    <p className={styles.renta_type}>{t("per day")}</p>
-                                </div>
-                            </SwiperSlide>
+                           <SwiperSlide className={styles.swiperSlide} key={index}>
+                           <div className={styles.box}>
+                               <Link to={`/carsinfo/${car?.id}`} href="#">
+                                   <div className={styles.swiperSlideChild}>
+                                       <img
+                                           className={styles.img}
+                                           src={`${urlimg}${car.car_images[0]?.image?.src}`}
+                                           alt={car.category.name_en}
+                                       />
+                                   </div>
+                               </Link>
+                               <h3 className={styles.slide_car_title}>{car.brand.title} {car.model.name}</h3>
+                               <div className={styles.line}></div>
+                               <h4 className={styles.slide_car_price}>
+                                   <span className={styles.slide_car_price_aed}>AED {car.price_in_aed}</span>
+                                   <span className={styles.slide_car_price_usd}> / $ {car.price_in_usd}</span>
+                               </h4>
+                               <p className={styles.renta_type}>{t("per day")}</p>
+                           </div>
+                       </SwiperSlide>
+                       
                         ))}
                     </Swiper>
                 </div>

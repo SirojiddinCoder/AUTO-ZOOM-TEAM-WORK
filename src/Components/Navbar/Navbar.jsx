@@ -33,7 +33,7 @@ function Navbar() {
                 <Link className="nav-item" to="/cars" onClick={() => setLoader(false)}>Cars</Link>
                 <Link className="nav-item" to="/brand" onClick={() => setLoader(false)}>Brand</Link>
                 <Link className="nav-item" to="/services" onClick={() => setLoader(false)}>Services</Link>
-                <Link className="nav-item" to="/about" onClick={() => setLoader(false)}>About</Link>
+                <Link className="nav-item" to="/aboutus" onClick={() => setLoader(false)}>About</Link>
                 <Link className="nav-item" to="/contact" onClick={() => setLoader(false)}>Contact</Link>
                 <Link className="nav-item" to="/blog" onClick={() => setLoader(false)}>Blog</Link>
               </div>
