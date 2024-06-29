@@ -8,6 +8,7 @@ import Blog from './Pages/Blog/Blog';
 import './App.css'
 import Loader from './Components/Loader/Loader';
 import Navbar from './Components/Navbar/Navbar';
+
 import { Services } from './Pages/Services/Services';
 import { SportCarRent } from './Pages/Services/sport_car_rent/SportCarRent';
 import { Photoshoot } from './Pages/Services/photoshoot/Photoshoot';
@@ -15,6 +16,9 @@ import { AboutUs } from './Pages/AboutUs/AboutUs';
 import SinglePage from './Pages/SinglePage/SinglePage';
 
 // import Navbar from './Components/Navbar/navbar';
+
+import Footer from './Components/Footer/Footer';
+
 
 function App() {
   const [loader, setLoader] = useState(false)
