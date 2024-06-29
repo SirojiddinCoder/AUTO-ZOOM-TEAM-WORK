@@ -44,6 +44,7 @@ function App() {
             <Route path="/photoshoot" element={<Photoshoot />} />
        
           </Routes>
+          <Footer/>
         </>
       ) : (
         <Loader />
