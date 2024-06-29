@@ -42,8 +42,9 @@ function App() {
             <Route path="*" element={<Home />} />
             <Route path="/sport_car_rent" element={<SportCarRent />} />
             <Route path="/photoshoot" element={<Photoshoot />} />
-            {/* <Route path="/carsinfo" element={<CarsInfo />} /> */}
+       
           </Routes>
+          <Footer/>
         </>
       ) : (
         <Loader />
