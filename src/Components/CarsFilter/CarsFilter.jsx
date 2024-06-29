@@ -4,6 +4,7 @@ import "./CarsFilter.css";
 import CarsCard from "./CarsCard";
 import { GiSettingsKnobs } from "react-icons/gi";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { useParams } from "react-router-dom";
 
 const CarsFilter = () => {
   const [brands, setBrands] = useState([]);
@@ -11,6 +12,8 @@ const CarsFilter = () => {
   const [carsFilter, setCarsFilter] = useState([]);
   const [models, setModels] = useState([]);
   const [categories, setCategories] = useState([]);
+  const {id} = useParams()
+  console.log(id ? "bor" : "yo'q");
   useEffect(() => { 
     getData();
   }, []);
@@ -25,6 +28,10 @@ const CarsFilter = () => {
     const categories = await getCategories();
     setCategories(categories?.data);
     console.log(cars?.data);
+    const IDFilter = cars?.data.filter(item=> item?.category?.id === id)
+    if (id) {
+      setCars(IDFilter)
+    }
   };
   const [offers, setOffers] = useState([
     { id: 1, text: "3 DAYS RENT = 5000 AED🔥 ALL INCLUSIVE", checked: false },

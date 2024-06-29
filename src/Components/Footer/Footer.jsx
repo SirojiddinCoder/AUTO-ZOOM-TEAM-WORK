@@ -35,7 +35,7 @@ export const Footer = () => {
               <Link className="footer__item-title">Cars</Link>
               {categories?.map((item, index) => {
                 return (
-                  <Link to={""} key={index} className="footer__subtitle">
+                  <Link to={`/cars/${item?.id}`} key={index} className="footer__subtitle">
                     {item?.name_en}
                   </Link>
                 );

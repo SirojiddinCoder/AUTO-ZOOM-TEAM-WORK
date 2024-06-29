@@ -66,6 +66,7 @@ a {
 .cars__sidebar-filter select {
   padding: 15px;
   border-radius: 10px;
+  color: black;
 }
 
 .cars__sidebar-filter div {
