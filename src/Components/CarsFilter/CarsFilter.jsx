@@ -11,7 +11,7 @@ const CarsFilter = () => {
   const [carsFilter, setCarsFilter] = useState([]);
   const [models, setModels] = useState([]);
   const [categories, setCategories] = useState([]);
-  useEffect(() => {
+  useEffect(() => { 
     getData();
   }, []);
   const getData = async () => {
