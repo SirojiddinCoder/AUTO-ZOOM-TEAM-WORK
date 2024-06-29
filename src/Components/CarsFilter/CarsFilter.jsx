@@ -27,7 +27,6 @@ const CarsFilter = () => {
     setModels(models?.data);
     const categories = await getCategories();
     setCategories(categories?.data);
-    console.log(cars?.data);
     const IDFilter = cars?.data.filter(item=> item?.category?.id === id)
     if (id) {
       setCars(IDFilter)
@@ -44,6 +43,7 @@ const CarsFilter = () => {
     { id: 8, text: "4 DAYS RENT = 5000 AED🔥 ALL INCLUSIVE", checked: false },
   ]);
   const [activeModel, setActiveModel] = useState("");
+  const [notFound, setNotFound] = useState(false)
   let activeBrands = []
   let value = JSON.parse(localStorage.getItem("brands"))
   if (value) {
@@ -75,6 +75,9 @@ const CarsFilter = () => {
       (item) =>
         activeBrands.includes(item?.brand?.title) || activeModel === item?.model?.name || activeTypes?.includes(item?.category?.name_en)
     );
+    if (filterCars?.length > 0) {
+      setNotFound(true)
+    }
     setCars(filterCars)
   };
   const PreventDefault = (e) => {
@@ -166,7 +169,7 @@ const CarsFilter = () => {
         <div className="cars__cards">
           {cars?.length > 0 ? cars?.map((item, index) => {
             return <CarsCard key={index} item={item} />;
-          }) : <h3>Not found</h3>}
+          }) : <h3>{notFound ? "Not found" :"Loading..."}</h3>}
         </div>
       </div>
     </div>

@@ -17,6 +17,12 @@ export const Footer = () => {
     console.log(category?.data);
     setCategories(category?.data);
   };
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <footer className="footer">
       <div className="footer__items">
@@ -35,7 +41,7 @@ export const Footer = () => {
               <Link className="footer__item-title">Cars</Link>
               {categories?.map((item, index) => {
                 return (
-                  <Link to={`/cars/${item?.id}`} key={index} className="footer__subtitle">
+                  <Link to={`/cars/${item?.id}`} key={index} className="footer__subtitle" onClick={handleScrollToTop}>
                     {item?.name_en}
                   </Link>
                 );
