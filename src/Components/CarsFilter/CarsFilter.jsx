@@ -36,14 +36,6 @@ const CarsFilter = () => {
     { id: 7, text: "Rent Ferrari Dubai", checked: false },
     { id: 8, text: "4 DAYS RENT = 5000 AED🔥 ALL INCLUSIVE", checked: false },
   ]);
-  // const [carType, setCarType] = useState([
-  //   { id: 9, text: "SUV", checked: false },
-  //   { id: 10, text: "Sports Cars", checked: false },
-  //   { id: 11, text: "Luxury Cars", checked: false },
-  //   { id: 12, text: "Convertible Cars", checked: false },
-  //   { id: 13, text: "Budget Cars", checked: false },
-  //   { id: 14, text: "American Brands", checked: false },
-  // ]);
   const [activeModel, setActiveModel] = useState("");
   let activeBrands = []
   let value = JSON.parse(localStorage.getItem("brands"))
