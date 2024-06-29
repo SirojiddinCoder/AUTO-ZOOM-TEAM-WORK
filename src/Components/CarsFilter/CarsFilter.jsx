@@ -102,7 +102,7 @@ const CarsFilter = () => {
       >
         <GiSettingsKnobs className="settings__icon" />
       </button>
-      <aside className={sidebarVisible ? "block" : "cars__sidebar"}>
+      <aside className={sidebarVisible ? "block " : "cars__sidebar"}>
         <h2 className="cars__sidebar-title">Filter by</h2>
         <h3 className="cars__sidebar-title2">Offers</h3>
         <form onSubmit={PreventDefault}>

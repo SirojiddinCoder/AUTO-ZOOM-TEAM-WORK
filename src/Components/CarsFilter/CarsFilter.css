@@ -36,6 +36,7 @@ a {
   color: white;
   font-size: 20px;
   cursor: pointer;
+  z-index: 1200;
 }
 
 .settings__icon {
@@ -221,7 +222,8 @@ a {
     background: #272933;
     padding: 80px 20px;
     color: white;
-    /* min-width: 400px; */
+    min-width: 200px;
+    z-index: 12;
   }
   .cars__sidebar {
     display: none;
