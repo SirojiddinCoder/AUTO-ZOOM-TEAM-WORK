@@ -88,6 +88,10 @@ const CarsFilter = () => {
   }
   const { id } = useParams();
   
+  useEffect(() => {
+    console.log(`Fetching data for car with ID: ${id}`);
+  }, [id]);
+  
   const [sidebarVisible, setSideBarVisible] = useState(false);
   return (
     <div className="cars__filter">

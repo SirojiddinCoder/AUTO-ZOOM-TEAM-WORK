@@ -9,6 +9,7 @@ import Footer from "../../Components/Footer/Footer";
 export const Services = () => {
   return (
     <>
+    <div className={styles.big_container}>
     <div className={styles.serviceContainer}>
       <a href="/" className={styles.link_to_home}>
         Luxury Cars for Rent in Dubai /
@@ -35,6 +36,7 @@ export const Services = () => {
             </Link>
         </div>
       </div>
+    </div>
     </div>
     {/* <Footer/> */}
     </>

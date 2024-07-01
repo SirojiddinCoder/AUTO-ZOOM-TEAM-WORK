@@ -9,6 +9,7 @@ import Footer from "../../Components/Footer/Footer";
 export const Contact = () => {
   return (
     <>
+    <div className={styles.big_container}>
     <div className={styles.contact_container}>
       <a href="/" className={styles.link_to_home}>
         Luxury Cars for Rent in Dubai /
@@ -38,6 +39,7 @@ export const Contact = () => {
       <div className={styles.map_box}>
         <iframe className={styles.map} width="100%" height="350" scrolling="no" src="https://maps.google.com/maps?width=100%25&amp;height=350&amp;hl=en&amp;q=26W8+24J%20-%20Dubai%20Sports%20City%20-%20Dubai%20-%20United%20Arab%20Emirates+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/">gps tracker sport</a></iframe>
       </div>
+    </div>
     </div>
     <Footer/>
     </>

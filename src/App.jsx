@@ -18,6 +18,7 @@ import { BlogInfo1 } from './Pages/Blog/Blog_info1/BlogInfo1';
 import { BlogInfo2 } from './Pages/Blog/Blog_Info2/BlogInfo2';
 import { BlogInfo3 } from './Pages/Blog/Blog_Info3/BlogInfo3';
 import CarsFilter from './Components/CarsFilter/CarsFilter';
+import HoveredComponent from './Components/Navbar/HoveredComponent/HoveredComponent';
 
 function App() {
   const [loader, setLoader] = useState(false);
@@ -34,6 +35,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/cars" element={<Cars />} />
             <Route path="/cars_filter/:id" element={<CarsFilter />} />
+            {/* <Route path="/cars_filter/:id" element={<HoveredComponent />} /> */}
             <Route path="/brand" element={<Brand />} />
             <Route path="/services" element={<Services />} />
             <Route path="/aboutus" element={<AboutUs />} />

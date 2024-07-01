@@ -5,6 +5,7 @@ import Footer from "../../../Components/Footer/Footer"
 export const BlogInfo3 = () => {
   return (
     <>
+    <div className={styles.big_container}>
     <div className={styles.blog_info_container}>
         <a href="/" className={styles.link_to_home}>
             Luxury Cars for Rent in Dubai /
@@ -16,6 +17,7 @@ export const BlogInfo3 = () => {
         <p className={`${styles.text} ${styles.city_name}`}>Burj Halifa</p>
         <img src={img} alt="car_photo" className={styles.img}/>
         <p className={styles.text}>Late summer and early autumn is our usual time of best deals and promotions. We’ve prepared a nice surprise for everyone who is crazy about adventure and driving! These days you can get one of the best car hiring offers in the city, which will allow you to drive the coolest cars in the world, such as Rolls Royce, Lamborghini, or Ferrari at knockdown prices! But let’s begin from the beginning, and consider the most feasible reasons why you need to hire a car while on holiday, study, or a working visit in Dubai.</p>
+    </div>
     </div>
     <Footer/>
 </>

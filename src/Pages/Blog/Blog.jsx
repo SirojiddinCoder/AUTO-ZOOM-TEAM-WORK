@@ -9,6 +9,7 @@ import Footer from "../../Components/Footer/Footer"
 const Blog = () => {
   return (
     <>
+    <div className={styles.big_container}>
     <div className={styles.blog_container}>
     <a href="/" className={styles.link_to_home}>
         Luxury Cars for Rent in Dubai /
@@ -56,6 +57,7 @@ const Blog = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
     <Footer/>
     </>
