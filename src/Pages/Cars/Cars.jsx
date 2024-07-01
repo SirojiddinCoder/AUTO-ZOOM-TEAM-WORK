@@ -1,13 +1,12 @@
-import React from 'react'
-import CarsFilter from '../../Components/CarsFilter/CarsFilter'
-import Navbar from '../../Components/Navbar/Navbar'
+import CarsFilter from "../../Components/CarsFilter/CarsFilter";
 
 const Cars = () => {
+
   return (
     <div>
-      <CarsFilter/>
+      <CarsFilter />
     </div>
-  )
-}
+  );
+};
 
-export default Cars
+export default Cars;
