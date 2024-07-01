@@ -4,8 +4,12 @@ import "./CarsFilter.css";
 import CarsCard from "./CarsCard";
 import { GiSettingsKnobs } from "react-icons/gi";
 import { FaArrowLeftLong } from "react-icons/fa6";
+
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+
+import { useParams } from "react-router-dom";
+
 
 const CarsFilter = ({cars, setCars}) => {
   const [brands, setBrands] = useState([]);
@@ -98,6 +102,11 @@ const CarsFilter = ({cars, setCars}) => {
     getData()
     navigate("/cars")
   }
+
+  const { id } = useParams();
+  
+  const [sidebarVisible, setSideBarVisible] = useState(false);
+
   return (
     <div className="cars__filter">
       <button
