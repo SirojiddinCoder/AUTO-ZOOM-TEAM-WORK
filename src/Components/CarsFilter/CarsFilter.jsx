@@ -4,6 +4,7 @@ import "./CarsFilter.css";
 import CarsCard from "./CarsCard";
 import { GiSettingsKnobs } from "react-icons/gi";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { useParams } from "react-router-dom";
 
 const CarsFilter = () => {
   const [brands, setBrands] = useState([]);
@@ -85,6 +86,8 @@ const CarsFilter = () => {
     localStorage.removeItem("brands")
     getData()
   }
+  const { id } = useParams();
+  
   const [sidebarVisible, setSideBarVisible] = useState(false);
   return (
     <div className="cars__filter">
