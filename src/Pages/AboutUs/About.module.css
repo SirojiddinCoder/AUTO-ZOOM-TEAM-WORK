@@ -3,7 +3,7 @@
     background-image: url(../../assets/abaut.png);
     background-repeat: no-repeat;
     background-size: cover;
-    /* background-position: center; */
+    background-position: center;
     color: white;
     padding: 50px 80px;
 }

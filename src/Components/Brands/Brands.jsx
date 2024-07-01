@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Brands.css';
+import LogoBrand from '../../assets/BRAND1.webp'
+
 import 'swiper/css';
 import 'swiper/css/grid';
 import 'swiper/css/pagination';
@@ -26,6 +28,7 @@ const Brands = () => {
 
         if (Array.isArray(data.data)) {
           setBrands(data.data);
+          console.log(data.brand.image_src);
         } else {
           console.error('Unexpected data format:', data);
         }
@@ -82,15 +85,17 @@ const Brands = () => {
               brands.map((brand) => (
                 <SwiperSlide key={brand.id} className='swiper-slidebrand'>
                   <div className="box">
+              
                     <img 
-                      src={`${base_URL}/uploads/images/${brand.image_src}`} 
+                      // src={`${base_URL}uploads/images${brand.image_src}`} 
+                      src={LogoBrand} 
                       alt={brand.title} 
                       onError={(e) => {
                         e.target.onerror = null; 
                         e.target.src = 'https://via.placeholder.com/150'; // Fallback image
                       }}
                     />
-                    <h5>{brand.title}</h5>
+                       <h5>{brand.title}</h5>
                   </div>
                 </SwiperSlide>
               ))
