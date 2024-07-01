@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./Footer.css";
 import Logo from "../../assets/LOGO.svg";
-import { getCategories } from "../../getData/getData";
+import { getCars, getCategories } from "../../getData/getData";
 import { Link } from "react-router-dom";
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa";
 
-export const Footer = () => {
+export const Footer = ({setCars}) => {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     getData();
@@ -16,6 +16,15 @@ export const Footer = () => {
     const category = await getCategories();
     console.log(category?.data);
     setCategories(category?.data);
+  };
+  const handleScrollToTop = async(category) => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    const res = await getCars()
+    console.log(res);
+    setCars(res?.data?.filter(item=> item?.category?.id === category))
   };
   return (
     <footer className="footer">
@@ -35,7 +44,7 @@ export const Footer = () => {
               <Link className="footer__item-title">Cars</Link>
               {categories?.map((item, index) => {
                 return (
-                  <Link to={""} key={index} className="footer__subtitle">
+                  <Link to={`/cars/${item?.id}`} key={index} className="footer__subtitle" onClick={()=>handleScrollToTop(item?.id)}>
                     {item?.name_en}
                   </Link>
                 );
