@@ -156,6 +156,7 @@ const CarsFilter = ({cars, setCars}) => {
           <div className="cars__sidebar-filter">
             <h2>Models</h2>
             <select onChange={handleModels}>
+              <option value="" hidden>Select Model</option>
               {models?.filter(item=> selectedBrands?.includes(item?.brand_id))?.map((item, index) => {
                 return (
                   <option value={item?.id} key={index}>
