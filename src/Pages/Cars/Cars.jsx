@@ -1,11 +1,10 @@
 import React from 'react'
 import CarsFilter from '../../Components/CarsFilter/CarsFilter'
-import Navbar from '../../Components/Navbar/Navbar'
 
-const Cars = () => {
+const Cars = ({cars, setCars}) => {
   return (
     <div>
-      <CarsFilter/>
+      <CarsFilter cars={cars} setCars={setCars}/>
     </div>
   )
 }
