@@ -1,6 +1,6 @@
 import { Route} from 'react-router-dom';
 import { BrowserRouter as Routes } from "react-router-dom";
-import React, { useState } from 'react';
+import  { useState } from 'react'
 import Home from './Pages/Home/Home';
 import Cars from './Pages/Cars/Cars';
 import Brand from './Pages/Brand/Brand';
