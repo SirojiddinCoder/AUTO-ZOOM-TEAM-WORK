@@ -1,27 +1,21 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { useParams } from "react-router-dom";
 import "../SinglePage/singlePage.css";
-import { Carousel } from "react-responsive-carousel";
 import { carsData } from "./mock/carsData";
-import "react-image-gallery/styles/css/image-gallery.css";
-import ImageGallery from "react-image-gallery";
+import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 function SinglePage() {
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const { id } = useParams();
   const [aboutCar, getAboutCar] = useState([]);
   const [otherCars, setOtherCars] = useState([]);
-  const staticData = [
-    {
-      car: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwNwKFzz7l9k0jU5kDEJ_PTrbFm3rjwYmLn8MJ3G3tn9uxDKwx3ZLe6MbGguraPOiPzOU&usqp=CAU",
-    },
-    {
-      car: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_hWWmNW5NLda6LrQJYK9THsvKDOnLUEb5HZkQXNVTd-R7lfLp_DS14Vr8uRGStflVwGg&usqp=CAU",
-    },
-    {
-      car: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnWnzI4xDsR3eh1AMr3VE_ZEqm6fkRuo_9lvha-7B68E4iddR3OIHat2RHezRolPxmq90&usqp=CAU",
-    },
-  ];
+  const [photo, setPhoto] = useState([])
+
   useEffect(() => {
     fetch(`https://autoapi.dezinfeksiyatashkent.uz/api/cars/${id}`)
       .then((res) => res.json())
@@ -36,8 +30,13 @@ function SinglePage() {
         setOtherCars(cars.data);
       });
   }, []);
-
-  console.log(otherCars, "otherCars");
+  useEffect(()=>{
+      fetch(`https://autoapi.dezinfeksiyatashkent.uz/api/cars`)
+        .then((res) => res.json())
+        .then((images) => {
+          setPhoto(images.data);
+        });
+  }, [])
   return (
     <>
       <div className="wrapper">
@@ -50,13 +49,40 @@ function SinglePage() {
             <div className="image-withDetails">
               <div className="imageDetails">
                 <div className="car-imageSlider">
-                  <Carousel>
-                    {staticData.map((image, idx) => (
-                      <div key={idx} className="thumbs-wrapper">
-                        <img src={image?.car} alt="" className="car-slider" />
-                      </div>
+                  <Swiper
+                    style={{
+                      "--swiper-navigation-color": "#fff",
+                      "--swiper-pagination-color": "#fff",
+                    }}
+                    loop={true}
+                    spaceBetween={10}
+                    navigation={true}
+                    thumbs={{ swiper: thumbsSwiper }}
+                    modules={[FreeMode, Navigation, Thumbs]}
+                    className="mySwiper2"
+                  >
+                    {photo.map((imgData, idx) => (
+                      <SwiperSlide key={idx}>
+                        <img src={imgData?.car_images?.[0]?.image?.src} className="swiperImage"/>
+                      </SwiperSlide>
                     ))}
-                  </Carousel>
+                  </Swiper>
+                  <Swiper
+                    onSwiper={setThumbsSwiper}
+                    loop={true}
+                    spaceBetween={10}
+                    slidesPerView={4}
+                    freeMode={true}
+                    watchSlidesProgress={true}
+                    modules={[FreeMode, Navigation, Thumbs]}
+                    className="mySwiper"
+                  >
+                    {photo.map((imgData, idx) => (
+                      <SwiperSlide key={idx}>
+                        <img src={imgData?.car_images?.[0]?.image?.src} />
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
                 </div>
                 <div className="carouselTextWrapper">
                   <h1 className="carouselTitle">
@@ -398,7 +424,7 @@ function SinglePage() {
             {otherCars &&
               otherCars.map((car, idx) => (
                 <div className="similarCarsCard" key={idx}>
-                  <Link to={car?.id}>
+                  <a href={`/carsdetails/${car?.id}`}>
                     <div className="carsCardContainer">
                       <img
                         src={`https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/${car?.car_images[0]?.image?.src}`}
@@ -418,7 +444,7 @@ function SinglePage() {
                       </p>
                       <p>per day</p>
                     </div>
-                  </Link>
+                  </a>
                 </div>
               ))}
           </div>

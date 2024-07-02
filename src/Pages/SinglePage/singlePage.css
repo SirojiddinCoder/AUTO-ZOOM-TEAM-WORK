@@ -1,3 +1,4 @@
+
 * {
   color: #fff;
 }
@@ -12,10 +13,6 @@
   text-transform: uppercase;
   font-size: 3rem;
   padding: 3rem 0;
-}
-.car-imageSlider {
-  display: flex;
-  border: 1px solid red;
 }
 .car-slider {
   object-fit: contain;
@@ -185,7 +182,6 @@
 }
 .similarsWrapper{
   display: flex;
-  /* justify-content: space-between; */
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 2rem;
@@ -198,7 +194,6 @@ border-radius: 10px;
 -webkit-box-shadow: 2px 7px 15px 34px rgba(34, 60, 80, 0.11) inset;
 -moz-box-shadow: 2px 7px 15px 34px rgba(34, 60, 80, 0.11) inset;
 box-shadow: 2px 7px 15px 34px rgba(34, 60, 80, 0.11) inset;
-
 }
 .carsCardContainer{
   width: 90%;
@@ -211,6 +206,28 @@ box-shadow: 2px 7px 15px 34px rgba(34, 60, 80, 0.11) inset;
 .carsCardPrice{
   margin: 0.5rem 0 0.2rem 0;
 }
+
+.image-gallery-thumbnails-wrapper {
+  position: relative;
+  display: flex;
+}
+
+nav {
+    flex-grow: 1;
+    display: block;
+    justify-content: flex-end;
+}
+
+.image-gallery-left-nav .image-gallery-svg, .image-gallery-right-nav .image-gallery-svg {
+    height: 40px;
+    width: 30px;
+}
+.image-gallery-left-nav .image-gallery-svg, .image-gallery-right-nav .image-gallery-svg {
+    height: 50px;
+    width: 50px;
+}
+
+
 @media (max-width: 1375px) {
   .details-container {
     max-width: 1100px;
@@ -256,12 +273,12 @@ box-shadow: 2px 7px 15px 34px rgba(34, 60, 80, 0.11) inset;
     margin-bottom: 3.8rem;
     font-size: 0.8rem;
   }
-  .carouselTitle {
-    font-size: 1.5rem;
-  }
-  .sliderTitle {
-    font-size: 0.8rem;
-  }
+     .carouselTitle {
+        font-size: 2.2rem;
+    }
+      .sliderTitle {
+        font-size: 1.5rem;
+    }
   .inputs {
     padding: 1rem;
   }
@@ -339,9 +356,6 @@ box-shadow: 2px 7px 15px 34px rgba(34, 60, 80, 0.11) inset;
   .details-container {
     max-width: 550px;
   }
-       .carouselTitle {
-        font-size: 1.8rem;
-    }
         .sliderTitle {
         font-size: 1rem;
     }
@@ -372,6 +386,12 @@ box-shadow: 2px 7px 15px 34px rgba(34, 60, 80, 0.11) inset;
     display: block;
     margin: 0 auto;
 }
+    .carouselTitle {
+        font-size: 1.4rem;
+    }
+    .sliderTitle {
+        font-size: 0.9rem;
+    }
 }
 @media (max-width: 550px) {
   .details-container {
@@ -395,18 +415,64 @@ box-shadow: 2px 7px 15px 34px rgba(34, 60, 80, 0.11) inset;
 }
   @media (max-width: 450px) {
   .details-container {
-    max-width: 100%;
+    max-width: 400px;
   }
   .details-title {
       font-size: 2rem;
   }
+      .costPrice {
+        font-size: 1rem;
+    }
+    .costBottoPrice {
+        font-size: 1rem;
+      }
+      .dailyCost{
+      margin-bottom: 1rem;
+
+    }
       .topLeft {
         width: 40%;
     }
+    .smallTextCost {
+    font-size: 1rem;
+}
     .inputName {
         padding: 0.8rem;
       }
           .inputs {
         padding: 0.5rem;
     }
+        .depositText {
+        margin-bottom: 3.6rem;
+    }
+}
+  @media (max-width: 400px) {
+  .details-container {
+    max-width: 350px;
+  }
+  .carouselTitle {
+        font-size: 1.3rem;
+    }
+        .depositText {
+        margin-bottom: 3.6rem;
+        font-size: 0.8rem;
+    }
+        .sliderTitle {
+        font-size: 0.8rem;
+    }
+        .costPrice {
+        font-size: 0.8rem;
+    }
+    .costBottoPrice {
+        font-size: 0.8rem;
+      }
+        .infoWrapper {
+        width: 3.5rem;
+    }
+.paymentText {
+    font-size: 0.8rem;
+  }
+  .sliderInfo {
+    margin-bottom: 0.2rem;
+}
 }
