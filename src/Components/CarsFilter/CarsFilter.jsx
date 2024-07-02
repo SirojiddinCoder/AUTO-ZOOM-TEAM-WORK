@@ -112,7 +112,26 @@ const CarsFilter = ({ cars, setCars }) => {
     getData();
     navigate("/cars");
   };
+<<<<<<< HEAD
 
+=======
+  const resetAll = () => {
+    localStorage.removeItem("brands")
+    getData()
+    navigate("/cars")
+  }
+
+  const { id } = useParams();
+  
+  useEffect(() => {
+    console.log(`Fetching data for car with ID: ${id}`);
+  }, [id]);
+  
+  const [sidebarVisible, setSideBarVisible] = useState(false);
+
+
+
+>>>>>>> 258a981463ac7990da1506e998f37bf84bebedde
   return (
     <div className="cars__filter">
       <button

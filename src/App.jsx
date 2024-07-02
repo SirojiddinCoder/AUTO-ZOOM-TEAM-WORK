@@ -21,6 +21,14 @@ import Footer from './Components/Footer/Footer';
 import { BlogInfo1 } from './Pages/Blog/Blog_info1/BlogInfo1';
 import { BlogInfo2 } from './Pages/Blog/Blog_Info2/BlogInfo2';
 import { BlogInfo3 } from './Pages/Blog/Blog_Info3/BlogInfo3';
+<<<<<<< HEAD
+=======
+
+import CarsFilter from './Components/CarsFilter/CarsFilter';
+import HoveredComponent from './Components/Navbar/HoveredComponent/HoveredComponent';
+
+
+>>>>>>> 258a981463ac7990da1506e998f37bf84bebedde
 
 function App() {
   const [loader, setLoader] = useState(false);
@@ -31,6 +39,19 @@ function App() {
   const [cars, setCars] = useState([])
   return (
     <div>
+<<<<<<< HEAD
+=======
+
+      {loader ? (
+        <>
+          <Navbar setLoader={setLoader} />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/cars" element={<Cars />} />
+            <Route path="/cars_filter/:id" element={<CarsFilter />} />
+            {/* <Route path="/cars_filter/:id" element={<HoveredComponent />} /> */}
+
+>>>>>>> 258a981463ac7990da1506e998f37bf84bebedde
       <>
         {loader ? "" : <Loader />}
         <Navbar setLoader={setLoader} />
@@ -38,6 +59,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/cars" element={<Cars setCars={setCars} cars={cars}/>} />
           <Route path="/cars/:id" element={<Cars setCars={setCars} cars={cars}/>} />
+<<<<<<< HEAD
+=======
+
+>>>>>>> 258a981463ac7990da1506e998f37bf84bebedde
             <Route path="/brand" element={<Brand />} />
             <Route path="/services" element={<Services />} />
             <Route path="/aboutus" element={<AboutUs />} />
