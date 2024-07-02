@@ -36,7 +36,7 @@ function App() {
         {loader ? "" : <Loader />}
         <Navbar setLoader={setLoader} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home setCars={setCars}/>} />
           <Route path="/cars" element={<Cars setCars={setCars} cars={cars}/>} />
           <Route path="/cars/:id" element={<Cars setCars={setCars} cars={cars}/>} />
             {/* <Route path="/brand" element={<Brand />} /> */}

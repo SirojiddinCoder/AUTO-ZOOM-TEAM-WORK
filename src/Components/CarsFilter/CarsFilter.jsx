@@ -29,10 +29,6 @@ const CarsFilter = ({ cars, setCars }) => {
     setModels(models?.data);
     const categories = await getCategories();
     setCategories(categories?.data);
-    const IDFilter = cars?.data.filter(item => item?.category?.id === id);
-    if (id) {
-      setCars(IDFilter);
-    }
   };
 
   const [offers, setOffers] = useState([
@@ -43,7 +39,7 @@ const CarsFilter = ({ cars, setCars }) => {
     { id: 5, text: "5000 AED🔥 ALL INCLUSIVE", value: "three_days_price=5000" },
     { id: 6, text: "2 DAYS RENT = 5000 AED🔥 ALL INCLUSIVE", value: "all_inclusive=0" },
     { id: 7, text: "Rent Ferrari Dubai", value: "rent_ferrari=1800" },
-    { id: 8, text: "4 DAYS RENT = 5000 AED🔥 ALL INCLUSIVE", value: "three_days_price=true" },
+    { id: 8, text: "4 DAYS RENT = 5000 AED🔥 ALL INCLUSIVE", value: "four_days_price=5000" },
   ]);
 
   const [activeModel, setActiveModel] = useState("");
@@ -100,8 +96,8 @@ const CarsFilter = ({ cars, setCars }) => {
     axios.get(`${base_url}/cars?${queryParams}&${queryBrands}&${queryCategory}&model_id=${activeModel}`).then(res => {
       setCars(res?.data?.data);
       console.log(res?.data?.data);
-      if (res?.data?.data === 0) {
-        setNotFound(true);
+      if (res?.data?.data.length === 0) {
+        setNotFound(true)
       }
     });
     navigate("/cars");
