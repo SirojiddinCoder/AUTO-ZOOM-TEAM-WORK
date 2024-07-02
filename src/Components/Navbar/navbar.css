@@ -36,7 +36,7 @@ width: 100%;
   /* background-color: #272933; */
   /* background-color: red; */
   display: flex;
- position: relative;
+ 
   
  }
 
@@ -146,8 +146,6 @@ nav {
   gap: 1rem;
 }
 
-
-
 .flag1 {
   cursor: pointer;
   width: 24px;
@@ -216,4 +214,3 @@ nav {
     padding: 20px;
   }
 }
-  

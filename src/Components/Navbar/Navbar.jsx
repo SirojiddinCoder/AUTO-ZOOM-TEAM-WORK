@@ -1,10 +1,10 @@
 import { useRef, useState } from "react";
 import { FaBars, FaSearch, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import RU from '../../assets/RU1.jpg';
-import EN from '../../assets/eng.svg';
-import logo from '../../assets/LOGO.svg';
-import './navbar.css';
+import RU from "../../assets/RU1.jpg";
+import EN from "../../assets/eng.svg";
+import logo from "../../assets/LOGO.svg";
+import "./navbar.css";
 import HoveredComponent from "./HoveredComponent/HoveredComponent";
 
 function Navbar() {
@@ -40,9 +40,21 @@ function Navbar() {
         </div>
         <nav ref={navRef}>
           <div className="nav-container">
-            <div className="nav-items">
-              <Link className="nav-item" to="/" onClick={() => setLoader(false)}>Home</Link>
-              <Link className="nav-item" to="/cars" onClick={() => setLoader(false)}>Cars</Link>
+            <div className="nav-items" onClick={showNavbar}>
+              <Link
+                className="nav-item"
+                to="/"
+                onClick={() => setLoader(false)}
+              >
+                Home
+              </Link>
+              <Link
+                className="nav-item"
+                to="/cars"
+                onClick={() => setLoader(false)}
+              >
+                Cars
+              </Link>
               <div
                 className="nav-item"
                 onMouseEnter={handleMouseEnter}
@@ -51,17 +63,43 @@ function Navbar() {
                 <Link to="/brand">Brand</Link>
                 {isHovered && <HoveredComponent />}
               </div>
-              <Link className="nav-item" to="/services" onClick={() => setLoader(false)}>Services</Link>
-              <Link className="nav-item" to="/aboutus" onClick={() => setLoader(false)}>About</Link>
-              <Link className="nav-item" to="/contact" onClick={() => setLoader(false)}>Contact</Link>
-              <Link className="nav-item" to="/blog" onClick={() => setLoader(false)}>Blog</Link>
+              <Link
+                className="nav-item"
+                to="/services"
+                onClick={() => setLoader(false)}
+              >
+                Services
+              </Link>
+              <Link
+                className="nav-item"
+                to="/aboutus"
+                onClick={() => setLoader(false)}
+              >
+                About
+              </Link>
+              <Link
+                className="nav-item"
+                to="/contact"
+                onClick={() => setLoader(false)}
+              >
+                Contact
+              </Link>
+              <Link
+                className="nav-item"
+                to="/blog"
+                onClick={() => setLoader(false)}
+              >
+                Blog
+              </Link>
             </div>
+            <a className="nav-tel" href="tel:+971558462124">
+              +971 (55) 846 21 24
+            </a>
           </div>
-          <a className="nav-tel" href="tel:+971558462124">+971 (55) 846 21 24</a>
+          <button className="nav-btn nav-close-btn" onClick={showNavbar}>
+            <FaTimes />
+          </button>
         </nav>
-        <button className="nav-btn nav-close-btn" onClick={showNavbar}>
-          <FaTimes />
-        </button>
       </div>
       <button className="nav-btn" onClick={showNavbar}>
         <FaBars />
