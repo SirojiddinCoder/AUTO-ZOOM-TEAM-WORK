@@ -1,5 +1,5 @@
-import React from 'react';
-import { Route, Routes, useParams } from 'react-router-dom';
+
+import { Route, Routes} from 'react-router-dom';
 import Home from './Pages/Home/Home';
 import Cars from './Pages/Cars/Cars';
 import Brand from './Pages/Brand/Brand';
