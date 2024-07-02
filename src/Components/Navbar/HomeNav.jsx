@@ -1,8 +1,17 @@
 import React from 'react'
 import './Home.css'
 import SwiperC from './SwiperC'
+import { useTranslation } from 'react-i18next';
 
 const HomeNav = () => {
+
+  const { t, i18n } = useTranslation();
+
+  const handleChange = (selectedLanguage) => {
+    i18n.changeLanguage(selectedLanguage);
+  };
+  handleChange
+  
   return (
     <div className='Home'>
         <div className="container">
@@ -10,19 +19,19 @@ const HomeNav = () => {
        <div className="homeNav">
        <div className="title">
         <h1 className='home_title'>
-          TOP LUXURY CAR <br />
+          {t("TOP LUXURY CAR")} <br />
          
-         RENTAL DUBAI
+         {t("RENTAL DUBAI")}
          </h1>
         </div>
         <div>
         <p className='home_text'>
-         Best sports car & supercar rental Dubai, Exclusive offers on luxury car rental <br />
-          Dubai Cheap price
+         {t("Best sports car & supercar rental Dubai, Exclusive offers on luxury car rental")} <br />
+          {t("Dubai Cheap price")}
          </p>
         </div>
        <div>
-          <a className='homeNav_link' href="#">RENT A CAR DUBAI CATALOG</a>
+          <a className='homeNav_link' href="#">{t("RENT A CAR DUBAI CATALOG")}</a>
        </div>
        </div>
       

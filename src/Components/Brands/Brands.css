@@ -4,6 +4,7 @@
     height: 830px;
     background-color: #1E1F27;
     padding-top: 50px;
+    overflow: hidden;
 }
 
 .container {
@@ -53,6 +54,7 @@
     flex-direction: column;
     box-shadow: 0px 0px 2px 1px #4d4c4c;
     width: 280px !important;
+    flex-wrap: wrap;
 }
 
 .swiper-slidebrand::after {
