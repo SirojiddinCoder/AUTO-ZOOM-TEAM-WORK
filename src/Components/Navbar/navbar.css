@@ -213,10 +213,10 @@ nav {
   }
   .container {
     padding: 20px;
+    position: relative;
   }
   .search {
     background: transparent;
-    width: 100%;
   }
   .search__input2 {
     display: none;
