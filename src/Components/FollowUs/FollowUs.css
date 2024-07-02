@@ -59,6 +59,7 @@
 
 .follow__bottom {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     gap: 50px;
     margin-top: 30px;

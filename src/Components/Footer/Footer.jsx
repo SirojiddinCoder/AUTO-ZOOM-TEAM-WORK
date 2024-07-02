@@ -26,6 +26,14 @@ export const Footer = ({setCars}) => {
     console.log(res);
     setCars(res?.data?.filter(item=> item?.category?.id === category))
   };
+  
+  const ScrollToTop = async() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <footer className="footer">
       <div className="footer__items">
@@ -51,10 +59,10 @@ export const Footer = ({setCars}) => {
               })}
             </div>
             <div className="footer__item">
-              <Link className="footer__item-title">Blog</Link>
-              <Link className="footer__item-title">Services</Link>
+              <Link className="footer__item-title" to={"/blog"} onClick={ScrollToTop}>Blog</Link>
+              <Link className="footer__item-title" to={"/services"}  onClick={ScrollToTop}>Services</Link>
               <div>
-                <Link className="footer__item-title">Contacts</Link>
+                <Link className="footer__item-title" to={"/contact"}  onClick={ScrollToTop}>Contacts</Link>
                 <p className="footer__subtitle">
                   Elite 3 Sports City, Dubai 26W8 24J, United Arab Emirates
                 </p>
@@ -64,7 +72,8 @@ export const Footer = ({setCars}) => {
             </div>
             <div className="footer__item">
               <div className="footer__right-end">
-                <Link className="footer__item-title">About Us</Link>
+    <Footer/>
+                <Link className="footer__item-title" to={"/aboutus"} onClick={ScrollToTop}>About Us</Link>
                 <Link className="footer__subtitle">Our Team</Link>
                 <Link className="footer__subtitle">FAQ</Link>
               </div>
