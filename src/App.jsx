@@ -6,7 +6,6 @@ import React, { useState } from 'react';
 
 import Home from './Pages/Home/Home';
 import Cars from './Pages/Cars/Cars';
-// import Brand from './Pages/Brand/Brand';
 import { Contact } from './Pages/Contact/Contact';
 import Blog from './Pages/Blog/Blog';
 import './App.css';
@@ -39,7 +38,6 @@ function App() {
           <Route path="/" element={<Home setCars={setCars}/>} />
           <Route path="/cars" element={<Cars setCars={setCars} cars={cars}/>} />
           <Route path="/cars/:id" element={<Cars setCars={setCars} cars={cars}/>} />
-            {/* <Route path="/brand" element={<Brand />} /> */}
             <Route path="/services" element={<Services />} />
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/contact" element={<Contact />} />
