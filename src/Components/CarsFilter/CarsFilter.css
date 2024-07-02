@@ -36,6 +36,7 @@ a {
   color: white;
   font-size: 20px;
   cursor: pointer;
+  z-index: 1200;
 }
 
 .settings__icon {
@@ -66,6 +67,11 @@ a {
 .cars__sidebar-filter select {
   padding: 15px;
   border-radius: 10px;
+  color: black;
+}
+
+.cars__sidebar-filter option {
+  color: black;
 }
 
 .cars__sidebar-filter div {
@@ -122,6 +128,7 @@ a {
 }
 
 .cars__card {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -135,6 +142,14 @@ a {
     hsla(200, 1%, 59%, 0.152)
   );
   cursor: pointer;
+}
+
+.cars__link {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  top: 0;
+  left: 0;
 }
 
 .cars__card img {
@@ -179,6 +194,7 @@ a {
   font-size: 18px;
   text-decoration: none;
   white-space: nowrap;
+  color: white;
 }
 
 .whatsapp {
@@ -206,7 +222,8 @@ a {
     background: #272933;
     padding: 80px 20px;
     color: white;
-    /* min-width: 400px; */
+    min-width: 200px;
+    z-index: 12;
   }
   .cars__sidebar {
     display: none;
