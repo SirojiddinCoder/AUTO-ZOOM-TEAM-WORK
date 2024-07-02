@@ -51,7 +51,8 @@ export const CarsComponent = () => {
     };
 
     return (
-        <div className={styles.carsContainer}>
+        <div className={styles.big_contaner}>
+<div className={styles.carsContainer}>
             {Object.keys(groupedCars).map((categoryId) => (
                 <div key={categoryId} className={styles.budget}>
                     <div className={styles.top}>
@@ -106,6 +107,7 @@ export const CarsComponent = () => {
                     </Swiper>
                 </div>
             ))}
+        </div>
         </div>
     );
 };

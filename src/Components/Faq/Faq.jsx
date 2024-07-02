@@ -26,9 +26,11 @@ const items = [
 
 export const Faq = () => {
     return (
-        <div className={styles.faq_container}>
+        <div className={styles.big_container}>
+            <div className={styles.faq_container}>
             <h2 className={styles.title}>FAQ</h2>
             <Accordion items={items} />
+        </div>
         </div>
     )
 }

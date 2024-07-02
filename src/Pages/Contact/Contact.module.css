@@ -1,8 +1,13 @@
+.big_container {
+    width: 100%;
+    background-color: #1e1f27;
+}
 .link_to_home, .link_to_home > span {
     color: #fff9;
     font-size: 14px;
 }
 .contact_container {
+    margin: 0 auto;
     max-width: 1400px;
     background-color: #1e1f27;
     padding: 80px 50px;
@@ -44,4 +49,10 @@
 }
 .map {
     border-radius: 15px;
+}
+
+@media(max-width:650px) {
+    .contact_container {
+        padding: 80px 17px;
+    }
 }

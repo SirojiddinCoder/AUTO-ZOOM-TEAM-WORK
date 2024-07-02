@@ -1,8 +1,13 @@
+.big_container {
+    width: 100%;
+    background-color: #1e1f27;
+}
 .link_to_home, .link_to_home > span {
     color: #fff9;
     font-size: 14px;
 }
 .blog_info_container {
+    margin: 0 auto;
     max-width: 1400px;
     background-color: #1e1f27;
     padding: 30px 80px;
@@ -27,4 +32,10 @@
     object-position: bottom;
     padding-bottom: 30px;
     width: 100%;
+}
+@media(max-width:650px) {
+    .blog_info_container {
+        padding: 30px 25px;
+    }
+
 }
