@@ -6,11 +6,14 @@ import EN from '../../assets/eng.svg';
 import logo from '../../assets/LOGO.svg';
 import './navbar.css';
 import HoveredComponent from "./HoveredComponent/HoveredComponent";
+import { useTranslation } from "react-i18next";
 
 function Navbar() {
   const navRef = useRef();
   const [isHovered, setIsHovered] = useState(false);
   const [loader, setLoader] = useState(false);
+
+  
 
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
@@ -23,13 +26,18 @@ function Navbar() {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
+  const { t, i18n } = useTranslation();
+
+  const handleChange = (selectedLanguage) => {
+    i18n.changeLanguage(selectedLanguage);
+  };
 
   return (
     <header>
       <div className="container">
         <div className="flags">
-          <img className="flag1" src={RU} alt="Russian Flag" />
-          <img className="flag1" src={EN} alt="English Flag" />
+          <img onClick={() => handleChange('ru')} className="flag1" src={RU} alt="Russian Flag" />
+          <img onClick={() => handleChange('ru')} className="flag1" src={EN} alt="English Flag" />
         </div>
         <div className="search">
           <FaSearch className="search-icon" />

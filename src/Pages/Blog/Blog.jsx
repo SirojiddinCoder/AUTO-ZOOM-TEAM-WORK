@@ -7,6 +7,10 @@ import { IoMdArrowDroprightCircle } from "react-icons/io";
 import Footer from "../../Components/Footer/Footer"
 
 const Blog = () => {
+
+  const scrolltoTop = () => {
+    window.scrollTo(0, 0)
+  }
   return (
     <>
     <div className={styles.big_container}>
@@ -26,7 +30,7 @@ const Blog = () => {
             <p className={styles.text_right}>One of the main reasons to hire a car in Dubai is the quality of the UAE roads. According to the World Economic Forum, the Emirates belong to the top seven countries with the most exemplary road infrastructure.</p>
             <div className={styles.display}>
             <p className={styles.date}>25 Seb 2022</p>
-            <Link to="/blog_info1"><IoMdArrowDroprightCircle className={styles.icon}/></Link>
+            <Link onClick={scrolltoTop} to="/blog_info1"><IoMdArrowDroprightCircle className={styles.icon}/></Link>
           </div>
           </div>
         </div>
@@ -39,7 +43,7 @@ const Blog = () => {
             <p className={styles.text_right}>There are so many wonderful things to do in Dubai, but when you rent a car your opportunities are nearly doubled. The number of places you will die to go to and make memorable pictures is such that it makes you impossible to resist to hire a mode of transportation, if not for a day or two, then at least for a couple of hours. And, while doing so, who could prove against the weakness of taking a photo of themselves inside or near the car they’ve rented?</p>
             <div className={styles.display}>
             <p className={styles.date}>11 Feb 2022</p>
-            <Link to="/blog_info2"><IoMdArrowDroprightCircle className={styles.icon}/></Link>
+            <Link onClick={scrolltoTop} to="/blog_info2"><IoMdArrowDroprightCircle className={styles.icon}/></Link>
           </div>
           </div>
         </div>
@@ -52,7 +56,7 @@ const Blog = () => {
             <p className={styles.text_right}>Summer is more than just a beach and a body, and Autozoom Luxury Car Rental is more than just a regular car hire business. We're your one-stop four-wheel solution to making the most of your time in Dubai.</p>
             <div className={styles.display}>
             <p className={styles.date}>31 Jul 2022</p>
-            <Link to="/blog_info3"><IoMdArrowDroprightCircle className={styles.icon}/></Link>
+            <Link onClick={scrolltoTop} to="/blog_info3"><IoMdArrowDroprightCircle className={styles.icon}/></Link>
           </div>
           </div>
         </div>

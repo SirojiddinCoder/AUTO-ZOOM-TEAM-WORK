@@ -9,7 +9,7 @@
     background-color: #1e1f27; 
     color: #FFF;
 }
-.link_to_home {
+.link_to_home, .link_to_home span {
     color: #fff9;
     font-size: 14px;
 }

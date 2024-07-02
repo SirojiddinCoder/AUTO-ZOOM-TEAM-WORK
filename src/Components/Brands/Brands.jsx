@@ -92,7 +92,7 @@ const Brands = () => {
                       alt={brand.title} 
                       onError={(e) => {
                         e.target.onerror = null; 
-                        e.target.src = 'https://via.placeholder.com/150'; // Fallback image
+                        e.target.src = 'https://via.placeholder.com/150'; 
                       }}
                     />
                        <h5>{brand.title}</h5>
