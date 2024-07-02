@@ -33,3 +33,19 @@ export const getCategories = async() => {
         console.log(error);
     }
 }
+export const getLocations = async() => {
+    try {
+        const res = await axios.get(`${base_url}/locations`)
+        return res?.data
+    } catch (error) {
+        console.log(error);
+    }
+}
+export const getCities = async() => {
+    try {
+        const res = await axios.get(`${base_url}/cities`)
+        return res?.data
+    } catch (error) {
+        console.log(error);
+    }
+}

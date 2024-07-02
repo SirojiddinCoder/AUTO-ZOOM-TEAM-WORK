@@ -5,6 +5,7 @@ import Footer from "../../../Components/Footer/Footer"
 export const BlogInfo2 = () => {
   return (
     <>
+    <div className={styles.big_container}>
     <div className={styles.blog_info_container}>
         <a href="/" className={styles.link_to_home}>
             Luxury Cars for Rent in Dubai /
@@ -16,6 +17,7 @@ export const BlogInfo2 = () => {
         <p className={`${styles.text} ${styles.city_name}`}>Palm Jumeriah</p>
         <img src={img} alt="car_photo" className={styles.img}/>
         <p className={styles.text}>The Palm Jumeirah is a hand-made archipelago built with the use of land reclamation. Designed to look like a branchy palm tree, it is a well-recognized example of modern urban planning and architectural excellence. No wonder that Palm Jumeirah attracts tons of people who are eager to capture its fashionable background. The place becomes especially desirable if you have, if only on a temporary basis, a car that you’ve always dreamed of. Palm Jumeirah is a truly number one location that offers plenty of stunning views that cannot be covered in this short article. Just come, and you will see for yourself that the place gives thousands of great opportunities to capture the car and yourself against the background of striking architecture mixed with blue and green areas. Shooting here will fill your pictures with a unique atmosphere of sea space skillfully blended with amazing structures.</p>
+    </div>
     </div>
     <Footer/>
 </>

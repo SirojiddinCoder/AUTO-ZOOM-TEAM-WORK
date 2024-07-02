@@ -7,18 +7,19 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
-
-const CarsFilter = ({cars, setCars}) => {
+const CarsFilter = ({ cars, setCars }) => {
   const [brands, setBrands] = useState([]);
   const [models, setModels] = useState([]);
   const [categories, setCategories] = useState([]);
-  const {id} = useParams()
+  const { id } = useParams();
+  
   useEffect(() => { 
     getData();
     if (cars?.length === 0) {
-      setNotFound(true)
+      setNotFound(true);
     }
   }, []);
+  
   const getData = async () => {
     const cars = await getCars();
     const brands = await getBrands();
@@ -28,11 +29,8 @@ const CarsFilter = ({cars, setCars}) => {
     setModels(models?.data);
     const categories = await getCategories();
     setCategories(categories?.data);
-    const IDFilter = cars?.data.filter(item=> item?.category?.id === id)
-    if (id) {
-      setCars(IDFilter)
-    }
   };
+
   const [offers, setOffers] = useState([
     { id: 1, text: "3 DAYS RENT = 5000 AED🔥 ALL INCLUSIVE", value: "three_days_price=5000" },
     { id: 2, text: "3 DAYS RENT = 1300 AED🔥 ()", value: "three_days_price=1300" },
@@ -41,19 +39,24 @@ const CarsFilter = ({cars, setCars}) => {
     { id: 5, text: "5000 AED🔥 ALL INCLUSIVE", value: "three_days_price=5000" },
     { id: 6, text: "2 DAYS RENT = 5000 AED🔥 ALL INCLUSIVE", value: "all_inclusive=0" },
     { id: 7, text: "Rent Ferrari Dubai", value: "rent_ferrari=1800" },
-    { id: 8, text: "4 DAYS RENT = 5000 AED🔥 ALL INCLUSIVE", value: "three_days_price=true" },
+    { id: 8, text: "4 DAYS RENT = 5000 AED🔥 ALL INCLUSIVE", value: "four_days_price=5000" },
   ]);
+
   const [activeModel, setActiveModel] = useState("");
-  const [notFound, setNotFound] = useState(false)
-  
+  const [notFound, setNotFound] = useState(false);
+  const [sidebarVisible, setSideBarVisible] = useState(false);
+  const [selectedOptions, setSelectedOptions] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState([]);
+  const [selectedBrands, setSelectedBrands] = useState([]);
+
   const handleModels = (e) => {
     setActiveModel(e.target.value);
   };
+
   const PreventDefault = (e) => {
-    e.preventDefault()
-  }
-  const [sidebarVisible, setSideBarVisible] = useState(false);
-  const [selectedOptions, setSelectedOptions] = useState([]);
+    e.preventDefault();
+  };
+
   const handleCheckboxChange = (event) => {
     const { value, checked } = event.target;
     if (checked) {
@@ -62,8 +65,9 @@ const CarsFilter = ({cars, setCars}) => {
       setSelectedOptions(selectedOptions.filter((option) => option !== value));
     }
   };
+
   const queryParams = selectedOptions.map(option => option).join('&');
-  const [selectedCategory, setSelectedCategory] = useState([]);
+
   const handleCategoryChange = (event) => {
     const { value, checked } = event.target;
     if (checked) {
@@ -72,8 +76,9 @@ const CarsFilter = ({cars, setCars}) => {
       setSelectedCategory(selectedCategory.filter((option) => option !== value));
     }
   };
+
   const queryCategory = selectedCategory.map(option => `category_id=${option}`).join('&');
-  const [selectedBrands, setSelectedBrands] = useState([]);
+
   const handleBrandsChange = (event) => {
     const { value, checked } = event.target;
     if (checked) {
@@ -82,24 +87,27 @@ const CarsFilter = ({cars, setCars}) => {
       setSelectedBrands(selectedBrands.filter((option) => option !== value));
     }
   };
+
   const queryBrands = selectedBrands.map(option => `brands_id=${option}`).join('&');
-  const navigate = useNavigate()
+
+  const navigate = useNavigate();
+
   const applyFilter = () => {
-    axios.get(`${base_url}/cars?${queryParams}&${queryBrands}&${queryCategory}&model_id=${activeModel}`).then(res=> {
-      setCars(res?.data?.data)
+    axios.get(`${base_url}/cars?${queryParams}&${queryBrands}&${queryCategory}&model_id=${activeModel}`).then(res => {
+      setCars(res?.data?.data);
       console.log(res?.data?.data);
-      if (res?.data?.data === 0) {
+      if (res?.data?.data.length === 0) {
         setNotFound(true)
       }
-    })
-    navigate("/cars")
+    });
+    navigate("/cars");
   };
-  const resetAll = () => {
-    localStorage.removeItem("brands")
-    getData()
-    navigate("/cars")
-  }
 
+  const resetAll = () => {
+    localStorage.removeItem("brands");
+    getData();
+    navigate("/cars");
+  };
   return (
     <div className="cars__filter">
       <button
@@ -122,7 +130,7 @@ const CarsFilter = ({cars, setCars}) => {
             {offers?.map((item, index) => {
               return (
                 <div key={index}>
-                  <input type="checkbox" id={item?.id} value={item?.value} onChange={handleCheckboxChange}/>
+                  <input type="checkbox" id={item?.id} value={item?.value} onChange={handleCheckboxChange} />
                   <label htmlFor={item?.id}>{item?.text}</label>
                 </div>
               );
@@ -133,7 +141,7 @@ const CarsFilter = ({cars, setCars}) => {
             {categories?.map((item, index) => {
               return (
                 <div key={index}>
-                  <input type="checkbox" id={item?.id} value={item?.id} onChange={handleCategoryChange}/>
+                  <input type="checkbox" id={item?.id} value={item?.id} onChange={handleCategoryChange} />
                   <label htmlFor={item?.id}>{item?.name_en}</label>
                 </div>
               );
@@ -159,7 +167,7 @@ const CarsFilter = ({cars, setCars}) => {
             <h2>Models</h2>
             <select onChange={handleModels}>
               <option value="" hidden>Select Model</option>
-              {models?.filter(item=> selectedBrands?.includes(item?.brand_id))?.map((item, index) => {
+              {models?.filter(item => selectedBrands?.includes(item?.brand_id))?.map((item, index) => {
                 return (
                   <option value={item?.id} key={index}>
                     {item?.name}

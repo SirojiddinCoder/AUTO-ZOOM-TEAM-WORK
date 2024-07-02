@@ -4,11 +4,10 @@ import HomeNav from '../../Components/Navbar/HomeNav';
 import Brands from '../../Components/Brands/Brands';
 import { Services } from '../Services/Services';
 import { Faq } from '../../Components/Faq/Faq';
-// import { Contact } from '../Contact/Contact';
-// import { HoveredComponent } from '../../Components/Navbar/HoveredComponent/HoveredComponent';
+import FollowUs from '../../Components/FollowUs/FollowUs';
 
 
-export const Home = () => {
+export const Home = ({setCars}) => {
   return (
     <div>
       <HomeNav />
@@ -16,7 +15,7 @@ export const Home = () => {
         <CarsComponent/>
         <Services/>
         <Faq/>
-        {/* <HoveredComponent/> */}
+        <FollowUs setCars={setCars}/>
     </div>
   )
 }
