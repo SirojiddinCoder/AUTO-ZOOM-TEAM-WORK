@@ -118,9 +118,9 @@ nav {
   .container {
     padding: 30px 6%;
   }
-  .search {
+  /* .search {
     overflow: hidden;
-  }
+  } */
   
   header .responsive_nav {
     transform: translateY(100vh);
@@ -174,7 +174,7 @@ nav {
   position: relative;
 }
 
-.search input {
+.search__input2 {
   padding: 0.5rem 0.5rem 0.5rem 2.5rem; 
   border: none;
   border-radius: 4px;
@@ -189,6 +189,7 @@ nav {
   width: 20px;
   height: 20px;
   fill: #888;
+  cursor: pointer;
 }
 
 .logo img {
@@ -212,5 +213,27 @@ nav {
   }
   .container {
     padding: 20px;
+  }
+  .search {
+    background: transparent;
+    width: 100%;
+  }
+  .search__input2 {
+    display: none;
+    transition: .3s all;
+  }
+  .search__input {
+    padding: 10px 16px;
+    position: fixed;
+    width: 80%;
+    top: 120px;
+    left: 10%;
+    z-index: 22;
+    box-shadow: 0 0 10px #000;
+    background-image: linear-gradient(90deg, #3e3d3d, #111219);
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    transition: .3s all;
   }
 }
