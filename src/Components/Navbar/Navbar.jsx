@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { FaBars, FaSearch, FaTimes } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import RU from "../../assets/RU1.jpg";
 import EN from "../../assets/eng.svg";
 import logo from "../../assets/LOGO.svg";
@@ -31,18 +31,24 @@ function Navbar() {
   const handleChange = (selectedLanguage) => {
     i18n.changeLanguage(selectedLanguage);
   };
-
+  const navigate = useNavigate()
+const [searchActive, setSearchActive] = useState(false)
+const handleSearch = (e) => {
+ e.preventDefault()
+ navigate(`/cars/${e.target[0].value}`)
+ setSearchActive(!searchActive)
+}
   return (
     <header>
       <div className="container">
         <div className="flags">
           <img onClick={() => handleChange('ru')} className="flag1" src={RU} alt="Russian Flag" />
-          <img onClick={() => handleChange('ru')} className="flag1" src={EN} alt="English Flag" />
+          <img onClick={() => handleChange('en')} className="flag1" src={EN} alt="English Flag" />
         </div>
-        <div className="search">
-          <FaSearch className="search-icon" />
-          <input type="text" placeholder="Search..." />
-        </div>
+        <form className="search" onSubmit={handleSearch}>
+          <FaSearch className="search-icon" onClick={()=>setSearchActive(!searchActive)}/>
+          <input type="text" placeholder="Search..." className={searchActive ? "search__input" : "search__input2"}/>
+        </form>
         <div className="logo">
           <img src={logo} alt="Logo" />
         </div>
