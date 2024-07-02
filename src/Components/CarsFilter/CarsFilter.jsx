@@ -24,7 +24,12 @@ const CarsFilter = ({ cars, setCars }) => {
     const cars = await getCars();
     const brands = await getBrands();
     setBrands(brands?.data);
-    setCars(cars?.data);
+    if (!id) {
+      setCars(cars?.data);
+    }
+    if (cars?.data?.length === 0) {
+      setNotFound(true)
+    }
     const models = await getModels();
     setModels(models?.data);
     const categories = await getCategories();

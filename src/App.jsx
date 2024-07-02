@@ -30,7 +30,7 @@ function App() {
     <div>
       <>
         {loader ? "" : <Loader />}
-        <Navbar setLoader={setLoader} />
+        <Navbar setLoader={setLoader} setCars={setCars}/>
         <Routes>
           <Route path="/" element={<Home setCars={setCars}/>} />
           <Route path="/cars" element={<Cars setCars={setCars} cars={cars}/>} />
