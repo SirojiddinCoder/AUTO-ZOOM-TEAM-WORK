@@ -31,17 +31,17 @@ function Navbar() {
   const handleChange = (selectedLanguage) => {
     i18n.changeLanguage(selectedLanguage);
   };
-
+const [searchActive, setSearchActive] = useState(false)
   return (
     <header>
       <div className="container">
         <div className="flags">
           <img onClick={() => handleChange('ru')} className="flag1" src={RU} alt="Russian Flag" />
-          <img onClick={() => handleChange('ru')} className="flag1" src={EN} alt="English Flag" />
+          <img onClick={() => handleChange('en')} className="flag1" src={EN} alt="English Flag" />
         </div>
         <div className="search">
-          <FaSearch className="search-icon" />
-          <input type="text" placeholder="Search..." />
+          <FaSearch className="search-icon" onClick={()=>setSearchActive(!searchActive)}/>
+          <input type="text" placeholder="Search..." className={searchActive ? "search__input" : "search__input2"}/>
         </div>
         <div className="logo">
           <img src={logo} alt="Logo" />
