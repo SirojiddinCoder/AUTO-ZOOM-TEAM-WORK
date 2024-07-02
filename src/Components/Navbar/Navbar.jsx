@@ -37,7 +37,7 @@ function Navbar() {
       <div className="container">
         <div className="flags">
           <img onClick={() => handleChange('ru')} className="flag1" src={RU} alt="Russian Flag" />
-          <img onClick={() => handleChange('ru')} className="flag1" src={EN} alt="English Flag" />
+          <img onClick={() => handleChange('en')} className="flag1" src={EN} alt="English Flag" />
         </div>
         <div className="search">
           <FaSearch className="search-icon" />

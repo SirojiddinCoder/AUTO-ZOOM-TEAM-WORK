@@ -1,6 +1,3 @@
-
-
-
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React, { useState } from 'react';
 
@@ -21,14 +18,9 @@ import Footer from './Components/Footer/Footer';
 import { BlogInfo1 } from './Pages/Blog/Blog_info1/BlogInfo1';
 import { BlogInfo2 } from './Pages/Blog/Blog_Info2/BlogInfo2';
 import { BlogInfo3 } from './Pages/Blog/Blog_Info3/BlogInfo3';
-<<<<<<< HEAD
-=======
 
 import CarsFilter from './Components/CarsFilter/CarsFilter';
 import HoveredComponent from './Components/Navbar/HoveredComponent/HoveredComponent';
-
-
->>>>>>> 258a981463ac7990da1506e998f37bf84bebedde
 
 function App() {
   const [loader, setLoader] = useState(false);
@@ -36,33 +28,17 @@ function App() {
     setLoader(true);
   }, 2000);
 
-  const [cars, setCars] = useState([])
+  const [cars, setCars] = useState([]);
+  
   return (
     <div>
-<<<<<<< HEAD
-=======
-
       {loader ? (
         <>
           <Navbar setLoader={setLoader} />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/cars" element={<Cars />} />
-            <Route path="/cars_filter/:id" element={<CarsFilter />} />
-            {/* <Route path="/cars_filter/:id" element={<HoveredComponent />} /> */}
-
->>>>>>> 258a981463ac7990da1506e998f37bf84bebedde
-      <>
-        {loader ? "" : <Loader />}
-        <Navbar setLoader={setLoader} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/cars" element={<Cars setCars={setCars} cars={cars}/>} />
-          <Route path="/cars/:id" element={<Cars setCars={setCars} cars={cars}/>} />
-<<<<<<< HEAD
-=======
-
->>>>>>> 258a981463ac7990da1506e998f37bf84bebedde
+            <Route path="/cars" element={<Cars setCars={setCars} cars={cars} />} />
+            <Route path="/cars_filter/:id" element={<CarsFilter setCars={setCars} cars={cars} />} />
             <Route path="/brand" element={<Brand />} />
             <Route path="/services" element={<Services />} />
             <Route path="/aboutus" element={<AboutUs />} />
@@ -75,9 +51,12 @@ function App() {
             <Route path="/blog_info1" element={<BlogInfo1 />} />
             <Route path="/blog_info2" element={<BlogInfo2 />} />
             <Route path="/blog_info3" element={<BlogInfo3 />} />
-        </Routes>
-        <Footer setCars={setCars}/>
-      </>
+          </Routes>
+          <Footer setCars={setCars} />
+        </>
+      ) : (
+        <Loader />
+      )}
     </div>
   );
 }

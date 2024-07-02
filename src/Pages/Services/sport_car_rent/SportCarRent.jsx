@@ -13,6 +13,7 @@ export const SportCarRent = () => {
       i18n.changeLanguage(selectedLanguage);
     };
     handleChange
+    
     return (
         <>
         <div className={styles.SportCarRentContainer}>
@@ -31,62 +32,62 @@ export const SportCarRent = () => {
                             <span className={styles.span_box}>1000</span>
                             <span>{t("one person")}</span>
                         </div>
-                        <p className={styles.sport_car_text}>Dune buggies in Dubai Book your ride on the most exciting adventure activity to hit the desert and later pamper your self  to a traditional Arabian <br />hospitality.</p>
-                        <h3 className={styles.package_inclusions}>Package Inclusions:</h3>
+                        <p className={styles.sport_car_text}> {t("Dune buggies in Dubai Book your ride on the most exciting adventure activity to hit the desert and later pamper your self to a traditional Arabian")}<br />{t("hospitality.")}</p>
+                        <h3 className={styles.package_inclusions}>{t("Package Inclusions:")}</h3>
                         <ul>
-                            <li><TiInputCheckedOutline className={styles.icon_check}/>Dune Buggy riding 1.5 hours</li>
-                            <li><TiInputCheckedOutline className={styles.icon_check}/>Cuadro 15 min</li>
-                            <li><TiInputCheckedOutline className={styles.icon_check}/>Premium Transfer to camp</li>
-                            <li><TiInputCheckedOutline className={styles.icon_check}/>Falcone shoting</li>
-                            <li><TiInputCheckedOutline className={styles.icon_check}/>Camel</li>
-                            <li><TiInputCheckedOutline className={styles.icon_check}/>VIP room</li>
-                            <li><TiInputCheckedOutline className={styles.icon_check}/>Fruits, Drinks, BBQ</li>
+                            <li><TiInputCheckedOutline className={styles.icon_check}/>{t("Dune Buggy riding 1.5 hours")}</li>
+                            <li><TiInputCheckedOutline className={styles.icon_check}/>{t("Cuadro 15 min")}</li>
+                            <li><TiInputCheckedOutline className={styles.icon_check}/>{t("Premium Transfer to camp")}</li>
+                            <li><TiInputCheckedOutline className={styles.icon_check}/>{t("Falcone shoting")}</li>
+                            <li><TiInputCheckedOutline className={styles.icon_check}/>{t("Camel")}</li>
+                            <li><TiInputCheckedOutline className={styles.icon_check}/>{t("VIP room")}</li>
+                            <li><TiInputCheckedOutline className={styles.icon_check}/>{t("Fruits, Drinks, BBQ")}</li>
                         </ul>
-                        <button className={styles.btn_booking}>book now</button>
+                        <button className={styles.btn_booking}>{t("book now")}</button>
                     </div>
                 </div>
                 <div className={styles.box}>
                     <img src={img} alt="sports car" className={styles.img}/>
                     <div className={styles.text_box}>
-                        <h3 className={styles.title_text_box}>basic</h3>
+                        <h3 className={styles.title_text_box}>{t("basic")}</h3>
                         <div className={styles.sport_car_price}>
                             <span className={styles.span_box}>2000</span>
-                            <span>two person</span>
+                            <span>{t("two person")}</span>
                         </div>
-                        <p className={styles.sport_car_text}>1asasa2334343434Dune buggies in Dubai Book your ride on the most exciting adventure activity to hit the desert and later pamper your self to a traditional Arabian hospitality.</p>
-                        <h3 className={styles.package_inclusions}>Package Inclusions:</h3>
+                        <p className={styles.sport_car_text}>{t("Unleash your adventurous spirit with a thrilling dune buggy ride in the vast, golden desert, followed by an indulgent taste of authentic Arabian hospitality.")}</p>
+                        <h3 className={styles.package_inclusions}>{t("Package Inclusions:")}</h3>
                         <ul>
-                            <li><TiInputCheckedOutline className={styles.icon_check}/>Premium Transfer to camp</li>
-                            <li><TiInputCheckedOutline className={styles.icon_check}/>Dune Buggy riding 1.5 hours</li>
-                            <li><TiInputCheckedOutline className={styles.icon_check}/>Cuadro 15 min</li>
-                            <li><TiInputCheckedOutline className={styles.icon_check}/>Falcone shoting</li>
-                            <li><TiInputCheckedOutline className={styles.icon_check}/>Camel</li>
-                            <li><TiInputCheckedOutline className={styles.icon_check}/>VIP room</li>
-                            <li><TiInputCheckedOutline className={styles.icon_check}/>Fruits, Drinks, BBQ</li>
+                            <li><TiInputCheckedOutline className={styles.icon_check}/>{t("Premium Transfer to camp")}</li>
+                            <li><TiInputCheckedOutline className={styles.icon_check}/>{t("Dune Buggy riding 1.5 hours")}</li>
+                            <li><TiInputCheckedOutline className={styles.icon_check}/>{t("Cuadro 15 min")}</li>
+                            <li><TiInputCheckedOutline className={styles.icon_check}/>{t("Falcone shoting")}</li>
+                            <li><TiInputCheckedOutline className={styles.icon_check}/>{t("Camel")}</li>
+                            <li><TiInputCheckedOutline className={styles.icon_check}/>{t("VIP room")}</li>
+                            <li><TiInputCheckedOutline className={styles.icon_check}/>{t("Fruits, Drinks, BBQ")}</li>
                         </ul>
-                        <button className={styles.btn_booking}>book now</button>
+                        <button className={styles.btn_booking}>{t("book now")}</button>
                     </div>
                 </div>
                 <div className={styles.box}>
                     <img src={img} alt="sports car" className={styles.img}/>
                     <div className={styles.text_box}>
-                        <h3 className={styles.title_text_box}>basic</h3>
+                        <h3 className={styles.title_text_box}>{t("basic")}</h3>
                         <div className={styles.sport_car_price}>
                             <span className={styles.span_box}>3000</span>
-                            <span>two person</span>
+                            <span>{t("two person")}</span>
                         </div>
-                        <p className={styles.sport_car_text}>121212334343434Dune buggies in Dubai Book your ride on the most exciting adventure activity to hit the desert and later pamper your self to a traditional Arabian hospitality.</p>
-                        <h3 className={styles.package_inclusions}>Package Inclusions:</h3>
+                        <p className={styles.sport_car_text}>{t("Embark on an exhilarating journey across the mesmerizing dunes of Dubai, where adventure meets luxury with unforgettable experiences and traditional Arabian.")}</p>
+                        <h3 className={styles.package_inclusions}>{t("Package Inclusions:")}</h3>
                         <ul>
-                            <li><TiInputCheckedOutline className={styles.icon_check}/>Premium Transfer to camp</li>
-                            <li><TiInputCheckedOutline className={styles.icon_check}/>Dune Buggy riding 1.5 hours</li>
-                            <li><TiInputCheckedOutline className={styles.icon_check}/>Cuadro 15 min</li>
-                            <li><TiInputCheckedOutline className={styles.icon_check}/>Falcone shoting</li>
-                            <li><TiInputCheckedOutline className={styles.icon_check}/>Camel</li>
-                            <li><TiInputCheckedOutline className={styles.icon_check}/>VIP room</li>
-                            <li><TiInputCheckedOutline className={styles.icon_check}/>Fruits, Drinks, BBQ</li>
+                            <li><TiInputCheckedOutline className={styles.icon_check}/>{t("Premium Transfer to camp")}</li>
+                            <li><TiInputCheckedOutline className={styles.icon_check}/>{t("Dune Buggy riding 1.5 hours")}</li>
+                            <li><TiInputCheckedOutline className={styles.icon_check}/>{t("Cuadro 15 min")}</li>
+                            <li><TiInputCheckedOutline className={styles.icon_check}/>{t("Falcone shoting")}</li>
+                            <li><TiInputCheckedOutline className={styles.icon_check}/>{t("Camel")}</li>
+                            <li><TiInputCheckedOutline className={styles.icon_check}/>{t("VIP room")}</li>
+                            <li><TiInputCheckedOutline className={styles.icon_check}/>{t("Fruits, Drinks, BBQ")}</li>
                         </ul>
-                        <button className={styles.btn_booking}>book now</button>
+                        <button className={styles.btn_booking}>{t("book now")}</button>
                     </div>
                 </div>
             </div>
