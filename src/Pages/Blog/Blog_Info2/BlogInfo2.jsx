@@ -28,6 +28,7 @@ export const BlogInfo2 = () => {
         <p className={styles.text}>{t("The Palm Jumeirah")}</p>
     </div>
     </div>
+    <Footer/>
 </>
   )
 }
