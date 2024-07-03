@@ -43,7 +43,7 @@
           <div className="Brands-Swipper-flex">
             <h2 className="brands-title">BRANDS</h2>
             <Swiper
-              slidesPerView={2}
+              slidesPerView={3}
               grid={{
                 rows: 2,
               }}

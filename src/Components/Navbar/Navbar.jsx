@@ -7,12 +7,14 @@ import logo from "../../assets/LOGO.svg";
 import "./navbar.css";
 import HoveredComponent from "./HoveredComponent/HoveredComponent";
 import { useTranslation } from "react-i18next";
-import axios from "axios";
-import { base_url } from "../../getData/getData";
 
-function Navbar({setCars, setLoader}) {
+function Navbar() {
   const navRef = useRef();
   const [isHovered, setIsHovered] = useState(false);
+  const [loader, setLoader] = useState(false);
+
+  
+
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
   };
@@ -35,14 +37,6 @@ const handleSearch = (e) => {
  e.preventDefault()
  navigate(`/cars/${e.target[0].value}`)
  setSearchActive(!searchActive)
-//  e.target[0].value = ""
-axios.get(`${base_url}/cars?keyword=${e?.target[0]?.value}`).then(res=> {
-  console.log(res);
-  setCars(res?.data?.data)
-})
-}
-const handleSearchChange = (e) => {
-
 }
   return (
     <header>
@@ -53,11 +47,11 @@ const handleSearchChange = (e) => {
         </div>
         <form className="search" onSubmit={handleSearch}>
           <FaSearch className="search-icon" onClick={()=>setSearchActive(!searchActive)}/>
-          <input type="text" onChange={handleSearchChange} placeholder="Search..." className={searchActive ? "search__input" : "search__input2"}/>
+          <input type="text" placeholder="Search..." className={searchActive ? "search__input" : "search__input2"}/>
         </form>
-        <Link to={"/"} className="logo" onClick={()=>setLoader(false)}>
+        <div className="logo">
           <img src={logo} alt="Logo" />
-        </Link>
+        </div>
         <nav ref={navRef}>
           <div className="nav-container">
             <div className="nav-items" onClick={showNavbar}>

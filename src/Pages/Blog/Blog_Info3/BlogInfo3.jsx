@@ -20,6 +20,7 @@ export const BlogInfo3 = () => {
         <p className={styles.text}>{t("Late summer")}</p>
     </div>
     </div>
+
 </>
   )
 }

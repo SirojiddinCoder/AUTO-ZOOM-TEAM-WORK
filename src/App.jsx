@@ -17,6 +17,7 @@ import Footer from './Components/Footer/Footer';
 import { BlogInfo1 } from './Pages/Blog/Blog_info1/BlogInfo1';
 import { BlogInfo2 } from './Pages/Blog/Blog_Info2/BlogInfo2';
 import { BlogInfo3 } from './Pages/Blog/Blog_Info3/BlogInfo3';
+import { Terms } from "./Pages/Privacy/Terms";
 
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
     <div>
       <>
         {loader ? "" : <Loader />}
-        <Navbar setLoader={setLoader} setCars={setCars}/>
+        <Navbar setLoader={setLoader} />
         <Routes>
           <Route path="/" element={<Home setCars={setCars}/>} />
           <Route path="/cars" element={<Cars setCars={setCars} cars={cars}/>} />
@@ -46,6 +47,7 @@ function App() {
             <Route path="/blog_info1" element={<BlogInfo1 />} />
             <Route path="/blog_info2" element={<BlogInfo2 />} />
             <Route path="/blog_info3" element={<BlogInfo3 />} />
+            <Route path="/termsCondition" element={<Terms />} />
         </Routes>
         <Footer setCars={setCars}/>
       </>
