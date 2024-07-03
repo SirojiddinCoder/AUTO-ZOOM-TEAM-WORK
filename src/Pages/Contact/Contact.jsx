@@ -2,8 +2,10 @@ import styles from "../Contact/Contact.module.css"
 import { IoLocationOutline } from "react-icons/io5";
 import { IoCallOutline } from "react-icons/io5";
 import { IoMailOpenOutline } from "react-icons/io5";
+
 import Footer from "../../Components/Footer/Footer";
 import { useTranslation } from "react-i18next";
+
 
 
 
@@ -51,6 +53,7 @@ export const Contact = () => {
       </div>
     </div>
     </div>
+
     </>
   )
 }
