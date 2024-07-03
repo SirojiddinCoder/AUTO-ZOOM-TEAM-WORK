@@ -69,7 +69,7 @@ export const Photoshoot = () => {
                 </div>
             </div>
         </div>
-        <Footer/>
+       
    </>
   )
 }

@@ -1,8 +1,9 @@
 .SportCarRentContainer {
-    max-width: 1400px;
+    max-width: 1600px;
     padding: 50px 80px 60px;
     background-color: #1e1f27; 
     color: #FFF;
+    margin: 0 auto;
 }
 .link_to_home {
     color: #fff9;
