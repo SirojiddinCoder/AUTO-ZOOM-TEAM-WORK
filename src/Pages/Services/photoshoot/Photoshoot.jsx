@@ -15,7 +15,8 @@ export const Photoshoot = () => {
 
   return (
    <>
-   <div className={styles.SportCarRentContainer}>
+    <div className={styles.big_container}>
+    <div className={styles.SportCarRentContainer}>
             <a href="/" className={styles.link_to_home}>
                 {t("Luxury Cars for Rent in Dubai")} /
                 <span> {t("Services")} / </span>
@@ -69,6 +70,7 @@ export const Photoshoot = () => {
                 </div>
             </div>
         </div>
+    </div>
        
    </>
   )
