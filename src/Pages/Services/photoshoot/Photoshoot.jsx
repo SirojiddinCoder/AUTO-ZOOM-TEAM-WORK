@@ -1,7 +1,7 @@
 import styles from "../photoshoot/Photoshoot.module.css"
 import img from "../../../assets/SportsCarRental.jpg"
 import { TiInputCheckedOutline } from "react-icons/ti";
-import Footer from "../../../Components/Footer/Footer";
+
 import { useTranslation } from "react-i18next";
 
 export const Photoshoot = () => {
