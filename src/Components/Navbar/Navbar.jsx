@@ -33,11 +33,13 @@ function Navbar({setCars, setLoader}) {
 const [searchActive, setSearchActive] = useState(false)
 const handleSearch = (e) => {
  e.preventDefault()
- navigate(`/cars/${e.target[0].value}`)
  setSearchActive(false)
  axios.get(`${base_url}/cars?keyword=${e?.target[0]?.value}`).then(res=> {
-  console.log(res);
-  setCars(res?.data?.data)
+   console.log(res);
+   if (res?.data?.success) {
+    navigate(`/cars/${e.target[0].value}`)
+    setCars(res?.data?.data)
+  }
  })
 }
   return (
@@ -51,9 +53,9 @@ const handleSearch = (e) => {
           <FaSearch className="search-icon" onClick={()=>setSearchActive(!searchActive)}/>
           <input type="text" placeholder="Search..." className={searchActive ? "search__input" : "search__input2"}/>
         </form>
-        <div className="logo">
+        <Link to={"/"} className="logo">
           <img src={logo} alt="Logo" />
-        </div>
+        </Link>
         <nav ref={navRef}>
           <div className="nav-container">
             <div className="nav-items" onClick={showNavbar}>
