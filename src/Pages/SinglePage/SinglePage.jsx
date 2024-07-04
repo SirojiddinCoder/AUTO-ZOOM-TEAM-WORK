@@ -1,123 +1,135 @@
-  import { useEffect, useState } from "react";
-  import { useParams } from "react-router-dom";
-  import "../SinglePage/singlePage.css";
-  import { carsData } from "./mock/carsData";
-  import { FreeMode, Navigation, Thumbs } from "swiper/modules";
-  import "swiper/css";
-  import "swiper/css/free-mode";
-  import "swiper/css/navigation";
-  import "swiper/css/thumbs";
-  import { Swiper, SwiperSlide } from "swiper/react";
 
-  function SinglePage() { 
-    const [thumbsSwiper, setThumbsSwiper] = useState(null);
-    const { id } = useParams();
-    const [aboutCar, getAboutCar] = useState([]);
-    const [otherCars, setOtherCars] = useState([]);
-    const [photo, setPhoto] = useState([])
+  
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import "../SinglePage/singlePage.css";
+import { carsData } from "./mock/carsData";
+import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
+import { Swiper} from "swiper/react";
+import { useTranslation } from "react-i18next";
 
-    useEffect(() => {
-      fetch(`https://autoapi.dezinfeksiyatashkent.uz/api/cars/${id}`)
-        .then((res) => res.json())
-        .then((cars) => {
-          getAboutCar(cars.data), console.log(aboutCar);
-        });
-    }, []);
-    useEffect(() => {
-      fetch(`https://autoapi.dezinfeksiyatashkent.uz/api/cars?${id}`)
-        .then((res) => res.json())
-        .then((cars) => {
-          setOtherCars(cars.data);
-        });
-    }, []);
-    useEffect(()=>{
-        fetch(`https://autoapi.dezinfeksiyatashkent.uz/api/cars`)
-          .then((res) => res.json())
-          .then((images) => {
-            setPhoto(images.data);
-          });
-    }, [])
-    return (
-      <>
-        <div className="wrapper">
-          <div className="details-container">
-            <div className="carsDetail">
-              <h1 className="details-title">
-                {aboutCar?.brand?.title} {aboutCar?.model?.name} (
-                {aboutCar?.color})
-              </h1>
-              <div className="image-withDetails">
-                <div className="imageDetails">
-                  <div className="car-imageSlider">
-                    <Swiper
-                      style={{
-                        "--swiper-navigation-color": "#fff",
-                        "--swiper-pagination-color": "#fff",
-                      }}
-                      loop={true}
-                      spaceBetween={10}
-                      navigation={true}
-                      thumbs={{ swiper: thumbsSwiper }}
-                      modules={[FreeMode, Navigation, Thumbs]}
-                      className="mySwiper2"
-                    >
-                    </Swiper>
-                    <Swiper
-                      onSwiper={setThumbsSwiper}
-                      loop={true}
-                      spaceBetween={10}
-                      slidesPerView={4}
-                      freeMode={true}
-                      watchSlidesProgress={true}
-                      modules={[FreeMode, Navigation, Thumbs]}
-                      className="mySwiper"
-                    >
+function SinglePage() {
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const { id } = useParams();
+  const [aboutCar, setAboutCar] = useState([]);
+  const [otherCars, setOtherCars] = useState([]);
+  useEffect(() => {
+    fetch(`https://autoapi.dezinfeksiyatashkent.uz/api/cars/${id}`)
+      .then((res) => res.json())
+      .then((cars) => {
+        setAboutCar(cars.data)
+      });
+  }, []);
+  useEffect(() => {
+    fetch(`https://autoapi.dezinfeksiyatashkent.uz/api/cars?${id}`)
+      .then((res) => res.json())
+      .then((cars) => {
+        setOtherCars(cars.data);
+      });
+  }, []);
+  console.log(aboutCar);
 
-                    </Swiper>
+    const ScrollToTop = () => {
+      useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+      return null;
+    };
+    const { t, i18n } = useTranslation();
+
+    const handleChange = (selectedLanguage) => {
+      i18n.changeLanguage(selectedLanguage);
+    };
+    handleChange;
+
+  return (
+    <>
+      <div className="wrapper">
+        <ScrollToTop />
+        <div className="details-container">
+          <div className="carsDetail">
+            <h1 className="details-title">
+              {aboutCar?.brand?.title} {aboutCar?.model?.name} (
+              {aboutCar?.color})
+            </h1>
+            <div className="image-withDetails">
+              <div className="imageDetails">
+                <div className="car-imageSlider">
+                  <Swiper
+                    style={{
+                      "--swiper-navigation-color": "#fff",
+                      "--swiper-pagination-color": "#fff",
+                    }}
+                    loop={true}
+                    spaceBetween={10}
+                    navigation={true}
+                    thumbs={{ swiper: thumbsSwiper }}
+                    modules={[FreeMode, Navigation, Thumbs]}
+                    className="mySwiper2"
+                  >
+                    {/* {
+                      aboutCar.car_images.map((item, index)=>(
+                        <SwiperSlide key={index}>
+                          <img src={`https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/${item.image.src}`} alt="" />
+                        </SwiperSlide>
+                      ))
+                    }  */}
+                  </Swiper>
+                  <Swiper
+                    onSwiper={setThumbsSwiper}
+                    loop={true}
+                    spaceBetween={10}
+                    slidesPerView={4}
+                    freeMode={true}
+                    watchSlidesProgress={true}
+                    modules={[FreeMode, Navigation, Thumbs]}
+                    className="mySwiper"
+                  ></Swiper>
+                </div>
+                <div className="carouselTextWrapper">
+                  <h1 className="carouselTitle">
+                    {t("Carousel title")} {aboutCar?.brand?.title}{" "}
+                    {aboutCar?.model?.name} ({aboutCar?.color})
+                  </h1>
+                  <div className="carouselInfo">
+                    <p className="sliderInfo">{t("Slider info_first")}</p>
+                    <h3 className="sliderTitle">
+                      {aboutCar?.max_speed} KM ({t("Slider title_first")})
+                    </h3>
                   </div>
-                  <div className="carouselTextWrapper">
-                    <h1 className="carouselTitle">
-                      Good to know about {aboutCar?.brand?.title}{" "}
-                      {aboutCar?.model?.name} ({aboutCar?.color})
-                    </h1>
-                    <div className="carouselInfo">
-                      <p className="sliderInfo">Kilometrage limit per day</p>
-                      <h3 className="sliderTitle">
-                        {aboutCar?.max_speed} KM (Every extra km will be charged
-                        20 AED/km)
-                      </h3>
-                    </div>
-                    <div className="carouselInfo">
-                      <p className="sliderInfo">Car rental deposit amount</p>
-                      <h3 className="sliderTitle">
-                        The deposit is refunded within 28 days
-                      </h3>
-                    </div>
+                  <div className="carouselInfo">
+                    <p className="sliderInfo">{t("Slider info_second")}</p>
+                    <h3 className="sliderTitle">{t("Slider title_second")}</h3>
                   </div>
                 </div>
-                <div className="carsDetails">
-                  <div className="carsCost">
-                    <div className="carsCostTop">
-                      <div className="topLeft">
-                        <h1 className="costPrice">
-                          AED {aboutCar?.price_in_aed_sale}
-                          <span style={{ color: "#7F8E92" }}>
-                            {" "}
-                            / $ {aboutCar?.price_in_usd_sale}
-                          </span>
-                        </h1>
-                        <p className="dailyCost">per day</p>
-                        <del className="costBottoPrice">
-                          AED {aboutCar?.price_in_aed}
-                          <span style={{ color: "#7F8E92" }}>
-                            {" "}
-                            / $ {aboutCar?.price_in_usd}
-                          </span>
-                        </del>
-                      </div>
-                      <div className="topMiddle">
-                        <p className="depositText">Deposit</p>
-                        <p className="depositText">Premium protection</p>
+              </div>
+              <div className="carsDetails">
+                <div className="carsCost">
+                  <div className="carsCostTop">
+                    <div className="topLeft">
+                      <h1 className="costPrice">
+                        AED {aboutCar?.price_in_aed_sale}
+                        <span style={{ color: "#7F8E92" }}>
+                          {" "}
+                          / $ {aboutCar?.price_in_usd_sale}
+                        </span>
+                      </h1>
+                      <p className="dailyCost">{t("oneDay text")}</p>
+                      <del className="costBottoPrice">
+                        AED {aboutCar?.price_in_aed}
+                        <span style={{ color: "#7F8E92" }}>
+                          {" "}
+                          / $ {aboutCar?.price_in_usd}
+                        </span>
+                      </del>
+                    </div>
+                    <div className="topMiddle">
+                      <p className="depositText">{t("Deposit text")}</p>
+                      <p className="depositText">{t("Deposit text_second")}</p>
                       </div>
                       <div className="topRight">
                         <div className="rightTop">
@@ -233,7 +245,44 @@
                       </div>
                       <p className="info">{aboutCar?.color}</p>
                     </div>
-                    <div className="infoWrapper">
+                   <p className="info">{aboutCar?.color}</p>
+                  </div>
+                  <div className="infoWrapper">
+                    <div className="svg-icons">
+                      <svg
+                        width="30"
+                        height="30"
+                        viewBox="0 0 24 17"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          clipRule="evenodd"
+                          d="M9.82768 1.44217H7.3528V0.16217H13.5999V1.44217H11.125V2.56544H13.8684L16.0015 4.66829H18.3624V6.17033H19.8077V4.36788H22.4009L24 5.94426V14.8862L22.7057 16.1622H19.8077V13.7589H18.3624V16.1622H10.284L7.08429 13.0079H2.74261V9.02748H1.2973V12.3679H0V4.40707H1.2973V7.74748H2.74261V3.76707H5.86535L7.08429 2.56544H9.82768V1.44217ZM7.62132 3.84544L6.40238 5.04707H4.03991V11.7279H7.62132L10.821 14.8822H17.0651V12.4789H21.105V14.8822H22.1686L22.7027 14.3557V6.47478L21.8639 5.64788H21.105V7.45033H17.0651V5.94829H15.4645L13.3313 3.84544H7.62132Z"
+                          fill="#606680"
+                        ></path>
+                      </svg>
+                    </div>
+                    <p className="info">{aboutCar?.seconds}</p>
+                  </div>
+                  <div className="infoWrapper">
+                    <div className="svg-icons">
+                      <svg
+                        width="25"
+                        height="25"
+                        viewBox="0 0 19 18"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          clipRule="evenodd"
+                          d="M3.30705 1.76213C2.35466 1.76213 1.5999 2.51869 1.5999 3.43079C1.5999 4.34289 2.35466 5.09945 3.30705 5.09945C4.25943 5.09945 5.01419 4.34289 5.01419 3.43079C5.01419 2.51869 4.25943 1.76213 3.30705 1.76213ZM0.399902 3.43079C0.399902 1.837 1.71103 0.562134 3.30705 0.562134C4.90306 0.562134 6.21419 1.837 6.21419 3.43079C6.21419 4.16187 5.93831 4.82584 5.48562 5.33045V8.32333H7.68562V3.19198C7.68562 1.99386 8.67055 1.03975 9.86419 1.03975C11.0578 1.03975 12.0428 1.99386 12.0428 3.19198V8.32333H14.2428V3.19198C14.2428 1.99386 15.2277 1.03975 16.4213 1.03975C17.615 1.03975 18.5999 1.99386 18.5999 3.19198V15.6099C18.5999 16.808 17.615 17.7621 16.4213 17.7621C15.2277 17.7621 14.2428 16.808 14.2428 15.6099V12.1502H12.0428V15.6099C12.0428 16.808 11.0578 17.7621 9.86419 17.7621C8.67055 17.7621 7.68562 16.808 7.68562 15.6099V12.1502H5.48562V15.6099C5.48562 16.808 4.50068 17.7621 3.30705 17.7621C2.11341 17.7621 1.12847 16.808 1.12847 15.6099V5.33045C0.675775 4.82584 0.399902 4.16187 0.399902 3.43079ZM2.32847 6.13256V15.6099C2.32847 16.1263 2.75704 16.5621 3.30705 16.5621C3.85705 16.5621 4.28562 16.1263 4.28562 15.6099V10.9502H8.88562V15.6099C8.88562 16.1263 9.31418 16.5621 9.86419 16.5621C10.4142 16.5621 10.8428 16.1263 10.8428 15.6099V10.9502H15.4428V15.6099C15.4428 16.1263 15.8713 16.5621 16.4213 16.5621C16.9713 16.5621 17.3999 16.1263 17.3999 15.6099V3.19198C17.3999 2.67555 16.9713 2.23975 16.4213 2.23975C15.8713 2.23975 15.4428 2.67555 15.4428 3.19198V9.52333H10.8428V3.19198C10.8428 2.67555 10.4142 2.23975 9.86419 2.23975C9.31418 2.23975 8.88562 2.67555 8.88562 3.19198V9.52333H4.28562V6.13256C3.97934 6.24066 3.64976 6.29945 3.30705 6.29945C2.96433 6.29945 2.63475 6.24066 2.32847 6.13256Z"
+                          fill="#606680"
+                        ></path>
+                      </svg>
+            <div className="infoWrapper">
                       <div className="svg-icons">
                         <svg
                           width="30"
@@ -243,8 +292,8 @@
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
+                            fillRule="evenodd"
+                            clipRule="evenodd"
                             d="M9.82768 1.44217H7.3528V0.16217H13.5999V1.44217H11.125V2.56544H13.8684L16.0015 4.66829H18.3624V6.17033H19.8077V4.36788H22.4009L24 5.94426V14.8862L22.7057 16.1622H19.8077V13.7589H18.3624V16.1622H10.284L7.08429 13.0079H2.74261V9.02748H1.2973V12.3679H0V4.40707H1.2973V7.74748H2.74261V3.76707H5.86535L7.08429 2.56544H9.82768V1.44217ZM7.62132 3.84544L6.40238 5.04707H4.03991V11.7279H7.62132L10.821 14.8822H17.0651V12.4789H21.105V14.8822H22.1686L22.7027 14.3557V6.47478L21.8639 5.64788H21.105V7.45033H17.0651V5.94829H15.4645L13.3313 3.84544H7.62132Z"
                             fill="#606680"
                           ></path>
@@ -262,14 +311,15 @@
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
+                            fillRule="evenodd"
+                            clipRule="evenodd"
                             d="M3.30705 1.76213C2.35466 1.76213 1.5999 2.51869 1.5999 3.43079C1.5999 4.34289 2.35466 5.09945 3.30705 5.09945C4.25943 5.09945 5.01419 4.34289 5.01419 3.43079C5.01419 2.51869 4.25943 1.76213 3.30705 1.76213ZM0.399902 3.43079C0.399902 1.837 1.71103 0.562134 3.30705 0.562134C4.90306 0.562134 6.21419 1.837 6.21419 3.43079C6.21419 4.16187 5.93831 4.82584 5.48562 5.33045V8.32333H7.68562V3.19198C7.68562 1.99386 8.67055 1.03975 9.86419 1.03975C11.0578 1.03975 12.0428 1.99386 12.0428 3.19198V8.32333H14.2428V3.19198C14.2428 1.99386 15.2277 1.03975 16.4213 1.03975C17.615 1.03975 18.5999 1.99386 18.5999 3.19198V15.6099C18.5999 16.808 17.615 17.7621 16.4213 17.7621C15.2277 17.7621 14.2428 16.808 14.2428 15.6099V12.1502H12.0428V15.6099C12.0428 16.808 11.0578 17.7621 9.86419 17.7621C8.67055 17.7621 7.68562 16.808 7.68562 15.6099V12.1502H5.48562V15.6099C5.48562 16.808 4.50068 17.7621 3.30705 17.7621C2.11341 17.7621 1.12847 16.808 1.12847 15.6099V5.33045C0.675775 4.82584 0.399902 4.16187 0.399902 3.43079ZM2.32847 6.13256V15.6099C2.32847 16.1263 2.75704 16.5621 3.30705 16.5621C3.85705 16.5621 4.28562 16.1263 4.28562 15.6099V10.9502H8.88562V15.6099C8.88562 16.1263 9.31418 16.5621 9.86419 16.5621C10.4142 16.5621 10.8428 16.1263 10.8428 15.6099V10.9502H15.4428V15.6099C15.4428 16.1263 15.8713 16.5621 16.4213 16.5621C16.9713 16.5621 17.3999 16.1263 17.3999 15.6099V3.19198C17.3999 2.67555 16.9713 2.23975 16.4213 2.23975C15.8713 2.23975 15.4428 2.67555 15.4428 3.19198V9.52333H10.8428V3.19198C10.8428 2.67555 10.4142 2.23975 9.86419 2.23975C9.31418 2.23975 8.88562 2.67555 8.88562 3.19198V9.52333H4.28562V6.13256C3.97934 6.24066 3.64976 6.29945 3.30705 6.29945C2.96433 6.29945 2.63475 6.24066 2.32847 6.13256Z"
                             fill="#606680"
                           ></path>
                         </svg>
                       </div>
                       <p className="info">{aboutCar?.motor}</p>
+
                     </div>
                     <div className="infoWrapper">
                       <div className="svg-icons">
@@ -307,17 +357,17 @@
                     <div className="infoWrapper">
                       <div className="svg-icons">
                       <svg
-  width="25"
-  height="25"
-  viewBox="0 0 20 19"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <path
-    d="M3.57143 0C2.39397 0 1.42857 0.98768 1.42857 2.19231V17.5385H0V19H15.7143V17.5385H14.2857V10.2308H15C15.3962 10.2308 15.7143 10.5562 15.7143 10.9615V13.8846C15.7143 14.8951 16.4565 15.6202 17.3661 15.8714C17.5 15.997 17.673 16.0712 17.8571 16.0769C19.0346 16.0769 20 15.0892 20 13.8846V6.02885C20 5.91466 19.9721 5.80048 19.9163 5.69772L17.0592 0.0342555L15.798 0.696515L17.1429 3.36839V5.84615L18.5714 8.76923V13.8846C18.5714 14.29 18.2533 14.6154 17.8571 14.6154C17.4609 14.6154 17.1429 14.29 17.1429 13.8846V10.9615C17.1429 9.95102 16.4007 9.22596 15.4911 8.97476C15.3571 8.84916 15.1842 8.77494 15 8.76923H14.2857V2.19231C14.2857 0.98768 13.3203 0 12.1429 0H3.57143ZM3.57143 1.46154H12.1429C12.5446 1.46154 12.8571 1.78125 12.8571 2.19231V17.5385H2.85714V2.19231C2.85714 1.78125 3.16964 1.46154 3.57143 1.46154ZM4.28571 2.92308V8.76923H11.4286V2.92308H4.28571ZM5.71429 4.38462H10V7.30769H5.71429V4.38462Z"
-    fill="#606680"
-  />
-</svg>
+                      width="25"
+                      height="25"
+                      viewBox="0 0 20 19"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3.57143 0C2.39397 0 1.42857 0.98768 1.42857 2.19231V17.5385H0V19H15.7143V17.5385H14.2857V10.2308H15C15.3962 10.2308 15.7143 10.5562 15.7143 10.9615V13.8846C15.7143 14.8951 16.4565 15.6202 17.3661 15.8714C17.5 15.997 17.673 16.0712 17.8571 16.0769C19.0346 16.0769 20 15.0892 20 13.8846V6.02885C20 5.91466 19.9721 5.80048 19.9163 5.69772L17.0592 0.0342555L15.798 0.696515L17.1429 3.36839V5.84615L18.5714 8.76923V13.8846C18.5714 14.29 18.2533 14.6154 17.8571 14.6154C17.4609 14.6154 17.1429 14.29 17.1429 13.8846V10.9615C17.1429 9.95102 16.4007 9.22596 15.4911 8.97476C15.3571 8.84916 15.1842 8.77494 15 8.76923H14.2857V2.19231C14.2857 0.98768 13.3203 0 12.1429 0H3.57143ZM3.57143 1.46154H12.1429C12.5446 1.46154 12.8571 1.78125 12.8571 2.19231V17.5385H2.85714V2.19231C2.85714 1.78125 3.16964 1.46154 3.57143 1.46154ZM4.28571 2.92308V8.76923H11.4286V2.92308H4.28571ZM5.71429 4.38462H10V7.30769H5.71429V4.38462Z"
+                        fill="#606680"
+                                    />
+                                  </svg>
 
                       </div>
                       <p className="info">petrol</p>
@@ -381,22 +431,47 @@
                         <input
                           type="text"
                           className="inputName"
-                          placeholder="Period"
+
+                          placeholder={t("InputBox placeholder_name")}
+                          required
                         />
                         <input
                           type="text"
                           className="inputName"
-                          placeholder="Details"
+
+                          placeholder={t("InputBox placeholder_phone")}
+                          required
                         />
                         <button type="submit" className="sendBtn">
                           Send
                         </button>
                       </div>
-                    </form>
+
+                      <input
+                        type="text"
+                        className="inputName"
+                        placeholder={t("InputBox placeholder_period")}
+                      />
+                      <input
+                        type="text"
+                        className="inputName"
+                        placeholder={t("InputBox placeholder_details")}
+                      />
+                      <button type="submit" className="sendBtn">
+                        {t("Form send_button")}
+                      </button>
+                  </form>
+                    </div>
+                </div>
+                <div className="more-info">
+                  <p className="infoText">{t("InfoText_first")}</p>
+                  <p className="infoText">{t("InfoText_second")}</p>
+                  <p className="infoText">{t("InfoText_third")}</p>
+
                   </div>
                   <div className="more-info">
                     <p className="infoText">
-                      The price doesn't include additional 5% VAT.
+                      The price does not include additional 5% VAT.
                     </p>
                     <p className="infoText">
                       There is a 3% transaction fee when paying by credit/debit
@@ -407,9 +482,40 @@
                       Express.
                     </p>
                   </div>
+
                 </div>
               </div>
             </div>
+
+
+          <h1 className="otherCars">{t("OtherCars_title")}</h1>
+          <div className="similarsWrapper">
+            {otherCars &&
+              otherCars.map((car, idx) => (
+                <div className="similarCarsCard" key={idx}>
+                  <a href={`/carsdetails/${car?.id}`}>
+                    <div className="carsCardContainer">
+                      <img
+                        src={`https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/${car?.car_images[0]?.image?.src}`}
+                        alt=""
+                        className="similarCarImage"
+                      />
+                      <h1 className="carsCardName">
+                        {car?.brand?.title} {car?.model?.name}{" "}
+                      </h1>
+                      <hr />
+                      <p className="carsCardPrice">
+                        AED {car?.price_in_aed}
+                        <span style={{ color: "#7F8E92" }}>
+                          {" "}
+                          / $ {car?.price_in_usd}
+                        </span>
+                      </p>
+                      <p className="text_oneDay">{t("oneDay text")}</p>
+                    </div>
+                  </a>
+                </div>
+              ))}
 
             <h1 className="otherCars">SIMILAR OFFERS</h1>
             <div className="similarsWrapper">
@@ -440,8 +546,10 @@
                   </div>
                 ))}
             </div>
+
           </div>
         </div>
+      </div>
       </>
     );
   }

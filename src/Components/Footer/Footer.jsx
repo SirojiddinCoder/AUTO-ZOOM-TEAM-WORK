@@ -97,7 +97,8 @@ export const Footer = ({setCars}) => {
           </div>
           <div className="footer__right-bottom">
             <p>© 2024 Auto Zoom Car Rental. United Arab Emirates.</p>
-            <Link to={"termsAndCondition"} className="privacy">
+
+            <Link to="/termsCondition" className="privacy">
               Terms and Conditions
             </Link>
           </div>
