@@ -15,7 +15,6 @@ export const Footer = ({setCars}) => {
   }, []);
   const getData = async () => {
     const category = await getCategories();
-    console.log(category?.data);
     setCategories(category?.data);
   };
   const handleScrollToTop = async(category) => {
