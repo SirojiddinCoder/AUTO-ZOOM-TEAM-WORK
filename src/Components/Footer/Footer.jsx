@@ -44,7 +44,12 @@ export const Footer = ({setCars}) => {
               <Link className="footer__item-title">Cars</Link>
               {categories?.map((item, index) => {
                 return (
-                  <Link to={`/cars/${item?.id}`} key={index} className="footer__subtitle" onClick={()=>handleScrollToTop(item?.id)}>
+                  <Link
+                    to={`/cars/${item?.id}`}
+                    key={index}
+                    className="footer__subtitle"
+                    onClick={() => handleScrollToTop(item?.id)}
+                  >
                     {item?.name_en}
                   </Link>
                 );
@@ -86,7 +91,9 @@ export const Footer = ({setCars}) => {
           </div>
           <div className="footer__right-bottom">
             <p>© 2024 Auto Zoom Car Rental. United Arab Emirates.</p>
-            <p>Terms and Conditions</p>
+            <Link to="/termsCondition" className="privacy">
+              Terms and Conditions
+            </Link>
           </div>
         </div>
       </div>

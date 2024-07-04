@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Home from './Pages/Home/Home';
 import Cars from './Pages/Cars/Cars';
@@ -17,6 +17,7 @@ import Footer from './Components/Footer/Footer';
 import { BlogInfo1 } from './Pages/Blog/Blog_info1/BlogInfo1';
 import { BlogInfo2 } from './Pages/Blog/Blog_Info2/BlogInfo2';
 import { BlogInfo3 } from './Pages/Blog/Blog_Info3/BlogInfo3';
+import { Terms } from "./Pages/Privacy/Terms";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
   setTimeout(() => {
     setLoader(true);
   }, 2000);
+
 
   const [cars, setCars] = useState([])
   return (
@@ -46,6 +48,7 @@ function App() {
             <Route path="/blog_info1" element={<BlogInfo1 />} />
             <Route path="/blog_info2" element={<BlogInfo2 />} />
             <Route path="/blog_info3" element={<BlogInfo3 />} />
+            <Route path="/termsCondition" element={<Terms />} />
         </Routes>
         <Footer setCars={setCars}/>
       </>
