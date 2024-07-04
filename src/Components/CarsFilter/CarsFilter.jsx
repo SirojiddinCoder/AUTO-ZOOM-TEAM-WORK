@@ -12,6 +12,7 @@ import { GiSettingsKnobs } from "react-icons/gi";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 const CarsFilter = ({ cars, setCars }) => {
   const [brands, setBrands] = useState([]);
@@ -65,22 +66,25 @@ const CarsFilter = ({ cars, setCars }) => {
       value: "four_days_price=5000",
     },
   ]);
-
+  const { t, i18n } = useTranslation();
+  useEffect(()=> {
+    const handleChange = (selectedLanguage) => {
+      i18n.changeLanguage(selectedLanguage);
+    };
+    handleChange()
+  },[])
   const [activeModel, setActiveModel] = useState("");
   const [notFound, setNotFound] = useState(false);
   const [sidebarVisible, setSideBarVisible] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState([]);
   const [selectedBrands, setSelectedBrands] = useState([]);
-
   const handleModels = (e) => {
     setActiveModel(e.target.value);
   };
-
   const PreventDefault = (e) => {
     e.preventDefault();
   };
-
   const handleCheckboxChange = (event) => {
     const { value, checked } = event.target;
     if (checked) {
@@ -89,9 +93,7 @@ const CarsFilter = ({ cars, setCars }) => {
       setSelectedOptions(selectedOptions.filter((option) => option !== value));
     }
   };
-
   const queryParams = selectedOptions.map((option) => option).join("&");
-
   const handleCategoryChange = (event) => {
     const { value, checked } = event.target;
     if (checked) {
@@ -102,11 +104,9 @@ const CarsFilter = ({ cars, setCars }) => {
       );
     }
   };
-
   const queryCategory = selectedCategory
     .map((option) => `category_id=${option}`)
     .join("&");
-
   const handleBrandsChange = (event) => {
     const { value, checked } = event.target;
     if (checked) {
@@ -115,13 +115,10 @@ const CarsFilter = ({ cars, setCars }) => {
       setSelectedBrands(selectedBrands.filter((option) => option !== value));
     }
   };
-
   const queryBrands = selectedBrands
     .map((option) => `brands_id=${option}`)
     .join("&");
-
   const navigate = useNavigate();
-
   const applyFilter = () => {
     axios
       .get(
@@ -157,8 +154,8 @@ const CarsFilter = ({ cars, setCars }) => {
         <GiSettingsKnobs className="settings__icon" />
       </button>
       <aside className={sidebarVisible ? "block " : "cars__sidebar"}>
-        <h2 className="cars__sidebar-title">Filter by</h2>
-        <h3 className="cars__sidebar-title2">Offers</h3>
+        <h2 className="cars__sidebar-title">{t("filter.filterBy")}</h2>
+        <h3 className="cars__sidebar-title2">{t("filter.offers")}</h3>
         <form onSubmit={PreventDefault}>
           <div className="cars__sidebar-filter">
             {offers?.map((item, index) => {
@@ -176,7 +173,7 @@ const CarsFilter = ({ cars, setCars }) => {
             })}
           </div>
           <div className="cars__sidebar-filter">
-            <h2>Car type</h2>
+            <h2>{t("filter.carType")}</h2>
             {categories?.map((item, index) => {
               return (
                 <div key={index}>
@@ -192,7 +189,7 @@ const CarsFilter = ({ cars, setCars }) => {
             })}
           </div>
           <div className="cars__sidebar-filter">
-            <h2>Brands</h2>
+            <h2>{t("filter.brands")}</h2>
             {brands?.map((item, index) => {
               return (
                 <div key={index}>
@@ -208,10 +205,10 @@ const CarsFilter = ({ cars, setCars }) => {
             })}
           </div>
           <div className="cars__sidebar-filter">
-            <h2>Models</h2>
+            <h2>{t("filter.models")}</h2>
             <select onChange={handleModels}>
               <option value="" hidden>
-                Select Model
+              {t("filter.selectModel")}
               </option>
               {selectedBrands.length
                 ? models
@@ -238,17 +235,17 @@ const CarsFilter = ({ cars, setCars }) => {
               type="reset"
               onClick={resetAll}
             >
-              Reset
+              {t("filter.reset")}
             </button>
             <button className="cars__sidebar-filter-btn" onClick={applyFilter}>
-              Apply Filter
+              {t("filter.apply")}
             </button>
           </div>
         </form>
       </aside>
       <div className="cars__right">
         <h1 className="cars__right-title">
-          Luxury Cars for Rent in Dubai / Hire the latest super car
+          {t("filter.title")}
         </h1>
         <div className="cars__cards">
           {cars?.length > 0 ? (
