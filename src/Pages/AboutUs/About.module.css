@@ -1,11 +1,15 @@
-.aboutContainer {
-    max-width: 1600px;
+.big_container {
+    width: 100%;
     background-image: url(../../assets/abaut.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+}
+.aboutContainer {
+    max-width: 1400px;
     color: white;
     padding: 50px 80px;
+    margin: 0 auto;
 }
 
 .link_to_home {

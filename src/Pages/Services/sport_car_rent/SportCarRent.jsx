@@ -16,6 +16,7 @@ export const SportCarRent = () => {
     
     return (
         <>
+        <div className={styles.big_container}>
         <div className={styles.SportCarRentContainer}>
             <a href="/" className={styles.link_to_home}>
                 {t("Luxury Cars for Rent in Dubai")} /
@@ -92,7 +93,7 @@ export const SportCarRent = () => {
                 </div>
             </div>
         </div>
-        <Footer/>
+        </div>
         </>
     )
 }

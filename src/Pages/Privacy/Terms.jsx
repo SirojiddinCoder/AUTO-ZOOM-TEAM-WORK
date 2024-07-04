@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import "../Privacy/terms.css"
 import { useTranslation } from "react-i18next";
@@ -40,4 +41,13 @@ const {t, i18n} = useTranslation()
       </div>
     </div>
   );
+
+
+export const Terms = () => {
+  return (
+    <div>
+      Hello
+    </div>
+  )
+
 }

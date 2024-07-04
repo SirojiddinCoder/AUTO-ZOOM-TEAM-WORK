@@ -26,6 +26,12 @@ export const Footer = ({setCars}) => {
     console.log(res);
     setCars(res?.data?.filter(item=> item?.category?.id === category))
   };
+  const scrollToTop = async() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <footer className="footer">
       <div className="footer__items">
@@ -41,7 +47,7 @@ export const Footer = ({setCars}) => {
         <div className="footer__right">
           <div className="footer__right-items">
             <div className="footer__right-item">
-              <Link className="footer__item-title">Cars</Link>
+              <Link className="footer__item-title" onClick={scrollToTop} to="/cars">Cars</Link>
               {categories?.map((item, index) => {
                 return (
                   <Link
@@ -56,10 +62,10 @@ export const Footer = ({setCars}) => {
               })}
             </div>
             <div className="footer__item">
-              <Link className="footer__item-title">Blog</Link>
-              <Link className="footer__item-title">Services</Link>
+              <Link className="footer__item-title" to="/blog" onClick={scrollToTop}>Blog</Link>
+              <Link className="footer__item-title" to="/services" onClick={scrollToTop}>Services</Link>
               <div>
-                <Link className="footer__item-title">Contacts</Link>
+                <Link className="footer__item-title" to="/contact" onClick={scrollToTop}>Contacts</Link>
                 <p className="footer__subtitle">
                   Elite 3 Sports City, Dubai 26W8 24J, United Arab Emirates
                 </p>
@@ -69,7 +75,7 @@ export const Footer = ({setCars}) => {
             </div>
             <div className="footer__item">
               <div className="footer__right-end">
-                <Link className="footer__item-title">About Us</Link>
+                <Link className="footer__item-title" to="/aboutus" onClick={scrollToTop}>About Us</Link>
                 <Link className="footer__subtitle">Our Team</Link>
                 <Link className="footer__subtitle">FAQ</Link>
               </div>
@@ -91,7 +97,11 @@ export const Footer = ({setCars}) => {
           </div>
           <div className="footer__right-bottom">
             <p>© 2024 Auto Zoom Car Rental. United Arab Emirates.</p>
+
             <Link to="/termsCondition" className="privacy">
+
+            <Link to={"termsAndCondition"} className="privacy">
+
               Terms and Conditions
             </Link>
           </div>
