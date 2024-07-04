@@ -74,6 +74,8 @@
   background: linear-gradient(161.55deg, hsla(0, 0%, 100%, .294) -9.06%, #11121997 39.4%, #111219);
   background-size: 300%;
   animation: shadow 5s linear infinite;
+
+  /* ======== */
 }
 
 @keyframes shadow {
