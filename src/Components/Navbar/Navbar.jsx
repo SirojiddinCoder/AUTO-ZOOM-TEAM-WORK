@@ -7,14 +7,12 @@ import logo from "../../assets/LOGO.svg";
 import "./navbar.css";
 import HoveredComponent from "./HoveredComponent/HoveredComponent";
 import { useTranslation } from "react-i18next";
+import axios from "axios";
+import { base_url } from "../../getData/getData";
 
-function Navbar() {
+function Navbar({setCars, setLoader}) {
   const navRef = useRef();
   const [isHovered, setIsHovered] = useState(false);
-  const [loader, setLoader] = useState(false);
-
-  
-
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
   };
@@ -36,7 +34,11 @@ const [searchActive, setSearchActive] = useState(false)
 const handleSearch = (e) => {
  e.preventDefault()
  navigate(`/cars/${e.target[0].value}`)
- setSearchActive(!searchActive)
+ setSearchActive(false)
+ axios.get(`${base_url}/cars?keyword=${e?.target[0]?.value}`).then(res=> {
+  console.log(res);
+  setCars(res?.data?.data)
+ })
 }
   return (
     <header>
@@ -72,10 +74,11 @@ const handleSearch = (e) => {
               <div
                 className="nav-item"
                 onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
               >
                 <Link to="/brand">Brand</Link>
-                {isHovered && <HoveredComponent />}
+                <div onMouseLeave={handleMouseLeave}>
+                {isHovered && <HoveredComponent setCars={setCars}/>}
+                </div>
               </div>
               <Link
                 className="nav-item"
