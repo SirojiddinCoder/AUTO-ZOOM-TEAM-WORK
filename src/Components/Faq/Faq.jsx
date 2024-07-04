@@ -7,7 +7,13 @@ const Faq = () => {
 
   const items = t("faq.items", { returnObjects: true });
 
-  console.log(items); // Add this line to see what items looks like
+  console.log('FAQ items:', items); // Log the items to see the structure
+
+  // Check if items is an array
+  if (!Array.isArray(items)) {
+    console.error('Expected items to be an array, but got:', typeof items);
+    return null;
+  }
 
   return (
     <div className={styles.big_container}>
