@@ -9,7 +9,7 @@
   import "swiper/css/thumbs";
   import { Swiper, SwiperSlide } from "swiper/react";
 
-  function SinglePage() {
+  function SinglePage() { 
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const { id } = useParams();
     const [aboutCar, getAboutCar] = useState([]);
