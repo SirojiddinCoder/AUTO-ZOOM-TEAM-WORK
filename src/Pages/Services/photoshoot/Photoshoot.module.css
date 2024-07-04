@@ -1,5 +1,9 @@
+.big_container {
+    width: 100%;
+    background-color: #1e1f27;
+}
 .SportCarRentContainer {
-    max-width: 1600px;
+    max-width: 1400px;
     padding: 50px 80px 60px;
     background-color: #1e1f27; 
     color: #FFF;
