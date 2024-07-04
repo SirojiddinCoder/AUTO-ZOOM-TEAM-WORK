@@ -1,10 +1,12 @@
-import { useState } from "react";
+// Accordion.js
+import React, { useState } from "react";
 import "../Accordian/Accordian.css";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
-
+import { useTranslation } from "react-i18next";
 
 const Accordion = ({ items }) => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const { t } = useTranslation();
 
   const onTitleClick = (index) => {
     setActiveIndex(index === activeIndex ? null : index);
@@ -20,12 +22,12 @@ const Accordion = ({ items }) => {
           onClick={() => onTitleClick(index)}
         >
           <i className="dropdown icon"></i>
-          <IoIosArrowDroprightCircle className="dropdown icon"/>
-          {item.title}
+          <IoIosArrowDroprightCircle className="dropdown icon" />
+          {t(item.title)}
 
         </div>
         <div className={`accordion-content ${active}`}>
-          <p>{item.content}</p>
+          <p>{t(item.content)}</p>
         </div>
       </div>
     );
