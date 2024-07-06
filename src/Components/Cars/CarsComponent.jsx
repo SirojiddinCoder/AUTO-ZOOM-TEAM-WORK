@@ -18,7 +18,7 @@ export const CarsComponent = () => {
             .then(data => {
                 setCars(data?.data || []);
             }).catch(err => {
-                // console.log(err);
+                console.log(err);
             });
     };
 
@@ -50,68 +50,64 @@ export const CarsComponent = () => {
         i18n.changeLanguage(selectedLanguage);
     };
 
-    const scrolltoTop = () => {
-        window.scrollTo(0, 0)
-      }
-
     return (
         <div className={styles.big_contaner}>
-            <div className={styles.carsContainer}>
-                {Object.keys(groupedCars).map((categoryId) => (
-                    <div key={categoryId} className={styles.budget}>
-                        <div className={styles.top}>
-                            <h2 className={styles.title}>{groupedCars[categoryId]?.categoryName.toUpperCase()}</h2>
-                            <Link onClick={scrolltoTop} to={`/cars/${categoryId}`} className={styles.btnSee}>
-                                {t("SEE ALL")}
-                                <IoMdArrowDroprightCircle className={styles.icon} />
-                            </Link>
-                        </div>
-                        <Swiper
-                            className={styles.swiper}
-                            spaceBetween={40}
-                            slidesPerView={3}
-                            loop={groupedCars[categoryId]?.cars.length > 3}
-                            breakpoints={{
-                                250: {
-                                    slidesPerView: 1,
-                                    spaceBetween: 20,
-                                },
-                                450: {
-                                    slidesPerView: 2,
-                                    spaceBetween: 30,
-                                },
-                                900: {
-                                    slidesPerView: 3,
-                                    spaceBetween: 40,
-                                },
-                            }}
-                        >
-                            {groupedCars[categoryId]?.cars.map((car, index) => (
-                                <SwiperSlide className={styles.swiperSlide} key={index}>
-                                    <div className={styles.box}>
-                                        <Link to={`/carsinfo/${car?.id}`} href="#">
-                                            <div className={styles.swiperSlideChild}>
-                                                <img
-                                                    className={styles.img}
-                                                    src={`${urlimg}${car.car_images[0]?.image?.src}`}
-                                                    alt={car.category.name_en}
-                                                />
-                                            </div>
-                                        </Link>
-                                        <h3 className={styles.slide_car_title}>{car.brand.title} {car.model.name}</h3>
-                                        <div className={styles.line}></div>
-                                        <h4 className={styles.slide_car_price}>
-                                            <span className={styles.slide_car_price_aed}>AED {car.price_in_aed}</span>
-                                            <span className={styles.slide_car_price_usd}> / $ {car.price_in_usd}</span>
-                                        </h4>
-                                        <p className={styles.renta_type}>{t("per day")}</p>
-                                    </div>
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
+<div className={styles.carsContainer}>
+            {Object.keys(groupedCars).map((categoryId) => (
+                <div key={categoryId} className={styles.budget}>
+                    <div className={styles.top}>
+                        <h2 className={styles.title}>{groupedCars[categoryId]?.categoryName.toUpperCase()}</h2>
+                        <Link to={`/cars/${categoryId}`} className={styles.btnSee}>
+                            {t("SEE ALL")}
+                            <IoMdArrowDroprightCircle className={styles.icon} />
+                        </Link>
                     </div>
-                ))}
-            </div>
+                    <Swiper
+                        className={styles.swiper}
+                        spaceBetween={40}
+                        slidesPerView={3}
+                        breakpoints={{
+                            250: {
+                                slidesPerView: 1,
+                                spaceBetween: 20,
+                            },
+                            450: {
+                                slidesPerView: 2,
+                                spaceBetween: 30,
+                            },
+                            900: {
+                                slidesPerView: 3,
+                                spaceBetween: 40,
+                            },
+                        }}
+                    >
+                        {groupedCars[categoryId]?.cars.map((car, index) => (
+                           <SwiperSlide className={styles.swiperSlide} key={index}>
+                           <div className={styles.box}>
+                               <Link to={`/carsinfo/${car?.id}`} href="#">
+                                   <div className={styles.swiperSlideChild}>
+                                       <img
+                                           className={styles.img}
+                                           src={`${urlimg}${car.car_images[0]?.image?.src}`}
+                                           alt={car.category.name_en}
+                                       />
+                                   </div>
+                               </Link>
+                               <h3 className={styles.slide_car_title}>{car.brand.title} {car.model.name}</h3>
+                               <div className={styles.line}></div>
+                               <h4 className={styles.slide_car_price}>
+                                   <span className={styles.slide_car_price_aed}>AED {car.price_in_aed}</span>
+                                   <span className={styles.slide_car_price_usd}> / $ {car.price_in_usd}</span>
+                               </h4>
+                               <p className={styles.renta_type}>{t("per day")}</p>
+                           </div>
+                       </SwiperSlide>
+                       
+                        ))}
+                    </Swiper>
+                </div>
+            ))}
+        </div>
         </div>
     );
 };

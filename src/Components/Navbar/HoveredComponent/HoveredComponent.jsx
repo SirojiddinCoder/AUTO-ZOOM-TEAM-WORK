@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../HoveredComponent/HoveredComponent.module.css";
-import axios from "axios";
-import { base_url } from "../../../getData/getData";
 
-const HoveredComponent = ({setCars}) => {
+const HoveredComponent = () => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const imgURL = "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images";
@@ -31,11 +29,6 @@ const HoveredComponent = ({setCars}) => {
   if (error) {
     return <p>{error}</p>;
   }
-  const handleFilter =(id)=> {
-    axios.get(`${base_url}/cars?brand_id=${id}`).then(res=> {
-      setCars(res?.data?.data)
-    })
-  }
   return (
     <div>
       <ul className={styles.container}>
@@ -47,11 +40,11 @@ const HoveredComponent = ({setCars}) => {
                 alt={item?.title}
                 className={styles.img}
               />
-              <Link to={`/cars/${item?.id}`} onClick={()=>handleFilter(item?.id)}>
+              <h4>
                 <span className={styles.bold}>Rent</span>
                 <span className={styles.name}>{item?.title}</span>
                 <span className={styles.bold}>Dubai</span>
-              </Link>
+              </h4>
             </li>
           </Link>
         ))}

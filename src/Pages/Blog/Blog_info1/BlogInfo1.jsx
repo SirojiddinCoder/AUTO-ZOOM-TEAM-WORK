@@ -27,7 +27,7 @@ export const BlogInfo1 = () => {
                 <p className={styles.text}>{t("If the combination")}</p>
             </div>
            </div>
-
+            <Footer/>
         </>
     )
 }

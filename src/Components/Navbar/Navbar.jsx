@@ -7,12 +7,14 @@ import logo from "../../assets/LOGO.svg";
 import "./navbar.css";
 import HoveredComponent from "./HoveredComponent/HoveredComponent";
 import { useTranslation } from "react-i18next";
-import axios from "axios";
-import { base_url } from "../../getData/getData";
 
-function Navbar({setCars, setLoader}) {
+function Navbar() {
   const navRef = useRef();
   const [isHovered, setIsHovered] = useState(false);
+  const [loader, setLoader] = useState(false);
+
+  
+
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
   };
@@ -29,19 +31,12 @@ function Navbar({setCars, setLoader}) {
   const handleChange = (selectedLanguage) => {
     i18n.changeLanguage(selectedLanguage);
   };
-  handleChange
-
-
   const navigate = useNavigate()
 const [searchActive, setSearchActive] = useState(false)
 const handleSearch = (e) => {
  e.preventDefault()
  navigate(`/cars/${e.target[0].value}`)
- setSearchActive(false)
- axios.get(`${base_url}/cars?keyword=${e?.target[0]?.value}`).then(res=> {
-  console.log(res);
-  setCars(res?.data?.data)
- })
+ setSearchActive(!searchActive)
 }
   return (
     <header>
@@ -65,51 +60,50 @@ const handleSearch = (e) => {
                 to="/"
                 onClick={() => setLoader(false)}
               >
-                {t("Home")}
+                Home
               </Link>
               <Link
                 className="nav-item"
                 to="/cars"
                 onClick={() => setLoader(false)}
               >
-                {t("Cars")}
+                Cars
               </Link>
               <div
                 className="nav-item"
                 onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
               >
                 <Link to="/brand">Brand</Link>
-                <div onMouseLeave={handleMouseLeave}>
-                {isHovered && <HoveredComponent setCars={setCars}/>}
-                </div>
+                {isHovered && <HoveredComponent />}
               </div>
               <Link
                 className="nav-item"
                 to="/services"
                 onClick={() => setLoader(false)}
               >
-                {t("Services")}
+                Services
               </Link>
               <Link
                 className="nav-item"
                 to="/aboutus"
                 onClick={() => setLoader(false)}
               >
-                {t("About")}
+                About
               </Link>
               <Link
                 className="nav-item"
                 to="/contact"
                 onClick={() => setLoader(false)}
               >
-                {t("Contact")}
+                Contact
               </Link>
               <Link
                 className="nav-item"
                 to="/blog"
                 onClick={() => setLoader(false)}
               >
-                {t("Blog")}
+                Blog
               </Link>
             </div>
             <a className="nav-tel" href="tel:+971558462124">

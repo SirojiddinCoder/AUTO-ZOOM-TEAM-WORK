@@ -10,17 +10,8 @@ import { IoClose } from "react-icons/io5";
 import { base_url, getCities, getLocations } from "../../getData/getData";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { useTranslation } from "react-i18next";
 
 const FollowUs = ({setCars}) => {
-
-  const { t, i18n } = useTranslation();
-
-  const handleChange = (selectedLanguage) => {
-    i18n.changeLanguage(selectedLanguage);
-  };
-  handleChange
-
   const images = [
     FollowImg1,
     FollowImg2,
@@ -67,7 +58,7 @@ const FollowUs = ({setCars}) => {
     <div className="follow">
       <div className="container">
         <div className="follow__items">
-          <h2 className="follow__title">{t("FOLLOW US ON INSTAGRAM")}</h2>
+          <h2 className="follow__title">FOLLOW US ON INSTAGRAM</h2>
           <div className="follow__cards">
             {images?.map((item, index) => {
               return (
@@ -93,7 +84,7 @@ const FollowUs = ({setCars}) => {
           </div>
           <div className="follow__bottom">
             <div className="follow__links">
-              <h3 className="follow__links-title">{t("Location")}</h3>
+              <h3 className="follow__links-title">Location</h3>
               <div className="follow__links-item">
                 {locations?.map((item, index) => {
                   return <Link to={`/cars/${item?.id}`} key={index} onClick={()=>filterByLocation(item?.id)}>{item?.name}</Link>;
@@ -101,7 +92,7 @@ const FollowUs = ({setCars}) => {
               </div>
             </div>
             <div className="follow__links">
-              <h3 className="follow__links-title">{t("City")}</h3>
+              <h3 className="follow__links-title">City</h3>
               <div className="follow__links-item">
                 {cities?.map((item, index) => {
                   return <Link to={`/cars/${item?.id}`} key={index} onClick={()=>filterByCity(item?.id)}>{item?.name}</Link>;

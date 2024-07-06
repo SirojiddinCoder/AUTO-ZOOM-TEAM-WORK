@@ -13,7 +13,6 @@ export const AboutUs = () => {
 
   return (
     <>
-    <div className={styles.big_container}>
     <div className={styles.aboutContainer}>
       <a href="/" className={styles.link_to_home}>
         {t("Luxury Cars for Rent in Dubai")} /
@@ -53,7 +52,6 @@ export const AboutUs = () => {
           <span>{t("Trust the professionals – trust Auto Zoom Car Rental Co LLC. Get in touch with us today to start your exciting journey through Dubai in our stylish and reliable cars. Allow yourself to savor every moment of your trip.")}</span>
         </div>
       </div>
-    </div>
     </div>
   
     </>
