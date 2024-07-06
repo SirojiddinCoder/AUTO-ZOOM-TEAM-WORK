@@ -45,7 +45,7 @@ const Brands = () => {
           <Swiper
             slidesPerView={3}
             grid={{
-              rows: 2,
+              rows: 3,
             }}
             spaceBetween={30}
             pagination={{
