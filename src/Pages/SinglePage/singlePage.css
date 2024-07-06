@@ -28,10 +28,6 @@
   object-fit: contain;
   padding: 0 0.2rem;
 }
-.swiper-wrapper {
-  display: flex;
-  gap: 2rem;
-}
 .sliderImage:last-child {
   width: 150px;
   height: 150px;
@@ -278,7 +274,7 @@ nav {
     margin-bottom: 3.5rem;
   }
   .carouselTitle {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
   .sliderTitle {
     font-size: 1rem;
@@ -290,6 +286,12 @@ nav {
   .socialIcon {
     font-size: 1.7rem;
   }
+   .swiper-wrapper {
+    gap: 2rem;
+  }
+  .carsCardName {
+    font-size: 1rem;
+}
 }
 @media (max-width: 1110px) {
   .details-container {
@@ -308,7 +310,7 @@ nav {
     margin-bottom: 4.5rem;
   }
   .carouselTitle {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
   .sliderTitle {
     font-size: 1rem;
@@ -388,11 +390,18 @@ nav {
     width: 500px;
     height: 400px;
   }
+   .swiper-wrapper{
+    gap: 1;
+  }
 }
 @media (max-width: 900px) {
   .details-container {
     max-width: 700px;
   }
+      .swiper-wrapper {
+        gap: 0rem;
+    }
+
   .infoWrapper {
     width: 7.5rem;
   }
@@ -466,6 +475,9 @@ nav {
   .sliderImageBig {
     width: 450px;
   }
+      .swiper-wrapper {
+        gap: 2rem;
+    }
 }
 @media (max-width: 550px) {
   .details-container {
@@ -499,6 +511,9 @@ nav {
         .details-title {
         font-size: 2rem;
         padding: 1rem 0;
+    }
+        .swiper-wrapper {
+        gap: 3rem;
     }
 }
 @media (max-width: 450px) {
@@ -537,6 +552,9 @@ nav {
     }
         .depositText:first-child {
         margin-bottom: 4.3rem;
+    }
+        .swiper-wrapper {
+        gap: 4rem;
     }
 }
 @media (max-width: 400px) {
