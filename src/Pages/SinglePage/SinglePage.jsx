@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-import { Swiper} from "swiper/react";
+import { Swiper, SwiperSlide} from "swiper/react";
 import { useTranslation } from "react-i18next";
 
 function SinglePage() {
@@ -43,7 +43,6 @@ function SinglePage() {
       i18n.changeLanguage(selectedLanguage);
     };
     handleChange;
-
   return (
     <>
       <div className="wrapper">
@@ -58,6 +57,26 @@ function SinglePage() {
               <div className="imageDetails">
                 <div className="car-imageSlider">
                   <Swiper
+                    onSwiper={setThumbsSwiper}
+                    loop={true}
+                    spaceBetween={10}
+                    slidesPerView={4}
+                    freeMode={true}
+                    watchSlidesProgress={true}
+                    modules={[FreeMode, Navigation, Thumbs]}
+                    className="mySwiper"
+                  >
+                    {aboutCar?.car_images?.map((item, index) => (
+                      <SwiperSlide key={index} className="slider-small">
+                        <img
+                          src={`https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/${item?.image?.src}`}
+                          alt="Error"
+                          className="sliderImage"
+                        />
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                  <Swiper
                     style={{
                       "--swiper-navigation-color": "#fff",
                       "--swiper-pagination-color": "#fff",
@@ -69,29 +88,22 @@ function SinglePage() {
                     modules={[FreeMode, Navigation, Thumbs]}
                     className="mySwiper2"
                   >
-                    {/* {
-                      aboutCar.car_images.map((item, index)=>(
-                        <SwiperSlide key={index}>
-                          <img src={`https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/${item.image.src}`} alt="" />
-                        </SwiperSlide>
-                      ))
-                    }  */}
+                    {aboutCar?.car_images?.map((item, index) => (
+                      <SwiperSlide key={index}>
+                        <img
+                          src={`https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/${item?.image?.src}`}
+                          alt="Error"
+                          className="sliderImageBig"
+                        />
+                      </SwiperSlide>
+                    ))}
                   </Swiper>
-                  <Swiper
-                    onSwiper={setThumbsSwiper}
-                    loop={true}
-                    spaceBetween={10}
-                    slidesPerView={4}
-                    freeMode={true}
-                    watchSlidesProgress={true}
-                    modules={[FreeMode, Navigation, Thumbs]}
-                    className="mySwiper"
-                  ></Swiper>
                 </div>
                 <div className="carouselTextWrapper">
                   <h1 className="carouselTitle">
-                    {t("Carousel title")} {aboutCar?.brand?.title}{" "}
-                    {aboutCar?.model?.name} ({aboutCar?.color})
+                    <span className="deftext">{t("Carousel title")}</span>{" "}
+                    {aboutCar?.brand?.title} {aboutCar?.model?.name} (
+                    {aboutCar?.color})
                   </h1>
                   <div className="carouselInfo">
                     <p className="sliderInfo">{t("Slider info_first")}</p>

@@ -16,6 +16,32 @@
 .car-slider {
   object-fit: contain;
 }
+.car-imageSlider {
+  display: flex;
+  flex-direction: column-reverse;
+  user-select: none;
+}
+.sliderImage {
+  border: 1px solid #69696b;
+  border-radius: 1rem;
+  cursor: pointer;
+  object-fit: contain;
+  padding: 0 0.2rem;
+}
+.swiper-wrapper {
+  display: flex;
+  gap: 2rem;
+}
+.sliderImage:last-child {
+  width: 150px;
+  height: 150px;
+  margin-left: 2rem;
+}
+
+.sliderImageBig {
+  width: 500px;
+  height: 400px;
+}
 .image-withDetails {
   display: flex;
   justify-content: space-between;
@@ -60,6 +86,9 @@
   width: 60%;
   margin: 0 auto;
   border: 2px solid #69696b;
+}
+.deftext {
+  font-size: 1.5rem;
 }
 .inputs {
   padding: 2rem;
@@ -108,9 +137,11 @@
 }
 .depositText {
   margin-top: 0.4rem;
-  margin-bottom: 2.5rem;
   font-size: 1rem;
   color: #7f8e92;
+}
+.depositText:first-child {
+  margin-bottom: 2.5rem;
 }
 .smallTextCost {
   font-size: 1.1rem;
@@ -243,7 +274,7 @@ nav {
   .costBottoPrice {
     font-size: 1.4rem;
   }
-  .depositText {
+  .depositText:first-child {
     margin-bottom: 3.5rem;
   }
   .carouselTitle {
@@ -271,14 +302,16 @@ nav {
     font-size: 1rem;
   }
   .depositText {
-    margin-bottom: 3.8rem;
     font-size: 0.8rem;
   }
+  .depositText:first-child{
+    margin-bottom: 4.5rem;
+  }
   .carouselTitle {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
   }
   .sliderTitle {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   .inputs {
     padding: 1rem;
@@ -302,6 +335,22 @@ nav {
   .infoText {
     font-size: 0.7rem;
   }
+  .sliderImageBig {
+    width: 380px;
+    height: 330px;
+  }
+  .carsCardName {
+    font-size: 1rem;
+  }
+  .swiper-wrapper {
+    gap: 3rem;
+  }
+  .sliderImage:last-child {
+    margin-left: 3rem;
+  }
+  .deftext {
+    font-size: 1.2rem;
+  }
 }
 @media (max-width: 900px) {
   .details-container {
@@ -317,7 +366,7 @@ nav {
     width: 100%;
     margin-top: 3rem;
   }
-  .depositText {
+  .depositText:first-child {
     margin-bottom: 2.8rem;
   }
   .infoWrapper {
@@ -335,6 +384,10 @@ nav {
   .similarsWrapper {
     gap: 1rem;
   }
+  .sliderImageBig {
+    width: 500px;
+    height: 400px;
+  }
 }
 @media (max-width: 900px) {
   .details-container {
@@ -348,7 +401,13 @@ nav {
   }
   .similarCarsCard {
     width: 260px;
-    height: 300px;
+    height: 350px;
+  }
+  .carouselTitle {
+    font-size: 2rem;
+  }
+  .sliderImage:last-child {
+    margin-left: 0rem;
   }
 }
 @media (max-width: 700px) {
@@ -357,9 +416,6 @@ nav {
   }
   .sliderTitle {
     font-size: 1rem;
-  }
-  .depositText {
-    margin-bottom: 3.8rem;
   }
   .topLeft {
     width: 35%;
@@ -391,6 +447,25 @@ nav {
   .sliderTitle {
     font-size: 0.9rem;
   }
+  .depositText {
+    width: 100px;
+  }
+  .depositText:first-child{
+    margin-bottom: 3.2rem;
+  }
+  .similarCarsCard {
+    width: 45%;
+    height: 350px;
+  }
+  .sliderImage:last-child {
+    margin-left: 2rem;
+  }
+  .details-title {
+    font-size: 2.5rem;
+  }
+  .sliderImageBig {
+    width: 450px;
+  }
 }
 @media (max-width: 550px) {
   .details-container {
@@ -411,6 +486,17 @@ nav {
   .more-info {
     margin: 2rem auto;
   }
+  .sliderImageBig {
+    width: 400px;
+    height: 350px;
+  }
+  .sliderImage:last-child {
+    margin-left: 3rem;
+  }
+   .depositText:first-child {
+        margin-bottom: 4.8rem;
+    }
+    
 }
 @media (max-width: 450px) {
   .details-container {
@@ -440,9 +526,15 @@ nav {
   .inputs {
     padding: 0.5rem;
   }
-  .depositText {
-    margin-bottom: 3.6rem;
-  }
+    .topLeft {
+        width: 37%;
+    }
+        .dailyCost {
+        margin-bottom: 1.3rem;
+    }
+        .depositText:first-child {
+        margin-bottom: 4.3rem;
+    }
 }
 @media (max-width: 400px) {
   .details-container {
@@ -452,7 +544,6 @@ nav {
     font-size: 1.3rem;
   }
   .depositText {
-    margin-bottom: 3.6rem;
     font-size: 0.8rem;
   }
   .sliderTitle {
@@ -479,4 +570,16 @@ nav {
   .carsSocial {
     margin: 2rem auto;
   }
+  .rightTop {
+    margin-bottom: 1.1rem;
+}
+      .swiper-wrapper {
+        gap: 5rem;
+    }
+        .sliderImage:last-child {
+        margin-left: 5rem;
+    }
+        .sliderImageBig {
+        height: 260px;
+    }
 }
