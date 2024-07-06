@@ -11,6 +11,7 @@ const Faq = () => {
 
   // Check if items is an array
   if (!Array.isArray(items)) {
+    console.error('Expected items to be an array, but got:', typeof items);
     return null;
   }
 

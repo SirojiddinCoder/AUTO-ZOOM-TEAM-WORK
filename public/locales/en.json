@@ -103,6 +103,36 @@
                 "content": "The contract prescribes two drivers, but at the time of filling out the contract, you must provide a driver's license and passport."
             }
         ]
-        
-      }
+      },
+      "Home": "Home",
+      "Cars":"Cars",
+      "About":"About",
+      "Contact":"Contact",
+      "BRANDS":"BRANDS",
+      "FOLLOW US ON INSTAGRAM":"FOLLOW US ON INSTAGRAM",
+      "Location":"Location",
+      "City":"City",
+      "LUXURY CAR RENTAL IN DUBAI":"LUXURY CAR RENTAL IN DUBAI",
+      "Rent":"Rent sports and luxury cars directly without intermediaries. Rent a car in Dubai with Auto Zoom Car Rental - safety and driving pleasure",
+      "GET BEST OFFER" :"GET BEST OFFER",
+      "Working hours":"Working hours",
+      "About Us":"About Us",
+      "Our Team":"Our Team",
+      "FAQ":"FAQ",
+      "Follow Us":"Follow Us",
+      "© 2024 Auto Zoom Car Rental. United Arab Emirates.":"© 2024 Auto Zoom Car Rental. United Arab Emirates.",
+      "Terms and Conditions":"Terms and Conditions",
+      "Filter by":"Filter by",
+      "Offers":"Offers",
+      "Car type":"Car type",
+      "Brands":"Brands",
+      "Models":"Models",
+      "Select Model":"Select Model",
+      "Reset":"Reset",
+      "Apply Filter":"Apply Filter",
+      "Luxury Cars for Rent in Dubai / Hire the latest super car":"Luxury Cars for Rent in Dubai / Hire the latest super car"
+
+
+
+
 }

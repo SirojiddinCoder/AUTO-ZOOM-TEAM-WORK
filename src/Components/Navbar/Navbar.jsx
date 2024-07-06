@@ -29,17 +29,18 @@ function Navbar({setCars, setLoader}) {
   const handleChange = (selectedLanguage) => {
     i18n.changeLanguage(selectedLanguage);
   };
+  handleChange
+
+
   const navigate = useNavigate()
 const [searchActive, setSearchActive] = useState(false)
 const handleSearch = (e) => {
  e.preventDefault()
+ navigate(`/cars/${e.target[0].value}`)
  setSearchActive(false)
  axios.get(`${base_url}/cars?keyword=${e?.target[0]?.value}`).then(res=> {
-   console.log(res);
-   if (res?.data?.success) {
-    navigate(`/cars/${e.target[0].value}`)
-    setCars(res?.data?.data)
-  }
+  console.log(res);
+  setCars(res?.data?.data)
  })
 }
   return (
@@ -53,9 +54,9 @@ const handleSearch = (e) => {
           <FaSearch className="search-icon" onClick={()=>setSearchActive(!searchActive)}/>
           <input type="text" placeholder="Search..." className={searchActive ? "search__input" : "search__input2"}/>
         </form>
-        <Link to={"/"} className="logo">
+        <div className="logo">
           <img src={logo} alt="Logo" />
-        </Link>
+        </div>
         <nav ref={navRef}>
           <div className="nav-container">
             <div className="nav-items" onClick={showNavbar}>
@@ -64,14 +65,14 @@ const handleSearch = (e) => {
                 to="/"
                 onClick={() => setLoader(false)}
               >
-                Home
+                {t("Home")}
               </Link>
               <Link
                 className="nav-item"
                 to="/cars"
                 onClick={() => setLoader(false)}
               >
-                Cars
+                {t("Cars")}
               </Link>
               <div
                 className="nav-item"
@@ -87,28 +88,28 @@ const handleSearch = (e) => {
                 to="/services"
                 onClick={() => setLoader(false)}
               >
-                Services
+                {t("Services")}
               </Link>
               <Link
                 className="nav-item"
                 to="/aboutus"
                 onClick={() => setLoader(false)}
               >
-                About
+                {t("About")}
               </Link>
               <Link
                 className="nav-item"
                 to="/contact"
                 onClick={() => setLoader(false)}
               >
-                Contact
+                {t("Contact")}
               </Link>
               <Link
                 className="nav-item"
                 to="/blog"
                 onClick={() => setLoader(false)}
               >
-                Blog
+                {t("Blog")}
               </Link>
             </div>
             <a className="nav-tel" href="tel:+971558462124">
