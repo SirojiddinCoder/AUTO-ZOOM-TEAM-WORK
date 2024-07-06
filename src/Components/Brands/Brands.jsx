@@ -8,8 +8,16 @@
 
   import { Swiper, SwiperSlide } from 'swiper/react';
   import { Grid, Pagination } from 'swiper/modules';
+import { useTranslation } from 'react-i18next';
+  
 
   const Brands = () => {
+    const { t, i18n } = useTranslation();
+
+    const handleChange = (selectedLanguage) => {
+      i18n.changeLanguage(selectedLanguage);
+    };
+    handleChange
     const base_URL = 'https://autoapi.dezinfeksiyatashkent.uz';
     const [brands, setBrands] = useState([]); 
     useEffect(() => {
@@ -41,7 +49,7 @@
       <div className='BrandWrapper'>
         <div className="container">
           <div className="Brands-Swipper-flex">
-            <h2 className="brands-title">BRANDS</h2>
+            <h2 className="brands-title">{t("BRANDS")}</h2>
             <Swiper
               slidesPerView={3}
               grid={{

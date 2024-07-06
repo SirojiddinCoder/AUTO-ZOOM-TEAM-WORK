@@ -6,6 +6,7 @@ import { GiSettingsKnobs } from "react-icons/gi";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 const CarsFilter = ({ cars, setCars }) => {
   const [brands, setBrands] = useState([]);
@@ -108,6 +109,14 @@ const CarsFilter = ({ cars, setCars }) => {
     getData();
     navigate("/cars");
   };
+  
+  const { t, i18n } = useTranslation();
+
+  const handleChange = (selectedLanguage) => {
+    i18n.changeLanguage(selectedLanguage);
+  };
+  handleChange
+
   return (
     <div className="cars__filter">
       <button
@@ -123,8 +132,8 @@ const CarsFilter = ({ cars, setCars }) => {
         <GiSettingsKnobs className="settings__icon" />
       </button>
       <aside className={sidebarVisible ? "block " : "cars__sidebar"}>
-        <h2 className="cars__sidebar-title">Filter by</h2>
-        <h3 className="cars__sidebar-title2">Offers</h3>
+        <h2 className="cars__sidebar-title">{t("Filter by")}</h2>
+        <h3 className="cars__sidebar-title2">{t("Offers")}</h3>
         <form onSubmit={PreventDefault}>
           <div className="cars__sidebar-filter">
             {offers?.map((item, index) => {
@@ -137,7 +146,7 @@ const CarsFilter = ({ cars, setCars }) => {
             })}
           </div>
           <div className="cars__sidebar-filter">
-            <h2>Car type</h2>
+            <h2>{t("Car type")}</h2>
             {categories?.map((item, index) => {
               return (
                 <div key={index}>
@@ -148,7 +157,7 @@ const CarsFilter = ({ cars, setCars }) => {
             })}
           </div>
           <div className="cars__sidebar-filter">
-            <h2>Brands</h2>
+            <h2>{t("Brands")}</h2>
             {brands?.map((item, index) => {
               return (
                 <div key={index}>
@@ -164,9 +173,9 @@ const CarsFilter = ({ cars, setCars }) => {
             })}
           </div>
           <div className="cars__sidebar-filter">
-            <h2>Models</h2>
+            <h2>{t("Models")}</h2>
             <select onChange={handleModels}>
-              <option value="" hidden>Select Model</option>
+              <option value="" hidden>{t("Select Model")}</option>
               {models?.filter(item => selectedBrands?.includes(item?.brand_id))?.map((item, index) => {
                 return (
                   <option value={item?.id} key={index}>
@@ -177,16 +186,16 @@ const CarsFilter = ({ cars, setCars }) => {
             </select>
           </div>
           <div className="cars__sidebar-buttons">
-            <button className="cars__sidebar-reset" type="reset" onClick={resetAll}>Reset</button>
+            <button className="cars__sidebar-reset" type="reset" onClick={resetAll}>{t("Reset")}</button>
             <button className="cars__sidebar-filter-btn" onClick={applyFilter}>
-              Apply Filter
+              {t("Apply Filter")}
             </button>
           </div>
         </form>
       </aside>
       <div className="cars__right">
         <h1 className="cars__right-title">
-          Luxury Cars for Rent in Dubai / Hire the latest super car
+          {t("Luxury Cars for Rent in Dubai / Hire the latest super car")}
         </h1>
         <div className="cars__cards">
           {cars?.length > 0 ? cars?.map((item, index) => {

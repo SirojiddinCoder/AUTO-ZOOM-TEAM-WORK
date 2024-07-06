@@ -50,6 +50,10 @@ export const CarsComponent = () => {
         i18n.changeLanguage(selectedLanguage);
     };
 
+    const scrolltoTop = () => {
+        window.scrollTo(0, 0)
+      }
+
     return (
         <div className={styles.big_contaner}>
             <div className={styles.carsContainer}>
@@ -57,7 +61,7 @@ export const CarsComponent = () => {
                     <div key={categoryId} className={styles.budget}>
                         <div className={styles.top}>
                             <h2 className={styles.title}>{groupedCars[categoryId]?.categoryName.toUpperCase()}</h2>
-                            <Link to={`/cars/${categoryId}`} className={styles.btnSee}>
+                            <Link onClick={scrolltoTop} to={`/cars/${categoryId}`} className={styles.btnSee}>
                                 {t("SEE ALL")}
                                 <IoMdArrowDroprightCircle className={styles.icon} />
                             </Link>

@@ -29,6 +29,9 @@ function Navbar({setCars, setLoader}) {
   const handleChange = (selectedLanguage) => {
     i18n.changeLanguage(selectedLanguage);
   };
+  handleChange
+
+
   const navigate = useNavigate()
 const [searchActive, setSearchActive] = useState(false)
 const handleSearch = (e) => {
@@ -62,14 +65,14 @@ const handleSearch = (e) => {
                 to="/"
                 onClick={() => setLoader(false)}
               >
-                Home
+                {t("Home")}
               </Link>
               <Link
                 className="nav-item"
                 to="/cars"
                 onClick={() => setLoader(false)}
               >
-                Cars
+                {t("Cars")}
               </Link>
               <div
                 className="nav-item"
@@ -85,28 +88,28 @@ const handleSearch = (e) => {
                 to="/services"
                 onClick={() => setLoader(false)}
               >
-                Services
+                {t("Services")}
               </Link>
               <Link
                 className="nav-item"
                 to="/aboutus"
                 onClick={() => setLoader(false)}
               >
-                About
+                {t("About")}
               </Link>
               <Link
                 className="nav-item"
                 to="/contact"
                 onClick={() => setLoader(false)}
               >
-                Contact
+                {t("Contact")}
               </Link>
               <Link
                 className="nav-item"
                 to="/blog"
                 onClick={() => setLoader(false)}
               >
-                Blog
+                {t("Blog")}
               </Link>
             </div>
             <a className="nav-tel" href="tel:+971558462124">
