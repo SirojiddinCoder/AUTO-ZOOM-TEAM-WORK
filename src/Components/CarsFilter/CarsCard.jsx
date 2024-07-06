@@ -5,7 +5,6 @@ import { FaTelegram } from "react-icons/fa";
 import "./CarsFilter.css"
 import { Link } from 'react-router-dom';
 const CarsCard = ({item}) => {
-  console.log(item)
   return (
     <div className='cars__card'>
       <Link to={`/carsdetails/${item?.id}`} className='cars__link'></Link>
