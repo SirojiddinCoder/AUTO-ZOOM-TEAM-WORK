@@ -51,9 +51,9 @@ import { useTranslation } from 'react-i18next';
           <div className="Brands-Swipper-flex">
             <h2 className="brands-title">{t("BRANDS")}</h2>
             <Swiper
-              slidesPerView={3}
+              slidesPerView={4}
               grid={{
-                rows: 2,
+                rows: 3,
               }}
               spaceBetween={30}
               pagination={{
