@@ -26,6 +26,7 @@ function App() {
     setLoader(true);
   }, 2000);
 
+
   const [cars, setCars] = useState([])
   return (
     <div>

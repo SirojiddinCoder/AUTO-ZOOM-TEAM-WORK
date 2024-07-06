@@ -103,6 +103,7 @@
                 "content": "The contract prescribes two drivers, but at the time of filling out the contract, you must provide a driver's license and passport."
             }
         ]
+
       },
       "Home": "Home",
       "Cars":"Cars",
@@ -134,5 +135,8 @@
 
 
 
+
+        
+      }
 
 }

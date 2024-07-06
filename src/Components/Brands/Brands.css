@@ -1,94 +1,96 @@
 .BrandWrapper {
-    padding: 30px 0;
-    width: 100%;
-    height: 830px;
-    background-color: #1E1F27;
-    padding-top: 50px;
-    overflow: hidden;
+  padding: 30px 0;
+  width: 100%;
+  height: 830px;
+  background-color: #1E1F27;
+  padding-top: 50px;
+  overflow: hidden;
 }
 
 .container {
-    margin: 0 auto;
-    max-width: 1400px;
-    padding: 0 20px;
-    width: 100%;
+  margin: 0 auto;
+  max-width: 1400px;
+  padding: 0 20px;
+  width: 100%;
 }
 
 .brands-title {
-    color: #fff;
-    font-size: 40px;
-    line-height: 45px;
-    margin-bottom: 50px;
-    margin-top: 50px;
+  color: #fff;
+  font-size: 40px;
+  line-height: 45px;
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
 
 .mySwiper {
-    max-width: 1280px !important;
-    width: 100% !important;
+  max-width: 1280px !important;
+  width: 100% !important;
 }
 
 /* .box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    background: #111219;
-    border: 1.8px solid white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background: #111219;
+  border: 1.8px solid white;
 } */
 
 /* .box img {
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 } */
 
 .swiper-slidebrand {
-    text-align: center;
-    font-size: 18px;
-    color: white;
-    margin-top: 0 !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    box-shadow: 0px 0px 2px 1px #4d4c4c;
-    width: 280px !important;
-    flex-wrap: wrap;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  margin-top: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0px 0px 2px 1px #4d4c4c;
+  width: 280px !important;
+  flex-wrap: wrap;
 }
 
 .swiper-slidebrand::after {
-    z-index: -1;
-    content: '';
-    position: absolute;
-    width: calc(100% + 6px);
-    height: calc(100% + 6px);
-    top: -3px;
-    left: -3px;
-    background: linear-gradient(45deg, #1e1f27, #1e1f27, #111219, #111219);
-    background-size: 300%;
-    animation: shadow 5s linear infinite;
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  top: -3px;
+  left: -3px;
+  background: linear-gradient(45deg, #1e1f27, #1e1f27, #111219, #111219);
+  background-size: 300%;
+  animation: shadow 5s linear infinite;
 }
 
 .swiper-slidebrand:hover {
-    background: linear-gradient(161.55deg, hsla(0, 0%, 100%, .294) -9.06%, #11121997 39.4%, #111219);
-    background-size: 300%;
-    animation: shadow 5s linear infinite;
+  background: linear-gradient(161.55deg, hsla(0, 0%, 100%, .294) -9.06%, #11121997 39.4%, #111219);
+  background-size: 300%;
+  animation: shadow 5s linear infinite;
+
+  /* ======== */
 }
 
 @keyframes shadow {
-    0% {
-        background-position: 0 0;
-    }
-    50% {
-        background-position: 100%;
-    }
-    100% {
-        background-position: 0 0;
-    }
+  0% {
+      background-position: 0 0;
+  }
+  50% {
+      background-position: 100%;
+  }
+  100% {
+      background-position: 0 0;
+  }
 }
 
 
 .brandsLogo{
-    width: 60px;
+  width: 60px;
 }

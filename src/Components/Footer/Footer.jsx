@@ -104,9 +104,16 @@ export const Footer = ({setCars}) => {
             </div>
           </div>
           <div className="footer__right-bottom">
+
             <p>{t("© 2024 Auto Zoom Car Rental. United Arab Emirates.")}</p>
             <Link to={"termsAndCondition"} className="privacy">
               {t("Terms and Conditions")}
+
+            <p>© 2024 Auto Zoom Car Rental. United Arab Emirates.</p>
+
+            <Link to="/termsCondition" className="privacy">
+              Terms and Conditions
+
             </Link>
           </div>
         </div>
