@@ -32,7 +32,7 @@ function Navbar() {
   const handleChange = (selectedLanguage) => {
     i18n.changeLanguage(selectedLanguage);
   };
-
+  handleChange
   const handleSearch = (e) => {
     e.preventDefault()
     e.target[0].value = "";

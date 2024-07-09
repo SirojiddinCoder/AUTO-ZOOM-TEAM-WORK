@@ -5,6 +5,7 @@ import Brands from '../../Components/Brands/Brands';
 import { Services } from '../Services/Services';
 import { Faq } from '../../Components/Faq/Faq';
 import FollowUs from '../../Components/FollowUs/FollowUs';
+import { YoutubeVideo } from '../../Components/YoutubeVideo/YoutubeVideo';
 
 export const Home = ({ setCars }) => {
   return (
@@ -13,6 +14,7 @@ export const Home = ({ setCars }) => {
       <Brands />
       <CarsComponent />
       <Services />
+      <YoutubeVideo />
       <Faq />
       <FollowUs setCars={setCars} />
     </div>
