@@ -34,9 +34,12 @@ function Navbar() {
   };
 
   const handleSearch = (e) => {
-    e.preventDefault();
+    e.preventDefault()
+    e.target[0].value = "";
     navigate(`/cars/${e.target[0].value}`);
     setSearchActive(!searchActive);
+    
+
   };
 
   return (
