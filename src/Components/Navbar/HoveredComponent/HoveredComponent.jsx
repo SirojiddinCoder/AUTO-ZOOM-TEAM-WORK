@@ -33,7 +33,10 @@ const HoveredComponent = () => {
     <div>
       <ul className={styles.container}>
         {data.map((item, index) => (
-          <Link to={`/cars_filter/${item.id}`} className={styles.small_container} key={index}>
+          
+        
+          
+          <Link onClick={() => scrollTo({top:0})}  to={`/cars/${item.id}`} className={styles.small_container} key={index}>
             <li className={styles.item}>
               <img
                 src={`${imgURL}/${item?.image_src}`}

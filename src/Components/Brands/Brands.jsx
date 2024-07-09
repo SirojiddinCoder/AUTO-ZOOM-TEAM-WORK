@@ -6,6 +6,7 @@ import 'swiper/css/pagination';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Grid, Pagination } from 'swiper/modules';
+import { Link } from 'react-router-dom';
 
 const GetBrands = () => {
   const base_URL = 'https://realauto.limsa.uz';
@@ -53,6 +54,10 @@ const GetBrands = () => {
               brands.map((brand) => (
                 <SwiperSlide key={brand.id} className='swiper-slidebrand'>
                   <div className="box">
+
+
+                  <Link onClick={() => scrollTo({top:0})}  to={`/cars/${brand?.id}`} href="#">
+                                      
                     <img
                       className='brandsLogo'
                       src={`${base_URL}/api/uploads/images/${brand.image_src}`}
@@ -61,7 +66,11 @@ const GetBrands = () => {
                         e.target.onerror = null;
                         e.target.src = 'https://via.placeholder.com/150';
                       }}
-                    />
+                    />  
+                               </Link>
+
+
+                 
                     <h5>{brand.title}</h5>
                   </div>
                 </SwiperSlide>

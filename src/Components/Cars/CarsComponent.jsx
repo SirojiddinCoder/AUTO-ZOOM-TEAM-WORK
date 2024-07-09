@@ -84,7 +84,7 @@ export const CarsComponent = () => {
                         {groupedCars[categoryId]?.cars.map((car, index) => (
                            <SwiperSlide className={styles.swiperSlide} key={index}>
                            <div className={styles.box}>
-                               <Link to={`/carsinfo/${car?.id}`} href="#">
+                               <Link to={`/carsdetails/${car?.id}`} href="#">
                                    <div className={styles.swiperSlideChild}>
                                        <img
                                            className={styles.img}
