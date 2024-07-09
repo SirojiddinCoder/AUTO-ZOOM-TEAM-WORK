@@ -12,8 +12,8 @@ function Navbar() {
   const navRef = useRef();
   const [isHovered, setIsHovered] = useState(false);
   const [loader, setLoader] = useState(false);
-
-  
+  const navigate = useNavigate();
+  const [searchActive, setSearchActive] = useState(false);
 
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
@@ -26,18 +26,19 @@ function Navbar() {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
+
   const { t, i18n } = useTranslation();
 
   const handleChange = (selectedLanguage) => {
     i18n.changeLanguage(selectedLanguage);
   };
-  const navigate = useNavigate()
-const [searchActive, setSearchActive] = useState(false)
-const handleSearch = (e) => {
- e.preventDefault()
- navigate(`/cars/${e.target[0].value}`)
- setSearchActive(!searchActive)
-}
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    navigate(`/cars/${e.target[0].value}`);
+    setSearchActive(!searchActive);
+  };
+
   return (
     <header>
       <div className="container">
@@ -46,11 +47,13 @@ const handleSearch = (e) => {
           <img onClick={() => handleChange('en')} className="flag1" src={EN} alt="English Flag" />
         </div>
         <form className="search" onSubmit={handleSearch}>
-          <FaSearch className="search-icon" onClick={()=>setSearchActive(!searchActive)}/>
-          <input type="text" placeholder="Search..." className={searchActive ? "search__input" : "search__input2"}/>
+          <FaSearch className="search-icon" onClick={() => setSearchActive(!searchActive)} />
+          <input type="text" placeholder="Search..." className={searchActive ? "search__input" : "search__input2"} />
         </form>
         <div className="logo">
-          <img src={logo} alt="Logo" />
+          <Link to="/">
+            <img src={logo} alt="Logo" />
+          </Link>
         </div>
         <nav ref={navRef}>
           <div className="nav-container">

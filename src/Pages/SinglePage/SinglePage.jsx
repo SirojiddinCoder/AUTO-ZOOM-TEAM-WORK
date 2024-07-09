@@ -19,14 +19,14 @@ function SinglePage() {
   const [aboutCar, setAboutCar] = useState([]);
   const [otherCars, setOtherCars] = useState([]);
   useEffect(() => {
-    fetch(`https://autoapi.dezinfeksiyatashkent.uz/api/cars/${id}`)
+    fetch(`https://realauto.limsa.uz/api/cars/${id}`)
       .then((res) => res.json())
       .then((cars) => {
         setAboutCar(cars.data)
       });
   }, []);
   useEffect(() => {
-    fetch(`https://autoapi.dezinfeksiyatashkent.uz/api/cars?${id}`)
+    fetch(`https://realauto.limsa.uz/api/cars?${id}`)
       .then((res) => res.json())
       .then((cars) => {
         setOtherCars(cars.data);
@@ -113,7 +113,7 @@ function SinglePage() {
                     {aboutCar?.car_images?.map((item, index) => (
                       <SwiperSlide key={index} className="slider-small">
                         <img
-                          src={`https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/${item?.image?.src}`}
+                          src={`https://realauto.limsa.uz/api/uploads/images/${item?.image?.src}`}
                           alt="Error"
                           className="sliderImage"
                         />
@@ -135,7 +135,7 @@ function SinglePage() {
                     {aboutCar?.car_images?.map((item, index) => (
                       <SwiperSlide key={index}>
                         <img
-                          src={`https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/${item?.image?.src}`}
+                          src={`https://realauto.limsa.uz/api/uploads/images/${item?.image?.src}`}
                           alt="Error"
                           className="sliderImageBig"
                         />
@@ -481,7 +481,7 @@ function SinglePage() {
                   <a href={`/carsdetails/${car?.id}`}>
                     <div className="carsCardContainer">
                       <img
-                        src={`https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/${car?.car_images[0]?.image?.src}`}
+                        src={`https://realauto.limsa.uz/api/uploads/images/${car?.car_images[0]?.image?.src}`}
                         alt=""
                         className="similarCarImage"
                       />

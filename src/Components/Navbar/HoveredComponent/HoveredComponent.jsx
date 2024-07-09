@@ -5,13 +5,13 @@ import styles from "../HoveredComponent/HoveredComponent.module.css";
 const HoveredComponent = () => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
-  const imgURL = "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images";
+  const imgURL = "https://realauto.limsa.uz/api/uploads/images";
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://autoapi.dezinfeksiyatashkent.uz/api/brands"
+          "https://realauto.limsa.uz/api/brands"
         );
         if (!response.ok) {
           throw new Error("Failed to fetch data");

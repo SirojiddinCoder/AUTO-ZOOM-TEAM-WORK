@@ -10,10 +10,10 @@ import { TbUvIndex } from "react-icons/tb";
 export const CarsComponent = () => {
     const [cars, setCars] = useState([]);
     const { t, i18n } = useTranslation();
-    const urlimg = "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
+    const urlimg = "https://realauto.limsa.uz/api/uploads/images/";
 
     const getCars = () => {
-        fetch(`https://autoapi.dezinfeksiyatashkent.uz/api/cars`)
+        fetch(`https://realauto.limsa.uz/api/cars`)
             .then(res => res.json())
             .then(data => {
                 setCars(data?.data || []);
