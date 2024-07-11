@@ -1,13 +1,24 @@
-import React from 'react'
-import Navbar from '../../Components/Navbar/Navbar';
+import React from 'react';
+import { CarsComponent } from '../../Components/Cars/CarsComponent';
+import HomeNav from '../../Components/Navbar/HomeNav';
+import Brands from '../../Components/Brands/Brands';
+import { Services } from '../Services/Services';
+import { Faq } from '../../Components/Faq/Faq';
+import FollowUs from '../../Components/FollowUs/FollowUs';
+import { YoutubeVideo } from '../../Components/YoutubeVideo/YoutubeVideo';
 
-export const Home = () => {
+export const Home = ({ setCars }) => {
   return (
     <div>
-        <Navbar />
-    
+      <HomeNav />
+      <Brands />
+      <CarsComponent />
+      <Services />
+      <YoutubeVideo />
+      <Faq />
+      <FollowUs setCars={setCars} />
     </div>
-  )
-}
+  );
+};
 
 export default Home;

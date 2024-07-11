@@ -1,9 +1,13 @@
+
 import React from 'react'
+import CarsFilter from '../../Components/CarsFilter/CarsFilter'
 
-const Cars = () => {
+const Cars = ({cars, setCars}) => {
   return (
-    <div>Cars</div>
-  )
-}
+    <div>
+      <CarsFilter cars={cars} setCars={setCars}/>
+    </div>
+  );
+};
 
-export default Cars
+export default Cars;
