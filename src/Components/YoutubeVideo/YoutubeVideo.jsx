@@ -23,9 +23,9 @@ export const YoutubeVideo = () => {
                 <div className={styles.left}>
                     <iframe className={styles.video}
                         src="https://www.youtube.com/embed/6Bcg46rxqAE?si=oUOIn81REX0sL4RT&start=2"
-                        frameBorder="0"
+                        frameborder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen>
+                        allowfullscreen>
                     </iframe>
                 </div>
                 <div className={styles.right}>

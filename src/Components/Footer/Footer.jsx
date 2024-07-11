@@ -26,6 +26,7 @@ export const Footer = ({setCars}) => {
     console.log(res);
     setCars(res?.data?.filter(item=> item?.category?.id === category))
   };
+
   const scrollToTop = async() => {
     window.scrollTo({
       top: 0,
@@ -39,6 +40,7 @@ export const Footer = ({setCars}) => {
     };
     handleChange()
   },[])
+
   return (
     <footer className="footer">
       <div className="footer__items">
@@ -53,7 +55,11 @@ export const Footer = ({setCars}) => {
         <div className="footer__right">
           <div className="footer__right-items">
             <div className="footer__right-item">
+
               <Link className="footer__item-title" onClick={scrollToTop} to="/cars">{t("footer.title1")}</Link>
+
+              <Link className="footer__item-title">Cars</Link>
+
               {categories?.map((item, index) => {
                 return (
                   <Link
@@ -68,6 +74,7 @@ export const Footer = ({setCars}) => {
               })}
             </div>
             <div className="footer__item">
+
               <Link className="footer__item-title" to="/blog" onClick={scrollToTop}>{t("footer.title2")}</Link>
               <Link className="footer__item-title" to="/services" onClick={scrollToTop}>{t("footer.title3")}</Link>
               <div>
@@ -75,13 +82,30 @@ export const Footer = ({setCars}) => {
                 <p className="footer__subtitle">{t("footer.desc1")}</p>
                 <p className="footer__subtitle">{t("footer.desc2")}</p>
                 <p className="footer__subtitle">{t("footer.desc3")}</p>
+
+              <Link className="footer__item-title">Blog</Link>
+              <Link className="footer__item-title">Services</Link>
+              <div>
+                <Link className="footer__item-title">Contacts</Link>
+                <p className="footer__subtitle">
+                  Elite 3 Sports City, Dubai 26W8 24J, United Arab Emirates
+                </p>
+                <p className="footer__subtitle">+971 55 8462124</p>
+                <p className="footer__subtitle">Working hours: 24/7</p>
+
               </div>
             </div>
             <div className="footer__item">
               <div className="footer__right-end">
+
                 <Link className="footer__item-title" to="/aboutus" onClick={scrollToTop}>{t("footer.title5")}</Link>
                 <Link className="footer__subtitle">{t("footer.title6")}</Link>
                 <Link className="footer__subtitle">{t("footer.title7")}</Link>
+
+                <Link className="footer__item-title">About Us</Link>
+                <Link className="footer__subtitle">Our Team</Link>
+                <Link className="footer__subtitle">FAQ</Link>
+
               </div>
               <div className="footer__right-end">
                 <h2>{t("footer.title8")}</h2>
@@ -101,7 +125,6 @@ export const Footer = ({setCars}) => {
           </div>
           <div className="footer__right-bottom">
             <p>© 2024 Auto Zoom Car Rental. United Arab Emirates.</p>
-
             <Link to="/termsCondition" className="privacy">
               Terms and Conditions
             </Link>

@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Home from './Pages/Home/Home';
 import Cars from './Pages/Cars/Cars';
@@ -32,11 +32,11 @@ function App() {
     <div>
       <>
         {loader ? "" : <Loader />}
-        <Navbar setLoader={setLoader} setCars={setCars}/>
+        <Navbar setLoader={setLoader} />
         <Routes>
           <Route path="/" element={<Home setCars={setCars}/>} />
           <Route path="/cars" element={<Cars setCars={setCars} cars={cars}/>} />
-          <Route path="/cars/:id" element={<Cars setCars={setCars} cars={cars}/>} />
+          <Route path="/cars/:id"  element={<Cars setCars={setCars} cars={cars}/>} />
             <Route path="/services" element={<Services />} />
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/contact" element={<Contact />} />

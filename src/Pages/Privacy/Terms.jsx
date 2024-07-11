@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import "../Privacy/terms.css"
 import { useTranslation } from "react-i18next";
