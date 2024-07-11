@@ -10,7 +10,7 @@
     position: absolute;
     right: 50px;
     text-transform: none;
-    top: 65px;
+    top: 52px;
     width: 1000px;
     z-index: 5;
 }
@@ -45,10 +45,4 @@ a {
 .name {
     color: #fff;
     font-weight: 700;
-}
-
-@media only screen and (max-width: 1124px) {
-    .container {
-        display: none;
-    }
 }

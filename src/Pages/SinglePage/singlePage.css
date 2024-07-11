@@ -2,7 +2,7 @@
   color: #fff;
 }
 .wrapper {
-  background-color: #1e1f27;
+  background-color: #1e1f27;  
 }
 .details-container {
   max-width: 1360px;
@@ -596,6 +596,7 @@ nav {
   }
   .rightTop {
     margin-bottom: 1.1rem;
+
 }
       .swiper-wrapper {
         gap: 5rem;
@@ -606,4 +607,30 @@ nav {
         .sliderImageBig {
         height: 260px;
     }
+
+}
+      .swiper-wrapper {
+        gap: 5rem;
+    }
+        .sliderImage:last-child {
+        margin-left: 5rem;
+    }
+        .sliderImageBig {
+        height: 260px;
+    }
+}
+
+
+.toast-success {
+  background-color: #60a2ab !important; /* Light blue background */
+  color: black !important; /* Black text */
+}
+
+.toast-error {
+  background-color: #f57e90 !important; /* Light red background */
+  color: black !important; /* Black text */
+}
+
+.toast-body {
+  color: black !important; /* Black text */
 }

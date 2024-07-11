@@ -7,12 +7,14 @@ import logo from "../../assets/LOGO.svg";
 import "./navbar.css";
 import HoveredComponent from "./HoveredComponent/HoveredComponent";
 import { useTranslation } from "react-i18next";
-import axios from "axios";
-import { base_url } from "../../getData/getData";
 
-function Navbar({setCars, setLoader}) {
+function Navbar() {
   const navRef = useRef();
   const [isHovered, setIsHovered] = useState(false);
+  const [loader, setLoader] = useState(false);
+  const navigate = useNavigate();
+  const [searchActive, setSearchActive] = useState(false);
+
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
   };
@@ -24,22 +26,22 @@ function Navbar({setCars, setLoader}) {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
+
   const { t, i18n } = useTranslation();
 
   const handleChange = (selectedLanguage) => {
     i18n.changeLanguage(selectedLanguage);
   };
-  const navigate = useNavigate()
-const [searchActive, setSearchActive] = useState(false)
-const handleSearch = (e) => {
- e.preventDefault()
- navigate(`/cars/${e.target[0].value}`)
- setSearchActive(false)
- axios.get(`${base_url}/cars?keyword=${e?.target[0]?.value}`).then(res=> {
-  console.log(res);
-  setCars(res?.data?.data)
- })
-}
+  handleChange
+  const handleSearch = (e) => {
+    e.preventDefault()
+    e.target[0].value = "";
+    navigate(`/cars/${e.target[0].value}`);
+    setSearchActive(!searchActive);
+    
+
+  };
+
   return (
     <header>
       <div className="container">
@@ -48,11 +50,13 @@ const handleSearch = (e) => {
           <img onClick={() => handleChange('en')} className="flag1" src={EN} alt="English Flag" />
         </div>
         <form className="search" onSubmit={handleSearch}>
-          <FaSearch className="search-icon" onClick={()=>setSearchActive(!searchActive)}/>
-          <input type="text" placeholder="Search..." className={searchActive ? "search__input" : "search__input2"}/>
+          <FaSearch className="search-icon" onClick={() => setSearchActive(!searchActive)} />
+          <input type="text" placeholder="Search..." className={searchActive ? "search__input" : "search__input2"} />
         </form>
         <div className="logo">
-          <img src={logo} alt="Logo" />
+          <Link to="/">
+            <img src={logo} alt="Logo" />
+          </Link>
         </div>
         <nav ref={navRef}>
           <div className="nav-container">
@@ -74,11 +78,10 @@ const handleSearch = (e) => {
               <div
                 className="nav-item"
                 onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
               >
                 <Link to="/brand">Brand</Link>
-                <div onMouseLeave={handleMouseLeave}>
-                {isHovered && <HoveredComponent setCars={setCars}/>}
-                </div>
+                {isHovered && <HoveredComponent />}
               </div>
               <Link
                 className="nav-item"
