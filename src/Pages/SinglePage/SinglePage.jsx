@@ -47,6 +47,7 @@ function SinglePage() {
     };
     handleChange;
 
+
     const [loading, setLoading] = useState(false);
 
   const SendMessage2 = async (event) => {
@@ -87,6 +88,7 @@ function SinglePage() {
   };
 
 
+
   return (
     <>
       <div className="wrapper">
@@ -113,7 +115,11 @@ function SinglePage() {
                     {aboutCar?.car_images?.map((item, index) => (
                       <SwiperSlide key={index} className="slider-small">
                         <img
+
+                          src={`https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/${item?.image?.src}`}
+
                           src={`https://realauto.limsa.uz/api/uploads/images/${item?.image?.src}`}
+
                           alt="Error"
                           className="sliderImage"
                         />
@@ -135,7 +141,10 @@ function SinglePage() {
                     {aboutCar?.car_images?.map((item, index) => (
                       <SwiperSlide key={index}>
                         <img
-                          src={`https://realauto.limsa.uz/api/uploads/images/${item?.image?.src}`}
+
+                          src={`https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/${item?.image?.src}`}
+                        src={`https://realauto.limsa.uz/api/uploads/images/${item?.image?.src}`}
+
                           alt="Error"
                           className="sliderImageBig"
                         />

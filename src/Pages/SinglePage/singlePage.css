@@ -596,6 +596,18 @@ nav {
   }
   .rightTop {
     margin-bottom: 1.1rem;
+
+}
+      .swiper-wrapper {
+        gap: 5rem;
+    }
+        .sliderImage:last-child {
+        margin-left: 5rem;
+    }
+        .sliderImageBig {
+        height: 260px;
+    }
+
 }
       .swiper-wrapper {
         gap: 5rem;
