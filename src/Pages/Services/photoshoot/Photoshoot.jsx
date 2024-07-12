@@ -1,7 +1,7 @@
 import styles from "../photoshoot/Photoshoot.module.css"
 import img from "../../../assets/SportsCarRental.jpg"
 import { TiInputCheckedOutline } from "react-icons/ti";
-import Footer from "../../../Components/Footer/Footer";
+
 import { useTranslation } from "react-i18next";
 
 export const Photoshoot = () => {
@@ -15,7 +15,8 @@ export const Photoshoot = () => {
 
   return (
    <>
-   <div className={styles.SportCarRentContainer}>
+    <div className={styles.big_container}>
+    <div className={styles.SportCarRentContainer}>
             <a href="/" className={styles.link_to_home}>
                 {t("Luxury Cars for Rent in Dubai")} /
                 <span> {t("Services")} / </span>
@@ -69,7 +70,8 @@ export const Photoshoot = () => {
                 </div>
             </div>
         </div>
-      
+    </div>
+       
    </>
   )
 }

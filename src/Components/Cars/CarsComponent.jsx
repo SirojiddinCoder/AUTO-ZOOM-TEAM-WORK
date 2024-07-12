@@ -97,6 +97,7 @@ export const CarsComponent = () => {
                                <div className={styles.line}></div>
                                <h4 className={styles.slide_car_price}>
                                    <span className={styles.slide_car_price_aed}>AED {car.price_in_aed}</span>
+
                                    <span className={styles.slide_car_price_usd}> / $ {car.price_in_usd}</span>
                                </h4>
                                <p className={styles.renta_type}>{t("per day")}</p>

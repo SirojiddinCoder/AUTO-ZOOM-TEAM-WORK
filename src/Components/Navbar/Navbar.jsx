@@ -7,14 +7,12 @@ import logo from "../../assets/LOGO.svg";
 import "./navbar.css";
 import HoveredComponent from "./HoveredComponent/HoveredComponent";
 import { useTranslation } from "react-i18next";
+import axios from "axios";
+import { base_url } from "../../getData/getData";
 
-function Navbar() {
+function Navbar({setCars, setLoader}) {
   const navRef = useRef();
   const [isHovered, setIsHovered] = useState(false);
-  const [loader, setLoader] = useState(false);
-  const navigate = useNavigate();
-  const [searchActive, setSearchActive] = useState(false);
-
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
   };
@@ -26,22 +24,29 @@ function Navbar() {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
-
   const { t, i18n } = useTranslation();
 
   const handleChange = (selectedLanguage) => {
     i18n.changeLanguage(selectedLanguage);
   };
   handleChange
-  const handleSearch = (e) => {
-    e.preventDefault()
-    e.target[0].value = "";
-    navigate(`/cars/${e.target[0].value}`);
-    setSearchActive(!searchActive);
-    
 
-  };
 
+  const navigate = useNavigate()
+const [searchActive, setSearchActive] = useState(false)
+const handleSearch = (e) => {
+  e.preventDefault()
+  setSearchActive(false)
+  axios.get(`${base_url}/cars?keyword=${e?.target[0]?.value}`).then(res=> {
+    console.log(res);
+    if (res?.data?.success) {
+      e.target[0].value = ""
+     navigate(`/cars/${e.target[0].value}`)
+     setCars(res?.data?.data)
+   }
+  })
+ }
+ 
   return (
     <header>
       <div className="container">
@@ -50,10 +55,10 @@ function Navbar() {
           <img onClick={() => handleChange('en')} className="flag1" src={EN} alt="English Flag" />
         </div>
         <form className="search" onSubmit={handleSearch}>
-          <FaSearch className="search-icon" onClick={() => setSearchActive(!searchActive)} />
-          <input type="text" placeholder="Search..." className={searchActive ? "search__input" : "search__input2"} />
+          <FaSearch className="search-icon" onClick={()=>setSearchActive(!searchActive)}/>
+          <input type="text" placeholder="Search..." className={searchActive ? "search__input" : "search__input2"}/>
         </form>
-        <div className="logo">
+        <div className="logo" onClick={() => setLoader(false)}>
           <Link to="/">
             <img src={logo} alt="Logo" />
           </Link>
@@ -66,50 +71,58 @@ function Navbar() {
                 to="/"
                 onClick={() => setLoader(false)}
               >
-                Home
+                {t("Home")}
               </Link>
               <Link
                 className="nav-item"
                 to="/cars"
                 onClick={() => setLoader(false)}
               >
-                Cars
+                {t("Cars")}
               </Link>
               <div
                 className="nav-item"
                 onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
               >
-                <Link to="/brand">Brand</Link>
-                {isHovered && <HoveredComponent />}
+              
+                <Link
+                className="nav-item"
+                to="/brand"
+                onClick={() => setLoader(false)}
+              >
+                {t("Brand")}
+              </Link>
+                <div onMouseLeave={handleMouseLeave}>
+                {isHovered && <HoveredComponent setCars={setCars}/>}
+                </div>
               </div>
               <Link
                 className="nav-item"
                 to="/services"
                 onClick={() => setLoader(false)}
               >
-                Services
+                {t("Services")}
               </Link>
               <Link
                 className="nav-item"
                 to="/aboutus"
                 onClick={() => setLoader(false)}
               >
-                About
+                {t("About")}
               </Link>
               <Link
                 className="nav-item"
                 to="/contact"
                 onClick={() => setLoader(false)}
               >
-                Contact
+                {t("Contact")}
               </Link>
               <Link
                 className="nav-item"
                 to="/blog"
                 onClick={() => setLoader(false)}
               >
-                Blog
+                {t("Blog")}
               </Link>
             </div>
             <a className="nav-tel" href="tel:+971558462124">

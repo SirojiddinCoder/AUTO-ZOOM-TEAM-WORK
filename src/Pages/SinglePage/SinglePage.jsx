@@ -150,14 +150,14 @@ function SinglePage() {
                     {aboutCar?.color})
                   </h1>
                   <div className="carouselInfo">
-                    <p className="sliderInfo">{t("Slider info_first")}</p>
+                    <p className="sliderInfo">Kilometrage limit per day</p>
                     <h3 className="sliderTitle">
-                      {aboutCar?.max_speed} KM ({t("Slider title_first")})
+                      {aboutCar?.max_speed} KM (Every extra km will be charged 20 AED/km)
                     </h3>
                   </div>
                   <div className="carouselInfo">
-                    <p className="sliderInfo">{t("Slider info_second")}</p>
-                    <h3 className="sliderTitle">{t("Slider title_second")}</h3>
+                    <p className="sliderInfo">Car rental deposit amount</p>
+                    <h3 className="sliderTitle">The deposit is refunded within 28 days</h3>
                   </div>
                 </div>
               </div>
@@ -430,7 +430,7 @@ function SinglePage() {
               type="text"
               className="inputName"
               name="name"
-              placeholder={t("InputBox placeholder_name")}
+              placeholder="Name"
               required
             />
             <span className="inputSymbol">*</span>
@@ -440,7 +440,7 @@ function SinglePage() {
               type="tel"
               className="inputName"
               name="phone"
-              placeholder={t("InputBox placeholder_phone")}
+              placeholder="Phone"
               required
             />
             <span className="inputSymbol">*</span>
@@ -449,31 +449,31 @@ function SinglePage() {
             type="text"
             className="inputName"
             name="period"
-            placeholder={t("InputBox placeholder_period")}
+            placeholder="Period"
           />
           <input
             type="text"
             className="inputName"
             name="details"
-            placeholder={t("InputBox placeholder_details")}
+            placeholder="Details"
           />
           <button type="submit" className="sendBtn" disabled={loading}>
-            {loading ? t("Form sending_button") : t("Form send_button")}
+            {loading ? "Sending..." : "Send"}
           </button>
         </div>
       </form>
       <ToastContainer />
                 </div>
                 <div className="more-info">
-                  <p className="infoText">{t("InfoText_first")}</p>
-                  <p className="infoText">{t("InfoText_second")}</p>
-                  <p className="infoText">{t("InfoText_third")}</p>
+                  <p className="infoText">The price doesn't include additional 5% VAT.</p>
+                  <p className="infoText">There is a 3% transaction fee when paying by credit/debit card.</p>
+                  <p className="infoText">There is a 7% transaction fee when paying with American Express.</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <h1 className="otherCars">{t("OtherCars_title")}</h1>
+          <h1 className="otherCars">{t("SIMILAR OFFERS  ")}</h1>
           <div className="similarsWrapper">
             {otherCars &&
               otherCars.map((car, idx) => (

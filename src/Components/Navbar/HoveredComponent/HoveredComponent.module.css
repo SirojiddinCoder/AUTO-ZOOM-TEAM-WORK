@@ -10,7 +10,7 @@
     position: absolute;
     right: 50px;
     text-transform: none;
-    top: 52px;
+    top: 65px;
     width: 1000px;
     z-index: 5;
 }
@@ -41,8 +41,16 @@ a {
 }
 .bold {
     color: #fff9;
+    margin-left: 10px;
 }
 .name {
     color: #fff;
     font-weight: 700;
+    margin-left: 10px;
+}
+
+@media only screen and (max-width: 1124px) {
+    .container {
+        display: none;
+    }
 }

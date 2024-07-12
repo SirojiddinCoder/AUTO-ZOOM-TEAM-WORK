@@ -19,6 +19,10 @@
     line-height: 45px;
     margin-bottom: 50px;
     margin-top: 50px;
+    @media (max-width:732px) {
+      font-size: 20px;
+         padding-top: 45px;
+    }
   }
   
   .mySwiper {
@@ -101,4 +105,3 @@
     height: 100px;
     margin-bottom: 10px;
   }
-  

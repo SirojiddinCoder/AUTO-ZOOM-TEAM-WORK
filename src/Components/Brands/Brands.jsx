@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Grid, Pagination } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 
-const GetBrands = () => {
+const Brands = () => {
   const base_URL = 'https://realauto.limsa.uz';
   const [brands, setBrands] = useState([]);
 
@@ -89,4 +89,4 @@ const GetBrands = () => {
   );
 };
 
-export default GetBrands;
+export default Brands;
